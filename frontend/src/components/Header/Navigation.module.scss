@@ -1,0 +1,60 @@
+@import '../../scss/utils/variables';
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.15rem;
+    &__hidden{
+        position: absolute;
+        background-image: linear-gradient(to top left, $color-primary, $color-primary-light);
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        z-index: 100;
+        display: grid;
+        grid-template-rows: 3rem 1fr;
+        padding: 1.5rem;
+        font-size: 1.15rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(100%, -100%);
+        transition: opacity 400ms, transform 200ms;
+        &.visible{
+            transform: translate(0,0);
+            visibility: visible;
+            opacity: 1;
+        }
+        &--header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &--items{
+            display: grid;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-100%);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            width: max-content;
+        }
+    }
+    
+    &__header{
+        font-family: 'Cera-heavy', sans-serif;
+        text-transform: uppercase;
+    }
+    &__left{
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+    &__icon{
+        height: 1.6rem;
+        width: 1.6rem;
+        stroke: $color-secondary;
+    }
+}

@@ -1,0 +1,15 @@
+@import './variables';
+
+.heading-secondary{
+    color: $color-secondary;
+}
+
+.heading-tertiary{
+    color: $color-tertiary;
+}
+.heading-primary{
+    color: $color-secondary;
+    width: 100%;
+    line-height: 1.2;
+}
+

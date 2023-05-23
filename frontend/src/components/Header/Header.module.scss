@@ -1,0 +1,9 @@
+@import '../../scss/utils/variables';
+
+.header{
+    position: relative;
+    background-color: $color-primary;
+    height: 80vh;
+    color: $color-secondary;
+    padding: 1.5rem;
+}
