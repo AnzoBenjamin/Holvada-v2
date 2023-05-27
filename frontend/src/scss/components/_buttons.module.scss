@@ -2,7 +2,7 @@
 .btn{
     background-color: $color-tertiary;
     color: $color-white;
-    padding: .5rem 1.5rem;
+    padding: .5rem 1rem;
     box-shadow: 0 1px 16px $color-tertiary;
     transition: box-shadow 400ms, background-color 400ms;
     &:active{
