@@ -1,0 +1,23 @@
+@import '../../scss/utils/variables';
+
+.footer{
+    background-color: $color-grey-light;
+    color: $color-grey;
+    margin-top: 6rem;
+    padding: 1.5rem;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr) .5fr;
+    &__link-container{
+        display: flex;
+    }
+    &__icon-container{
+        display: flex;
+        justify-content: space-between;
+    }
+    &-icon{
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+}

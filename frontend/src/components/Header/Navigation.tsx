@@ -4,7 +4,6 @@ import barsStaggered from "/bars-staggered.svg";
 import timesHexagon from "/times-hexagon.svg";
 import classes from "./Navigation.module.scss";
 import styles from "../../scss/components/_buttons.module.scss";
-import general from "../../scss/utils/_helpers.module.scss"
 
 interface HiddenNavProps{
   isVisible: boolean;

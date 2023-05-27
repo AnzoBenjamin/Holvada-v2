@@ -16,11 +16,12 @@ const Hero = () => {
         <p>Choose the best</p>
         <p>Choose Holvada</p>
       </div>
+      <div className={classes["hero-img"]}>
       <img
         src="/hero-img.png"
         alt="Guy with gadgets"
-        className={classes["hero-img"]}
-      />
+        />
+        </div>
     </div>
   );
 };

@@ -1,0 +1,15 @@
+.section-about{
+    padding: 9rem 1.5rem;
+    text-align: center;
+    &-img{
+        width: 15rem;
+        margin-inline: auto;        
+    }
+}
+.section-about__text-area{
+    padding-top: 2.7rem;
+}
+.text-content{
+    padding-top: 1rem;
+    line-height: 1.5;
+}

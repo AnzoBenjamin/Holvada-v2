@@ -1,5 +1,9 @@
-
+@import './scss/utils/variables';
 a{
     cursor: pointer;
     text-decoration: none;
+    color: inherit;
+}
+body{
+    color: $color-secondary;
 }

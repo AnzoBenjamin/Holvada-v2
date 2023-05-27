@@ -1,9 +1,22 @@
-import React from 'react'
-
+import React from "react";
+import classes from "./Footer.module.scss";
 const Footer = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <footer className={classes.footer}>
+      <div>
+        <p>Copyright &copy; 2023</p>
+      </div>
+      <div className={classes["footer__link-container"]}>
+        <a href="">ABOUT US</a>
+        <a href="">SERVICES</a>
+      </div>
+      <div className={classes["footer__icon-container"]}>
+        <a href="#"><img src="/facebook.png" alt="" className={classes["footer-icon"]}/></a>
+        <a href="#"><img src="/instagram.png" alt=""  className={classes["footer-icon"]}/></a>
+        <a href="#"><img src="/twitter.png" alt=""  className={classes["footer-icon"]}/></a>
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

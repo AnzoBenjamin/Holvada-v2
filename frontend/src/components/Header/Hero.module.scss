@@ -2,11 +2,10 @@
 
 .hero{
     text-align: center;
-    width: 100%;
     display: grid;
     margin-top: 8.25rem;
     &-img{
-        width: 80%;
+        width: 18rem;
         position: absolute;
         top: 40%;
         left: 50%;
@@ -21,10 +20,6 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -450%);
-       }
-       &__heading-area{
-        display: grid;
-        gap: 0.5rem;
        }
        &__text-area{
         margin-top: 2.75rem;

@@ -1,15 +1,19 @@
 @import './variables';
 
 .heading-secondary{
+    text-transform: uppercase;
     color: $color-secondary;
 }
 
 .heading-tertiary{
     color: $color-tertiary;
+    font-size: .75rem;
+    letter-spacing: 5px;
 }
 .heading-primary{
     color: $color-secondary;
-    width: 100%;
     line-height: 1.2;
 }
-
+.heading-primary, .heading-secondary{
+    font-family: 'Cera-bold', sans-serif;
+}
