@@ -5,7 +5,8 @@
     display: grid;
     margin-top: 4.5rem;
     &-img{
-        width: 18rem;
+        width: 15rem;
+        margin-inline: auto;
        }
 
        &__text-area{
