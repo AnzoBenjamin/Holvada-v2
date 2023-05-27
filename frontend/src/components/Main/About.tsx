@@ -1,4 +1,3 @@
-import React from 'react'
 import classes from './About.module.scss'
 import styles from "../../scss/utils/_helpers.module.scss"
 

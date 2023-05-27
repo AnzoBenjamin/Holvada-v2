@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../../scss/utils/_helpers.module.scss";
 import classes from "./Hero.module.scss";
 
