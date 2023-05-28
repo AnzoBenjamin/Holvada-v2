@@ -4,16 +4,26 @@
     background-color: $color-grey-light;
     color: $color-grey;
     margin-top: 6rem;
-    padding: 1rem;
+    padding: 1.5rem;
     display: grid;
     justify-content: space-between;
+    grid-template-areas: "link link"
+                        "text contact";
     align-items: center;
-    grid-template-columns: 1fr 1fr;
     font-size: .8rem;
+    gap: 1.25rem;
+    text-align: center;
+
     &__link-container{
         display: flex;
         justify-content: space-between;
-        padding-inline: .5rem;
+        grid-area: link;
+    }
+    &__text-content{
+        grid-area: text;
+    }
+    &__contact-info{
+        grid-area: contact;
     }
     &__icon-container{
         display: flex;
@@ -24,7 +34,11 @@
         height: 1.2rem;
     }
     &-copyright{
-      display: none;
     }
+    &__header{
+    font-family: "Cera-heavy", sans-serif;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
 }
 
