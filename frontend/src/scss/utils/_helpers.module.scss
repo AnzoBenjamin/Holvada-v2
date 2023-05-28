@@ -3,17 +3,18 @@
 .heading-secondary{
     text-transform: uppercase;
     color: $color-secondary;
+    font-size: $fs-500;
 }
 
 .heading-tertiary{
     color: $color-tertiary;
-    font-size: .75rem;
+    font-size: $fs-200;
     letter-spacing: 5px;
 }
 .heading-primary{
     color: $color-secondary;
     line-height: 1.2;
-    font-size: 1.5rem;
+    font-size: $fs-600;
 }
 .heading-primary, .heading-secondary{
     font-family: 'Cera-bold', sans-serif;
