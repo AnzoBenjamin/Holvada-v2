@@ -10,6 +10,10 @@ interface HiddenNavProps{
   setMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface NavigationProps{
+  isFixed: boolean;
+}
+
 const HiddenNav: React.FC<HiddenNavProps> = ({isVisible, setMenu}) => {
   const hiddenMenuHandler = ()=>{
     setMenu(false)
@@ -30,12 +34,13 @@ const HiddenNav: React.FC<HiddenNavProps> = ({isVisible, setMenu}) => {
 
   );
 };
-const Navigation = () => {
+const Navigation: React.FC<NavigationProps> = ({isFixed}) => {
   const menuRoot = document?.getElementById('menu-root');
   const [menu, setMenu] = useState(false);
   const menuHandler = () => {
     setMenu(true);
   };
+
   return (
     <div className={classes.nav}>
       <h2 className={classes["nav__header"]}>Holvada</h2>
@@ -46,7 +51,7 @@ const Navigation = () => {
         <img
           src={barsStaggered}
           alt="Bars Staggered"
-          className={classes["nav__icon"]}
+          className={`${ isFixed ? classes.fixed : ""} ${classes["nav__icon"]}` }
           onClick={menuHandler}
         />
         {menuRoot && createPortal(<HiddenNav isVisible={menu} setMenu={setMenu}/>, menuRoot)}

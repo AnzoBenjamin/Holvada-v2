@@ -6,7 +6,7 @@
   font-size: 1.15rem;
 
   &__hidden {
-    position: absolute;
+    position: fixed;
     background-image: linear-gradient(
       to top left,
       $color-primary,
@@ -58,6 +58,10 @@
   &__icon {
     height: 1.2rem;
     width: 1.2rem;
-    stroke: $color-secondary;
+    &.fixed{
+      position: fixed;
+      top: 3%;
+      right: 6%;
+    }
   }
 }
