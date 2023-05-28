@@ -33,7 +33,7 @@ const Footer = () => {
             />
           </a>
         </div>
-        <p className={classes["footer-copyright"]}>Copyright &copy;</p>
+        <p className={classes["footer-copyright"]}>Copyright &copy; 2023</p>
       </div>
       <div className={classes["footer__contact-info"]}>
         <h3>Contact Us</h3>
