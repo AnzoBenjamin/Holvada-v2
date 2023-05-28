@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
+import { Link } from 'react-scroll';
 import barsStaggered from "/bars-staggered.svg";
 import timesHexagon from "/times-hexagon.svg";
 import classes from "./Navigation.module.scss";
@@ -25,10 +26,10 @@ const HiddenNav: React.FC<HiddenNavProps> = ({isVisible, setMenu}) => {
         <img src={timesHexagon} alt="" className={classes["nav__icon"]} onClick={hiddenMenuHandler}/>
         </div>
         <ul className={classes['nav__hidden--items']}>
-          <li>Home</li>
-          <li>Services</li>
-          <li>About us</li>
-          <li>Contact Us</li>
+          <li className={classes['nav__hidden--item']}><Link to='header' onClick={hiddenMenuHandler}>Home</Link></li>
+          <li className={classes['nav__hidden--item']}><Link to='section-about' onClick={hiddenMenuHandler}>About us</Link></li>
+          <li className={classes['nav__hidden--item']}><Link to='section-services' onClick={hiddenMenuHandler}>Services</Link></li>
+          <li className={classes['nav__hidden--item']}><Link to='section-prices' onClick={hiddenMenuHandler}>Pricing</Link></li>
         </ul>
       </nav>
 

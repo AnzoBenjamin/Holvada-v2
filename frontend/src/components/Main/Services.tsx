@@ -3,7 +3,7 @@ import styles from "../../scss/utils/_helpers.module.scss";
 
 const Services = () => {
   return (
-    <section className={classes["section-services"]}>
+    <section className={classes["section-services"]} id="section-services">
       <h3 className={styles["heading-tertiary"]}>Services</h3>
       <h2 className={styles["heading-secondary"]}>What we offer</h2>
       <div className={classes["section-services__area"]}>

@@ -24,7 +24,7 @@ const Header = () => {
   }, [isHeaderVisible])
 
   return (
-    <header ref={headerRef} className={classes.header}>
+    <header ref={headerRef} className={classes.header} id='header'>
       <Navigation isFixed={isHeaderVisible}/>
       <Hero/>
     </header>

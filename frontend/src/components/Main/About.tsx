@@ -4,7 +4,7 @@ import styles from "../../scss/utils/_helpers.module.scss"
 
 const About = () => {
   return (
-    <section className={classes['section-about']}>
+    <section className={classes['section-about']} id='section-about'>
       <div className={classes['section-about-img']}>
         <img src="/team.webp" alt="Illustration of a team"/>
       </div>
