@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Navigation from './Navigation'
 import Hero from './Hero'
 import classes from './Header.module.scss'
