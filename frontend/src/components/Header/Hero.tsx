@@ -15,7 +15,7 @@ const Hero = () => {
         <p>Choose Holvada</p>
       </div>
       <div className={classes["hero-img"]}>
-        <img src="/hero-img.png" alt="Guy with gadgets" />
+        <img src="/hero-img.webp" alt="Guy with gadgets" />
       </div>
     </div>
   );

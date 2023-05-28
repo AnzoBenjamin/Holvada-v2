@@ -7,9 +7,9 @@ const Footer = () => {
         <a href="">SERVICES</a>
       </div>
       <div className={classes["footer__icon-container"]}>
-        <a href="#"><img src="/facebook.png" alt="" className={classes["footer-icon"]}/></a>
-        <a href="#"><img src="/instagram.png" alt=""  className={classes["footer-icon"]}/></a>
-        <a href="#"><img src="/twitter.png" alt=""  className={classes["footer-icon"]}/></a>
+        <a href="#"><img src="/facebook.webp" alt="" className={classes["footer-icon"]}/></a>
+        <a href="#"><img src="/instagram.webp" alt=""  className={classes["footer-icon"]}/></a>
+        <a href="#"><img src="/twitter.webp" alt=""  className={classes["footer-icon"]}/></a>
       </div>
       <div>
         <p className={classes["footer-copyright"]}>Copyright &copy;</p>

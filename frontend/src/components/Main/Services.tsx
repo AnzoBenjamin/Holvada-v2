@@ -10,7 +10,7 @@ const Services = () => {
         <div className={classes["section-services__area--item"]}>
           <figure className={classes["section-services__area--figure"]}>
             <img
-              src="/development.png"
+              src="/development.webp"
               alt=""
               className={classes["section-services-img"]}
             />
@@ -31,7 +31,7 @@ const Services = () => {
         <div className={classes["section-services__area--item"]}>
           <figure className={classes["section-services__area--figure"]}>
             <img
-              src="/skills.png"
+              src="/skills.webp"
               alt=""
               className={classes["section-services-img"]}
             />
@@ -52,7 +52,7 @@ const Services = () => {
         <div className={classes["section-services__area--item"]}>
           <figure className={classes["section-services__area--figure"]}>
             <img
-              src="/graphics-design.png"
+              src="/graphics-design.webp"
               alt=""
               className={classes["section-services-img"]}
             />

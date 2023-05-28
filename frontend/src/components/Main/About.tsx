@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section className={classes['section-about']}>
       <div className={classes['section-about-img']}>
-        <img src="/team.png" alt="Illustration of a team"/>
+        <img src="/team.webp" alt="Illustration of a team"/>
       </div>
         <div className={classes["section-about__text-area"]}>
 
