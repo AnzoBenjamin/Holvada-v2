@@ -56,6 +56,9 @@ img, picture, video, canvas, svg {
 */
 input, button, textarea, select {
   font: inherit;
+  color: inherit;
+  font-family: 'Inter', sans-serif;
+
 }
 /*
   8. Avoid text overflows

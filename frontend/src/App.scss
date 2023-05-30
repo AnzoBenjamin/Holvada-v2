@@ -9,3 +9,6 @@ body{
     font-size: $fs-300;
 }
 
+*:focus{
+    outline: 2px solid $color-primary;
+}

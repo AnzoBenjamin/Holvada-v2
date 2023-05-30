@@ -1,17 +1,18 @@
-@import '../utils/variables';
+@import '../../scss/utils/variables';
+
 .btn{
     border: none;
-    background-color: $color-tertiary;
+    background-color: $color-secondary-light;
     color: $color-white;
     font-size: .8rem;
     padding: .5rem 1rem;
-    box-shadow: 0 1px 16px $color-tertiary;
+    box-shadow: 0 1px 16px $color-secondary-light;
     transition: box-shadow 400ms, background-color 400ms;
     &:active{
         box-shadow: none;
         transform: translateY(.1rem);
     }
     &:hover{
-        background-color: $color-tertiary-dark;
+        background-color: $color-secondary;
     }
 }

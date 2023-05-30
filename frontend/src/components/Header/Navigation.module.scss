@@ -43,6 +43,12 @@
       text-transform: uppercase;
       width: max-content;
     }
+    &--item{
+      color: $color-secondary-light;
+      &:hover{
+        color: $color-secondary;
+      }
+    }
   }
 
   &__header {
