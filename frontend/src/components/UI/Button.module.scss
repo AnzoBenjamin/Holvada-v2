@@ -6,6 +6,7 @@
     color: $color-white;
     font-size: .8rem;
     padding: .5rem 1rem;
+    margin-top: 1rem;
     box-shadow: 0 1px 16px $color-secondary-light;
     transition: box-shadow 400ms, background-color 400ms;
     &:active{
