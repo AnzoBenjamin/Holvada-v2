@@ -37,22 +37,22 @@ const HiddenNav: React.FC<HiddenNavProps> = ({ isVisible, setMenu }) => {
       </div>
       <ul className={classes["nav__hidden--items"]}>
         <li className={classes["nav__hidden--item"]}>
-          <Link to="header" onClick={hiddenMenuHandler}>
+          <Link smooth to="header" onClick={hiddenMenuHandler}>
             Home
           </Link>
         </li>
         <li className={classes["nav__hidden--item"]}>
-          <Link to="section-about" onClick={hiddenMenuHandler}>
+          <Link smooth to="section-about" onClick={hiddenMenuHandler}>
             About us
           </Link>
         </li>
         <li className={classes["nav__hidden--item"]}>
-          <Link to="section-services" onClick={hiddenMenuHandler}>
+          <Link smooth to="section-services" onClick={hiddenMenuHandler}>
             Services
           </Link>
         </li>
         <li className={classes["nav__hidden--item"]}>
-          <Link to="section-prices" onClick={hiddenMenuHandler}>
+          <Link smooth to="section-prices" onClick={hiddenMenuHandler}>
             Pricing
           </Link>
         </li>

@@ -1,5 +1,6 @@
 import styles from "../../scss/utils/_helpers.module.scss";
 import classes from "./Hero.module.scss";
+import { Link } from "react-scroll";
 
 const Hero = () => {
   return (
@@ -12,8 +13,8 @@ const Hero = () => {
       </div>
       <div className={classes["hero__text-area"]}>
         <p>Choose the best</p>
-        <p>Choose Holvada</p>
       </div>
+      <Link smooth to='section-services'>Discover</Link>
       <div className={classes["hero-img"]}>
         <img src="/hero-img.webp" alt="Guy with gadgets" />
       </div>

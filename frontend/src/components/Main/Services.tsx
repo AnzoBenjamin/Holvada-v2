@@ -24,9 +24,7 @@ const Services = () => {
             practices to ensure seamless functionality, intuitive user
             interfaces, and optimal performance.
           </p>
-          <a href="#" className={classes.btn}>
-            Learn more
-          </a>
+          <a href="#" className={classes.btn}>Learn more</a>
         </div>
         <div className={classes["section-services__area--item"]}>
           <figure className={classes["section-services__area--figure"]}>
@@ -45,9 +43,7 @@ const Services = () => {
             proficient in both frontend and backend technologies, ensuring
             seamless functionality and an exceptional user experience.{" "}
           </p>
-          <a href="#" className={classes.btn}>
-          Learn more
-          </a>
+          <a href="#" className={classes.btn}>Learn more</a>
         </div>
         <div className={classes["section-services__area--item"]}>
           <figure className={classes["section-services__area--figure"]}>
@@ -66,9 +62,7 @@ const Services = () => {
             designs to reflect your unique vision and help your business stand
             out in a competitive market.
           </p>
-          <a href="#" className={classes.btn}>
-          Learn more
-          </a>
+          <a href="#" className={classes.btn}>Learn more</a>
         </div>
       </div>
     </section>

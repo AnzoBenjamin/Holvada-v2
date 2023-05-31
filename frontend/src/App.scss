@@ -9,6 +9,7 @@ body{
     font-size: $fs-300;
     max-width: 100vw;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 *:focus{

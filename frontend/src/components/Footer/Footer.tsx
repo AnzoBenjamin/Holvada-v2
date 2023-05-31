@@ -1,12 +1,21 @@
 import classes from "./Footer.module.scss";
+import { Link } from "react-scroll";
 const Footer = () => {
   return (
     <footer className={classes.footer}>
       <div className={classes["footer__link-container"]}>
-        <a href="">Home</a>
-        <a href="">About</a>
-        <a href="">Services</a>
-        <a href="">Pricing</a>
+      <Link smooth to="header">
+            Home
+          </Link>
+          <Link smooth to="section-about">
+            About
+          </Link>
+          <Link smooth to="section-services">
+            Services
+          </Link>
+          <Link smooth to="section-prices">
+            Pricing
+          </Link>
       </div>
       <div className={classes["footer__text-content"]}>
         <h2 className={classes["footer__header"]}>Holvada</h2>
