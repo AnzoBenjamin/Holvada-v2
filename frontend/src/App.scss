@@ -7,8 +7,19 @@ a{
 body{
     color: $color-secondary;
     font-size: $fs-300;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 *:focus{
     outline: 2px solid $color-primary;
+}
+
+@media (min-width: 470px) {
+    p{
+        font-size: $fs-400;
+    }
+}
+@media (min-width: 1200px) {
+
 }

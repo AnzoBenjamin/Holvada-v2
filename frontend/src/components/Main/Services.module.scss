@@ -3,6 +3,7 @@
 .section-services{
     text-align: center;
     padding: 0 1.5rem;
+    margin-inline: auto;
     &-img{
         width: 10rem;
         margin-inline: auto;
@@ -41,5 +42,32 @@
     }
     &:hover{
         background-color: $color-tertiary-dark;
+    }
+}
+@media (min-width: 470px) {
+    .btn{
+        width: 30%;
+    }
+}
+
+
+@media (min-width: 660px) {
+    .section-services{
+        padding: 3rem 2.5rem;
+    }
+    .btn{
+        width: 20%;
+    }
+}
+@media (min-width: 1200px) {
+    .section-services{
+        padding: 7.5rem 3rem;
+        &__area{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    .btn{
+        width: 40%;
     }
 }

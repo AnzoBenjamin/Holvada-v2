@@ -1,11 +1,11 @@
 @import '../../scss/utils/variables';
 
+
 .hero{
     text-align: center;
     display: grid;
     margin-top: 3.5rem;
     width: 100%;
-
     &-img{
         width: 15rem;
         margin-inline: auto;
@@ -19,4 +19,27 @@
 p{
     font-family: 'Cera', sans-serif;
     font-weight: normal;
+}
+@media (min-width: 470px) {
+    .hero{
+        margin-top: 4rem;
+        &-img{
+            width: 18rem;
+        }
+    }
+}
+@media (min-width: 1200px) {
+    .hero{
+        margin-top: 6.5rem;
+        padding-inline: 3rem;
+        &-img{
+            margin-top: 2rem;
+            width: 22rem;
+        }
+    }
+}
+@media (min-width: 660px) {
+    .hero{
+        padding-inline: 2.5rem;
+    }
 }

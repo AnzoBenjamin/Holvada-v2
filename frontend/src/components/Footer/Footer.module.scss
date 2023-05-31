@@ -48,3 +48,25 @@
 }
 }
 
+@media (min-width: 1200px) {
+    .footer{
+        grid-template-areas: 'text link contact';
+        &__link-container{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+    }
+}
+
+@media (min-width: 660px) {
+    .footer{
+        grid-template-areas: 'text link contact';
+        padding-inline: 2.5rem;
+        &__link-container{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+    }
+}

@@ -19,3 +19,28 @@
 .heading-primary, .heading-secondary{
     font-family: 'Cera-bold', sans-serif;
 }
+
+
+@media (min-width: 470px) {
+    .heading-secondary{
+        font-size: $fs-600;
+    }
+    .heading-tertiary{
+        font-size: $fs-300;
+    }
+    .heading-primary{
+        font-size: $fs-800;
+    }
+}
+
+@media (min-width: 1200px) {
+    .heading-secondary{
+        font-size: $fs-700;
+    }
+    .heading-tertiary{
+        font-size: $fs-400;
+    }
+    .heading-primary{
+        font-size: $fs-800;
+    }
+}
