@@ -7,7 +7,7 @@
 }
 
 .heading-tertiary{
-    color: $color-tertiary;
+    color: $color-primary-dark;
     font-size: $fs-200;
     letter-spacing: 5px;
 }
@@ -16,8 +16,9 @@
     line-height: 1.2;
     font-size: $fs-600;
 }
-.heading-primary, .heading-secondary{
+.heading-primary, .heading-secondary, .heading-tertiary{
     font-family: 'Cera-bold', sans-serif;
+    text-align: center;
 }
 
 
