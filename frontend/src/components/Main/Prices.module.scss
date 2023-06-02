@@ -99,10 +99,15 @@
     grid-template-columns: 1fr;
     gap: 2rem;
     margin-top: 2.5rem;
+    align-items: center;
 }
 
 @media (min-width: 1200px) {
     .card-area{
         grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+    }
+    .starter{
+        height: 90%;
     }
 }

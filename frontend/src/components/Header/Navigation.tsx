@@ -73,7 +73,7 @@ const Navigation: React.FC<NavigationProps> = ({ isFixed }) => {
   };
 
   return (
-    <div className={classes.nav}>
+    <div className={`${classes.nav} ${isFixed ? classes.fixed : ""} `}>
       <Popup isVisible={isPopupVisible} setIsVisible={setIsPopupVisible} />
       <h2 className={classes["nav__header"]}>Holvada</h2>
       <div className={classes["nav__left"]}>
@@ -83,7 +83,7 @@ const Navigation: React.FC<NavigationProps> = ({ isFixed }) => {
         <img
           src={barsStaggered}
           alt="Bars Staggered"
-          className={`${isFixed ? classes.fixed : ""} ${classes["nav__icon"]}`}
+          className={`${classes["nav__icon"]}`}
           onClick={menuHandler}
         />
         {menuRoot &&
