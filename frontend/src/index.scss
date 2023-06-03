@@ -46,9 +46,9 @@ body {
 */
 img, picture, video, canvas, svg {
   display: block;
-  max-width: 100%;
+  width: 100%;
   aspect-ratio: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 /*
   7. Remove built-in form typography styles

@@ -78,6 +78,9 @@ const Prices = () => {
           </ul>
         </Card>
         <p className={classes.note}>Kindly note: the prices are in the thousands (Shs 60 is 60000)</p>
+        <div className={classes.common}>
+          
+        </div>
       </div>
     </section>
   );
