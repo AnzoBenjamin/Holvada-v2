@@ -1,11 +1,12 @@
-import Button from '../UI/Button'
-import Input from '../UI/Input'
+import Button from '../../UI/Button'
+import Input from '../../UI/Input'
 import classes from './Login.module.scss'
 
 const Login = () => {
     const loginHandler = () => {
-
+      console.log('login');
     }
+
   return (
     <form className={classes['form-login']}>
         <h2>Login</h2>

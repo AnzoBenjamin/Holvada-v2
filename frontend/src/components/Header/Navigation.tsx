@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-scroll";
-import Popup from "../UI/Popup";
+import Popup from "../../UI/Popup";
 import barsStaggered from "/bars-staggered.svg";
 import timesHexagon from "/times-hexagon.svg";
 import classes from "./Navigation.module.scss";

@@ -1,10 +1,10 @@
-import Button from '../UI/Button'
-import Input from '../UI/Input'
+import Button from '../../UI/Button'
+import Input from '../../UI/Input'
 import classess from './Signup.module.scss'
 
 const Signup = () => {
     const signupHandler=()=>{
-
+      console.log('signup');
     }
   return (
     <form className={classess['form-signup']}>

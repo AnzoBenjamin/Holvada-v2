@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSwipeable } from "react-swipeable";
-import Login from "../Form/Login";
-import Signup from "../Form/Signup";
+import Login from "../components/Form/Login";
+import Signup from "../components/Form/Signup";
 import classes from "./Popup.module.scss";
 import timesHexagon from "/times-hexagon.svg";
 

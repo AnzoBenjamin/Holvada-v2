@@ -1,6 +1,6 @@
 import classes from "./Prices.module.scss";
 import styles from "../../scss/utils/_helpers.module.scss";
-import Card from "../UI/Card";
+import Card from "../../UI/Card";
 
 const Prices = () => {
   return (
@@ -18,13 +18,13 @@ const Prices = () => {
           </header>
           <ul className={classes.list}>
             <li className={classes["list-item"]}>
-              <span>1 meal per day</span>
+              <span>UI/UX design </span>
             </li>
             <li className={classes["list-item"]}>
-              <span>Order from 11am to 9pm</span>
+              <span>Deployment</span>
             </li>
             <li className={classes["list-item"]}>
-              <span>Delivery is free</span>
+              <span>Hosting</span>
             </li>
             <li className={classes["list-item"]}></li>
           </ul>
@@ -40,16 +40,16 @@ const Prices = () => {
           <ul className={classes.list}>
             <li className={classes["list-item"]}>
               <span>
-                <strong>2 meals</strong> per day
+                Learning equipment <strong>provided</strong> if needed
               </span>
             </li>
             <li className={classes["list-item"]}>
               <span>
-                Order <strong>24/7</strong>
+                Available <strong>7 days a week</strong>
               </span>
             </li>
             <li className={classes["list-item"]}>
-              <span>Delivery is free</span>
+              <span>Physical and online options available</span>
             </li>
             <li className={classes["list-item"]}>
               <span>Get access to latest recipes</span>
@@ -66,17 +66,18 @@ const Prices = () => {
           </header>
           <ul className={classes.list}>
             <li className={classes["list-item"]}>
-              <span>1 meal per day</span>
+              <span>Logos</span>
             </li>
             <li className={classes["list-item"]}>
-              <span>Order from 11am to 9pm</span>
+              <span>Posters and fliers</span>
             </li>
             <li className={classes["list-item"]}>
-              <span>Delivery is free</span>
+              <span>UI/UX</span>
             </li>
             <li className={classes["list-item"]}></li>
           </ul>
         </Card>
+        <p className={classes.note}>Kindly note: the prices are in the thousands (Shs 60 is 60000)</p>
       </div>
     </section>
   );

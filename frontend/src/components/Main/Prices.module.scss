@@ -79,6 +79,8 @@
 }
 
 .list-item{
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
     display: flex;
     align-items: center;
     gap: 1.2rem;
@@ -92,6 +94,17 @@
 .complete {
     background-color: $color-primary-light;
     padding: 2rem;
+
+    &::after{
+        content: '50% for multiple';
+        position: absolute;
+        top: 7%;
+        right: -12%;
+        background-color: $color-secondary-light;
+        color: $color-white;
+        padding: .5rem 2rem;
+        rotate: 45deg;
+    }
 }
 
 .card-area{
@@ -100,6 +113,11 @@
     gap: 2rem;
     margin-top: 2.5rem;
     align-items: center;
+}
+.note{
+    text-align: center;
+    color: $color-secondary-light;
+    font-size: $fs-200;
 }
 
 @media (min-width: 1200px) {
@@ -111,3 +129,4 @@
         height: 90%;
     }
 }
+
