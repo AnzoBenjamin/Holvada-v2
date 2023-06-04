@@ -58,8 +58,8 @@ const SecondRow = () => {
   );
 };
 const Services = () => {
-  const buttonHandler = () => {};
   const [isExpanded, setIsExpanded] = useState(false);
+  const buttonHandler = () => {setIsExpanded(true)};
 
   return (
     <section className={classes["section-services"]} id="section-services">
