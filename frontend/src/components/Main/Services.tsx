@@ -1,7 +1,66 @@
+import React, { useState } from "react";
 import classes from "./Services.module.scss";
 import styles from "../../scss/utils/_helpers.module.scss";
+import Button from "../../UI/Button";
 
+const SecondRow = () => {
+  return (
+    <React.Fragment>
+      <div className={classes["section-services__area--item"]}>
+        <figure className={classes["section-services__area--figure"]}>
+          <div className={`${classes["image-container"]} ${classes.design}`}>
+            &nbsp;
+            <figcaption>
+              <span className={classes["section-services-img__heading"]}>
+                DESIGN
+              </span>
+            </figcaption>
+          </div>
+        </figure>
+        <ul className={classes.list}>
+          <li className={classes["list-item"]}>
+            <span>Logos</span>
+          </li>
+          <li className={classes["list-item"]}>
+            <span>Posters and fliers</span>
+          </li>
+          <li className={classes["list-item"]}>
+            <span>UI/UX</span>
+          </li>
+          <li className={classes["list-item"]}></li>
+        </ul>
+      </div>
+
+
+      <div className={classes["section-services__area--item"]}>
+  <figure className={classes["section-services__area--figure"]}>
+    <div className={`${classes["image-container"]} ${classes.art}`}>
+      &nbsp;
+      <figcaption>
+        <span className={classes["section-services-img__heading"]}>ART</span>
+      </figcaption>
+    </div>
+  </figure>
+  <ul className={classes.list}>
+    <li className={classes["list-item"]}>
+      <span>Logos</span>
+    </li>
+    <li className={classes["list-item"]}>
+      <span>Posters and fliers</span>
+    </li>
+    <li className={classes["list-item"]}>
+      <span>UI/UX</span>
+    </li>
+    <li className={classes["list-item"]}></li>
+  </ul>
+</div>;
+    </React.Fragment>
+  );
+};
 const Services = () => {
+  const buttonHandler = () => {};
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <section className={classes["section-services"]} id="section-services">
       <h3 className={styles["heading-tertiary"]}>Services</h3>
@@ -9,73 +68,82 @@ const Services = () => {
       <div className={classes["section-services__area"]}>
         <div className={classes["section-services__area--item"]}>
           <figure className={classes["section-services__area--figure"]}>
-            <div>
-              <img
-                src="/code.jpg"
-                alt=""
-                className={classes["section-services-img"]}
-              />
+            <div className={`${classes["image-container"]} ${classes.code}`}>
+              &nbsp;
+              <figcaption>
+                <span className={classes["section-services-img__heading"]}>
+                  CODE
+                </span>
+              </figcaption>
             </div>
-            <figcaption className={classes["section-services-img__heading"]}>
-              DEVELOPMENT
-            </figcaption>
           </figure>
-          <p>
-            We create apps that meet your specific business objectives. Our team
-            leverages the latest technologies, frameworks, and industry best
-            practices to ensure seamless functionality, intuitive user
-            interfaces, and optimal performance.
-          </p>
-          <a href="#" className={classes.btn}>
-            Learn more
-          </a>
+          <ul className={classes.list}>
+            <li className={classes["list-item"]}>
+              <span>Logos</span>
+            </li>
+            <li className={classes["list-item"]}>
+              <span>Posters and fliers</span>
+            </li>
+            <li className={classes["list-item"]}>
+              <span>UI/UX</span>
+            </li>
+            <li className={classes["list-item"]}></li>
+          </ul>
         </div>
         <div className={classes["section-services__area--item"]}>
           <figure className={classes["section-services__area--figure"]}>
-            <div>
-              <img
-                src="/music.jpg"
-                alt=""
-                className={classes["section-services-img"]}
-              />
+            <div className={`${classes["image-container"]} ${classes.art}`}>
+              &nbsp;
+              <figcaption>
+                <span className={classes["section-services-img__heading"]}>
+                  ART
+                </span>
+              </figcaption>
             </div>
-            <figcaption className={classes["section-services-img__heading"]}>
-              SKILLING
-            </figcaption>
           </figure>
-          <p>
-            We excel in creating dynamic, responsive, and feature-rich websites
-            that leave a lasting impression. Our web development experts are
-            proficient in both frontend and backend technologies, ensuring
-            seamless functionality and an exceptional user experience.{" "}
-          </p>
-          <a href="#" className={classes.btn}>
-            Learn more
-          </a>
+          <ul className={classes.list}>
+            <li className={classes["list-item"]}>
+              <span>Logos</span>
+            </li>
+            <li className={classes["list-item"]}>
+              <span>Posters and fliers</span>
+            </li>
+            <li className={classes["list-item"]}>
+              <span>UI/UX</span>
+            </li>
+            <li className={classes["list-item"]}></li>
+          </ul>
         </div>
         <div className={classes["section-services__area--item"]}>
-          <figure className={classes["section-services__area--figure"]}>
-            <div className={classes["image-container"]}>
-              <img
-                src="/design.jpg"
-                alt=""
-                className={classes["section-services-img"]}
-              />
-            </div>
-            <figcaption className={classes["section-services-img__heading"]}>
-              GRAPHICS DESIGN
+        <figure className={classes["section-services__area--figure"]}>
+          <div className={`${classes["image-container"]} ${classes.language}`}>
+            &nbsp;
+            <figcaption>
+              <span className={classes["section-services-img__heading"]}>
+                LANGUAGE
+              </span>
             </figcaption>
-          </figure>
-          <p>
-            Whether you need a captivating logo, eye-catching marketing
-            materials, or a complete brand identity overhaul, we tailor our
-            designs to reflect your unique vision and help your business stand
-            out in a competitive market.
-          </p>
-          <a href="#" className={classes.btn}>
-            Learn more
-          </a>
-        </div>
+          </div>
+        </figure>
+        <ul className={classes.list}>
+          <li className={classes["list-item"]}>
+            <span>Logos</span>
+          </li>
+          <li className={classes["list-item"]}>
+            <span>Posters and fliers</span>
+          </li>
+          <li className={classes["list-item"]}>
+            <span>UI/UX</span>
+          </li>
+          <li className={classes["list-item"]}></li>
+        </ul>
+      </div>
+        ;
+        {isExpanded ? (
+          <SecondRow />
+        ) : (
+          <Button text="Show more" onClick={buttonHandler} />
+        )}
       </div>
     </section>
   );
