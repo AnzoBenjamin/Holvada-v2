@@ -33,24 +33,24 @@ const SecondRow = () => {
 
       <div className={classes["section-services__area--item"]}>
         <figure className={classes["section-services__area--figure"]}>
-          <div className={`${classes["image-container"]} ${classes.language}`}>
+          <div className={`${classes["image-container"]} ${classes.music}`}>
             &nbsp;
             <figcaption>
               <span className={classes["section-services-img__heading"]}>
-                LANGUAGE
+                MUSIC
               </span>
             </figcaption>
           </div>
         </figure>
         <ul className={classes.list}>
           <li className={classes["list-item"]}>
-            <span>Logos</span>
+            <span>Theory</span>
           </li>
           <li className={classes["list-item"]}>
-            <span>Posters and fliers</span>
+            <span>Vocal training</span>
           </li>
           <li className={classes["list-item"]}>
-            <span>UI/UX</span>
+            <span>Instruments (Guitar, Piano, Violin)</span>
           </li>
           <li className={classes["list-item"]}></li>
         </ul>
@@ -82,15 +82,15 @@ const Services = () => {
           </figure>
           <ul className={classes.list}>
             <li className={classes["list-item"]}>
-              <span>Logos</span>
+              <span>Mobile development</span>
             </li>
             <li className={classes["list-item"]}>
-              <span>Posters and fliers</span>
+              <span>Frontend development</span>
             </li>
             <li className={classes["list-item"]}>
-              <span>UI/UX</span>
+              <span>Backend Development</span>
             </li>
-            <li className={classes["list-item"]}></li>
+            <li className={classes["list-item"]}>Software as a service</li>
           </ul>
         </div>
         <div className={classes["section-services__area--item"]}>
@@ -106,13 +106,13 @@ const Services = () => {
           </figure>
           <ul className={classes.list}>
             <li className={classes["list-item"]}>
-              <span>Logos</span>
+              <span>Painting</span>
             </li>
             <li className={classes["list-item"]}>
-              <span>Posters and fliers</span>
+              <span>Pencil drawings</span>
             </li>
             <li className={classes["list-item"]}>
-              <span>UI/UX</span>
+              <span>Sculptures</span>
             </li>
             <li className={classes["list-item"]}></li>
           </ul>
@@ -132,18 +132,18 @@ const Services = () => {
           </figure>
           <ul className={classes.list}>
             <li className={classes["list-item"]}>
-              <span>Logos</span>
+              <span>English</span>
             </li>
             <li className={classes["list-item"]}>
-              <span>Posters and fliers</span>
+              <span>French</span>
             </li>
             <li className={classes["list-item"]}>
-              <span>UI/UX</span>
+              <span>Kiswahili</span>
             </li>
             <li className={classes["list-item"]}></li>
           </ul>
         </div>
-        ;
+        
         {isExpanded ? (
           <SecondRow />
         ) : (

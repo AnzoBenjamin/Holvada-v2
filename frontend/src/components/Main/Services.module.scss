@@ -1,7 +1,12 @@
 @import "../../scss/utils/variables";
-.list{
-    padding: 2rem;
-    font-family: 'Inter', sans-serif;
+.list {
+  padding: 2rem;
+  display: grid;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  gap: 1.5rem;
+}
+.list-item{
 }
 .design {
   background-image: linear-gradient(#a70633, #cd2329), url("/design.jpg");
@@ -69,15 +74,13 @@
   padding: 3rem 1.5rem;
   text-align: center;
   &-img {
-    width: 100%;
-    margin-inline: auto;
-    height: 15rem;
+    
     &__heading {
       color: $color-white;
       font-size: $fs-400;
       position: absolute;
       right: 0;
-      top: 11.5rem;
+      top: 8.7rem;
       right: 0.5rem;
       padding: 0.75rem 1.5rem;
       box-decoration-break: clone;
@@ -94,20 +97,16 @@
       display: grid;
       gap: 0.5rem;
       width: 100%;
-      height: 100%;
-      box-shadow: 0 1px 4rem rgba($color: $color-secondary-light, $alpha: 0.45);
-    }
-    &--figure {
-      display: grid;
-      gap: 0.75rem;
+      box-shadow: 0 1px 4rem rgba($color: $color-secondary-light, $alpha: 0.1);
     }
   }
 }
 .image-container {
   position: relative;
-  height: 15rem;
+  height: 12rem;
   background-size: cover;
   background-blend-mode: screen;
+  background-position: center;
 }
 .btn {
   margin-inline: auto;

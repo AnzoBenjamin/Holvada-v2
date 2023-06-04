@@ -1,6 +1,7 @@
 import classes from "./Prices.module.scss";
 import styles from "../../scss/utils/_helpers.module.scss";
 import Card from "../../UI/Card";
+import { CheckmarkCircle, CloseCircle } from 'react-ionicons'
 
 const Prices = () => {
   return (
@@ -18,13 +19,13 @@ const Prices = () => {
           </header>
           <ul className={classes.list}>
             <li className={classes["list-item"]}>
-              <span>UI/UX design </span>
+            <CheckmarkCircle color={'#90d0e3'}/><span>UI/UX design </span>
             </li>
             <li className={classes["list-item"]}>
-              <span>Deployment</span>
+            <CheckmarkCircle color={'#90d0e3'}/><span>Deployment</span>
             </li>
             <li className={classes["list-item"]}>
-              <span>Hosting</span>
+            <CloseCircle color={'#90d0e3'}/><span>Hosting</span>
             </li>
             <li className={classes["list-item"]}></li>
           </ul>
@@ -39,20 +40,20 @@ const Prices = () => {
           </header>
           <ul className={classes.list}>
             <li className={classes["list-item"]}>
-              <span>
-                Learning equipment <strong>provided</strong> if needed
+            <CheckmarkCircle color={'#90d0e3'}/><span>
+              Learning equipment <strong>provided</strong> if needed
               </span>
             </li>
             <li className={classes["list-item"]}>
-              <span>
-                Available <strong>7 days a week</strong>
+            <CheckmarkCircle color={'#90d0e3'}/><span>
+              Available <strong>7 days a week</strong>
               </span>
             </li>
             <li className={classes["list-item"]}>
-              <span>Physical and online options available</span>
+            <CheckmarkCircle color={'#90d0e3'}/><span>Physical and online options available</span>
             </li>
             <li className={classes["list-item"]}>
-              <span>Get access to latest recipes</span>
+            <CheckmarkCircle color={'#90d0e3'}/><span>Get access to latest recipes</span>
             </li>
           </ul>
         </Card>
@@ -66,20 +67,20 @@ const Prices = () => {
           </header>
           <ul className={classes.list}>
             <li className={classes["list-item"]}>
-              <span>Logos</span>
+            <CheckmarkCircle color={'#90d0e3'}/><span>Logos</span>
             </li>
             <li className={classes["list-item"]}>
-              <span>Posters and fliers</span>
+            <CheckmarkCircle color={'#90d0e3'}/><span>Posters and fliers</span>
             </li>
             <li className={classes["list-item"]}>
-              <span>UI/UX</span>
+            <CheckmarkCircle color={'#90d0e3'}/><span>UI/UX</span>
             </li>
             <li className={classes["list-item"]}></li>
           </ul>
         </Card>
         <p className={classes.note}>Kindly note: the prices are in the thousands (Shs 60 is 60000)</p>
         <div className={classes.common}>
-          
+          <h4>These are included for all the above</h4>
         </div>
       </div>
     </section>
