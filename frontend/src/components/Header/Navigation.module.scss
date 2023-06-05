@@ -7,6 +7,7 @@
   padding: 1rem 1.5rem;
 
   &.fixed{
+    z-index: 10000;
     position: fixed;
     top: 0;
     left: 0;
@@ -87,7 +88,11 @@
     } 
   }
 }
-
+@media (min-width: 660px) {
+  .nav{
+    padding-inline: 1rem;
+  }  
+}
 @media (min-width: 1200px) {
   .desktop-nav{
     display: flex;
@@ -98,14 +103,15 @@
   }
   .nav {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2.5fr;
+    padding:1.5rem 6rem;
+    &.fixed{
+      padding:1.5rem 6rem;
+    }
     &__hidden {
       &--items {
         font-size: $fs-800;
         transform: translate(-100%, -50%);
-      }
-      &--header{
-        padding: 0 3rem;
       }
     }
     
@@ -122,9 +128,4 @@
     }
    
   }
-}
-@media (min-width: 660px) {
-  .nav{
-    padding-inline: 1rem;
-  }  
 }
