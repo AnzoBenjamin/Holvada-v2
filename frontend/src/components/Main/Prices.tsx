@@ -50,10 +50,7 @@ const Prices = () => {
               </span>
             </li>
             <li className={classes["list-item"]}>
-            <CheckmarkCircle color={'#90d0e3'}/><span>Physical and online options available</span>
-            </li>
-            <li className={classes["list-item"]}>
-            <CheckmarkCircle color={'#90d0e3'}/><span>Get access to latest recipes</span>
+            <CheckmarkCircle color={'#90d0e3'}/><span>Music, piano, violin, saxophone</span>
             </li>
           </ul>
         </Card>
@@ -78,11 +75,17 @@ const Prices = () => {
             <li className={classes["list-item"]}></li>
           </ul>
         </Card>
-        <p className={classes.note}>Kindly note: the prices are in the thousands (Shs 60 is 60000)</p>
+      </div>
+      <p className={classes.note}>Kindly note: the prices are in the thousands (Shs 60 is 60000)</p>
         <div className={classes.common}>
           <h4>These are included for all the above</h4>
+          <div className={classes["common__area"]}>
+            <div className={classes["common__area--iten"]}> <img src="/online.png" alt="" className={classes.icon}/> Online collaboration
+            </div>
+            <div className={classes["common__area--item"]}> <img src="/available.png" alt="" className={classes.icon}/> 7 days a week availability</div>
+            <div></div>
+          </div>
         </div>
-      </div>
     </section>
   );
 };
