@@ -1,45 +1,43 @@
-@import '../../scss/utils/variables';
+@import "../../scss/utils/variables";
 
-
-.hero{
-    text-align: center;
-    display: grid;
-    margin-top: 3.5rem;
+.hero {
+  text-align: center;
+  display: grid;
+  margin-top: 3.5rem;
+  &-video{
+    margin-inline: auto;
+    object-fit: cover;
     width: 100%;
-    &-img{
-        width: 15rem;
-        margin-inline: auto;
+  }
 
-       }
 
-       &__text-area{
-        margin-top: 1rem;
-       }
+  &__text-area {
+    margin-top: 1rem;
+  }
 }
-p{
-    font-family: 'Cera', sans-serif;
-    font-weight: normal;
+p {
+  font-family: "Cera", sans-serif;
+  font-weight: normal;
 }
+
 @media (min-width: 470px) {
-    .hero{
-        margin-top: 4rem;
-        &-img{
-            width: 18rem;
-        }
+  .hero {
+    margin-top: 4rem;
+    &-img {
+      width: 18rem;
     }
+  }
 }
 @media (min-width: 1200px) {
-    .hero{
-        margin-top: 6.5rem;
-        padding-inline: 3rem;
-        &-img{
-            margin-top: 2rem;
-            width: 22rem;
-        }
+  .hero {
+    margin-top: 6.5rem;
+    &-img {
+      margin-top: 2rem;
+      width: 22rem;
     }
+  }
 }
 @media (min-width: 660px) {
-    .hero{
-        padding-inline: 2.5rem;
-    }
+  .hero {
+  }
 }

@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import styles from "../../scss/utils/_helpers.module.scss";
 import classes from "./Hero.module.scss";
 import { Link } from "react-scroll";
@@ -14,10 +15,9 @@ const Hero = () => {
       <div className={classes["hero__text-area"]}>
         <p>Choose the best</p>
       </div>
-      <Link smooth to='section-services'>Discover</Link>
-      <div className={classes["hero-img"]}>
-        <img src="/hero-img.webp" alt="Guy with gadgets" />
-      </div>
+      <video className={classes["hero-video"]} autoPlay muted loop>
+        <source src='/code-video.mp4' type='video/mp4'/>
+      </video>
     </div>
   );
 };

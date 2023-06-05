@@ -8,31 +8,6 @@ const SecondRow = () => {
     <React.Fragment>
       <div className={classes["section-services__area--item"]}>
         <figure className={classes["section-services__area--figure"]}>
-          <div className={`${classes["image-container"]} ${classes.design}`}>
-            &nbsp;
-            <figcaption>
-              <span className={classes["section-services-img__heading"]}>
-                DESIGN
-              </span>
-            </figcaption>
-          </div>
-        </figure>
-        <ul className={classes.list}>
-          <li className={classes["list-item"]}>
-            <span>Logos</span>
-          </li>
-          <li className={classes["list-item"]}>
-            <span>Posters and fliers</span>
-          </li>
-          <li className={classes["list-item"]}>
-            <span>UI/UX</span>
-          </li>
-          <li className={classes["list-item"]}></li>
-        </ul>
-      </div>
-
-      <div className={classes["section-services__area--item"]}>
-        <figure className={classes["section-services__area--figure"]}>
           <div className={`${classes["image-container"]} ${classes.music}`}>
             &nbsp;
             <figcaption>
@@ -143,7 +118,30 @@ const Services = () => {
             <li className={classes["list-item"]}></li>
           </ul>
         </div>
-        
+        <div className={classes["section-services__area--item"]}>
+        <figure className={classes["section-services__area--figure"]}>
+          <div className={`${classes["image-container"]} ${classes.design}`}>
+            &nbsp;
+            <figcaption>
+              <span className={classes["section-services-img__heading"]}>
+                DESIGN
+              </span>
+            </figcaption>
+          </div>
+        </figure>
+        <ul className={classes.list}>
+          <li className={classes["list-item"]}>
+            <span>Logos</span>
+          </li>
+          <li className={classes["list-item"]}>
+            <span>Posters and fliers</span>
+          </li>
+          <li className={classes["list-item"]}>
+            <span>UI/UX</span>
+          </li>
+          <li className={classes["list-item"]}></li>
+        </ul>
+      </div>
         {isExpanded ? (
           <SecondRow />
         ) : (

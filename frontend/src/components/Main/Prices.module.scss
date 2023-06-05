@@ -1,7 +1,7 @@
 @import '../../scss/utils/variables';
 
 .section-prices{
-    padding: 3rem;
+    padding: 3rem 1.5rem;
 }
 .plan-header{
     text-align: center;
@@ -137,6 +137,9 @@
 }
 
 @media (min-width: 1200px) {
+    .section-prices{
+        padding-inline: 6rem;
+    }
     .card-area{
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;

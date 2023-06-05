@@ -18,7 +18,7 @@
     .section-about{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        padding: 7.5rem 3rem;
+        padding: 7.5rem 6rem;
         align-items: center;
         &-img{
             width: 24rem;
@@ -27,6 +27,6 @@
 }
 @media (min-width: 660px) {
     .section-about{
-        padding-inline: 2.5rem;
+        padding-inline: 6rem;
     }
 }

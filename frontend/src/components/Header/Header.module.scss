@@ -2,14 +2,11 @@
 
 .header{
     position: relative;
-    background-color: $color-primary;
     height: 100vh;
     color: $color-secondary;
-    padding: 1.5rem;
 }
 
 @media (min-width: 1200px) {
     .header{
-        padding: 1.5rem 3.5rem;
     }
 }

@@ -14,7 +14,7 @@ body {
 
 section {
   max-width: 120rem;
-  padding-inline: 3.2rem;
+  padding-inline: 1.5rem;
   margin-inline: auto;
 }
 *:focus {
@@ -27,4 +27,7 @@ section {
   }
 }
 @media (min-width: 1200px) {
+    section{
+        padding-inline: 6rem;
+    }
 }
