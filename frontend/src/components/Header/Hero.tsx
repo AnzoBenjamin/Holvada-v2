@@ -4,18 +4,20 @@ import classes from "./Hero.module.scss";
 const Hero = () => {
   return (
     <div className={classes.hero}>
-      <div className={classes["hero__heading-area"]}>
+      <div className={classes["hero-content"]}>
         <h3 className={styles["heading-tertiary"]}>Welcome</h3>
         <h1 className={styles["heading-primary"]}>
           Where design meets development
         </h1>
+        <div className={classes["hero__text-area"]}>
+          <p>Choose the best</p>
+        </div>
       </div>
-      <div className={classes["hero__text-area"]}>
-        <p>Choose the best</p>
+      <div className={classes["video-container"]}>
+        <video className={classes["hero-video"]} autoPlay muted loop>
+          <source src="/hero-vid.mp4" type="video/mp4" />
+        </video>
       </div>
-      <video className={classes["hero-video"]} autoPlay muted loop>
-        <source src='/code-video.mp4' type='video/mp4'/>
-      </video>
     </div>
   );
 };

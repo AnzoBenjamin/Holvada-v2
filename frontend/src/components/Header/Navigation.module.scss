@@ -76,6 +76,9 @@
     cursor: pointer;
   }
 }
+.desktop-nav{
+  display: none;
+}
 
 @media (min-width: 470px) {
   .nav {
@@ -86,8 +89,16 @@
 }
 
 @media (min-width: 1200px) {
+  .desktop-nav{
+    display: flex;
+    gap: 2.5rem;
+  }
+  .mobile-nav{
+    display: none;
+  }
   .nav {
-    padding-inline: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     &__hidden {
       &--items {
         font-size: $fs-800;
@@ -100,6 +111,10 @@
     
     &__header {
       font-size: $fs-600;
+    }
+    &__left{
+      display: flex;
+      justify-content: space-between;
     }
     &__icon {
       height: 1.5rem;

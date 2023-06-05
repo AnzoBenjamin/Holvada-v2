@@ -69,7 +69,7 @@ const Navigation: React.FC<NavigationProps> = ({ isFixed }) => {
   };
 
   const buttonHandler = () => {
-    setIsPopupVisible(true)
+    setIsPopupVisible(true);
   };
 
   return (
@@ -77,13 +77,35 @@ const Navigation: React.FC<NavigationProps> = ({ isFixed }) => {
       <Popup isVisible={isPopupVisible} setIsVisible={setIsPopupVisible} />
       <h2 className={classes["nav__header"]}>Holvada</h2>
       <div className={classes["nav__left"]}>
+          <ul className={classes["desktop-nav"]}>
+            <li className={classes["desktop-nav--item"]}>
+              <Link smooth to="header">
+                Home
+              </Link>
+            </li>
+            <li className={classes["desktop-nav--item"]}>
+              <Link smooth to="section-about">
+                About us
+              </Link>
+            </li>
+            <li className={classes["desktop-nav--item"]}>
+              <Link smooth to="section-services">
+                Services
+              </Link>
+            </li>
+            <li className={classes["desktop-nav--item"]}>
+              <Link smooth to="section-prices">
+                Pricing
+              </Link>
+            </li>
+          </ul>
         <a href="#" className={styles.btn} onClick={buttonHandler}>
           Join us
         </a>
         <img
           src={barsStaggered}
           alt="Bars Staggered"
-          className={`${classes["nav__icon"]}`}
+          className={`${classes["nav__icon"]} ${classes["mobile-nav"]}`}
           onClick={menuHandler}
         />
         {menuRoot &&
