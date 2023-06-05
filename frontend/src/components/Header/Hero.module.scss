@@ -3,7 +3,6 @@
 .hero {
   text-align: center;
   display: grid;
-  margin-top: 3.5rem;
   &-video{
     margin-inline: auto;
     object-fit: cover;
@@ -22,7 +21,6 @@ p {
 
 @media (min-width: 470px) {
   .hero {
-    margin-top: 4rem;
     &-img {
       width: 18rem;
     }
@@ -30,7 +28,6 @@ p {
 }
 @media (min-width: 1200px) {
   .hero {
-    margin-top: 6.5rem;
     &-img {
       margin-top: 2rem;
       width: 22rem;
