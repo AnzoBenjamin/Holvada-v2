@@ -1,52 +1,54 @@
 @import "../../scss/utils/variables";
 
-.video-container{
-    display: flex;
-    justify-content: center;
+@keyframes clip-from-top {
+  0% {
+    clip-path: ellipse(100% 100% at 50% 50%);
+  }
+  100% {
+    clip-path: ellipse(100% 100% at 50% 160%);
+  }
+}
+
+.video-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  animation: clip-from-top 1s ease-in-out 5.5s forwards;
 }
 .hero {
   text-align: center;
   display: grid;
-  position: relative;
-  &-content{
-    
+  &-content {
+    z-index: 0;
+    padding: 1.5rem 3rem 0 3rem;
   }
-  &-video{
-    margin-inline: auto;
-    object-fit: cover;
-    width: 100%;
-    height: auto;
+  &-video {
   }
-
 
   &__text-area {
     margin-top: 1rem;
   }
 }
 p {
-  font-family: "Cera", sans-serif;
-  font-weight: normal;
+  font-family: "Inter", sans-serif;
 }
 
 @media (min-width: 470px) {
-  .hero {
-    &-img {
-      width: 18rem;
-    }
-  }
 }
 @media (min-width: 1200px) {
+  .video-container {
+  }
   .hero {
-    &-img {
-      margin-top: 2rem;
-      width: 22rem;
+    &__text-area {
+      margin-inline: auto;
+      width: 50%;
     }
   }
 }
 @media (min-width: 660px) {
   .hero {
-    &-content{
-
+    &-content {
     }
   }
 }
