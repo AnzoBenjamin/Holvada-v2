@@ -121,19 +121,28 @@
 }
 
 .common{
-    text-align: center;
+    margin-top: 3rem;
     &__area{
-        &--item{
-            display: flex;
-            align-items: center;
 
+        display: grid;
+        gap: 2rem;
+        &--item{
+            display: grid;
+            align-items: flex-start;
+        }
+        &--heading{
+            display: grid;
+            font-size: $fs-500;
         }
     }
 }
 
 .icon{
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 4.8rem;
+    height: 4.8rem;
+    background-color: $color-primary-light;
+    padding: 1rem;
+    border-radius: 2px;
 }
 
 @media (min-width: 1200px) {

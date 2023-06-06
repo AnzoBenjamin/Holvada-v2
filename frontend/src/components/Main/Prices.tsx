@@ -76,14 +76,15 @@ const Prices = () => {
           </ul>
         </Card>
       </div>
-      <p className={classes.note}>Kindly note: the prices are in the thousands (Shs 60 is 60000)</p>
+      <p className={classes.note}>Kindly note: the prices are in the thousands (Shs 60 is 60000). All plans include the following</p>
         <div className={classes.common}>
-          <h4>These are included for all the above</h4>
           <div className={classes["common__area"]}>
-            <div className={classes["common__area--iten"]}> <img src="/online.png" alt="" className={classes.icon}/> Online collaboration
+            <div className={classes["common__area--item"]}> <h4 className={classes["common__area--heading"]}> Online collaboration<img src="/online.png" alt="" className={classes.icon}/> </h4>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, consectetur.</p>
             </div>
-            <div className={classes["common__area--item"]}> <img src="/available.png" alt="" className={classes.icon}/> 7 days a week availability</div>
-            <div></div>
+            <div className={classes["common__area--item"]}> <h4 className={classes["common__area--heading"]}>  7 days a week availability<img src="/available.png" alt="" className={classes.icon}/></h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, nisi!</p>
+            </div>
           </div>
         </div>
     </section>
