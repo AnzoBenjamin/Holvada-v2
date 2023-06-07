@@ -20,14 +20,25 @@ section {
 *:focus {
   outline: 2px solid $color-primary;
 }
+html::-webkit-scrollbar {
+  width: 0.25rem;
+}
 
+html::-webkit-scrollbar-track {
+  background: #17191f;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #3d3f44;
+  border-radius: 10px;
+}
 @media (min-width: 470px) {
   p {
     font-size: $fs-400;
   }
 }
 @media (min-width: 1200px) {
-    section{
-        padding-inline: 6rem;
-    }
+  section {
+    padding-inline: 6rem;
+  }
 }

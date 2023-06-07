@@ -1,30 +1,32 @@
 @import './variables';
 
 .heading-secondary{
-    text-transform: uppercase;
     color: $color-secondary;
-    font-size: $fs-500;
+    font-size: $fs-700;
+    line-height: 1.1;
+    margin-top: .5rem;
 }
 
 .heading-tertiary{
     color: $color-primary-dark;
     font-size: $fs-200;
     letter-spacing: 5px;
+    text-transform: uppercase;
 }
 .heading-primary{
     color: $color-secondary;
     line-height: 1.2;
     font-size: $fs-700;
 }
-.heading-primary, .heading-secondary, .heading-tertiary{
+.heading-secondary, .heading-tertiary{
     font-family: 'Cera-bold', sans-serif;
-    text-align: center;
+    text-align: left;
 }
 
 
 @media (min-width: 470px) {
     .heading-secondary{
-        font-size: $fs-600;
+        font-size: $fs-700;
     }
     .heading-tertiary{
         font-size: $fs-300;
@@ -36,7 +38,7 @@
 
 @media (min-width: 1200px) {
     .heading-secondary{
-        font-size: $fs-700;
+        font-size: $fs-800;
     }
     .heading-tertiary{
         font-size: $fs-400;

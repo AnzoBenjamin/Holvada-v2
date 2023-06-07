@@ -3,7 +3,16 @@ import classes from "./Services.module.scss";
 import styles from "../../scss/utils/_helpers.module.scss";
 import Button from "../../UI/Button";
 
-const SecondRow = () => {
+interface SecondRowProps {
+  setHidden: (arg: boolean)=>void;
+}
+
+const SecondRow: React.FC<SecondRowProps> = ({setHidden}) => {
+
+  const hideHandler = ()=>{
+    setHidden(false)
+  }
+
   return (
     <React.Fragment>
       <div className={classes["section-services__area--item"]}>
@@ -30,6 +39,7 @@ const SecondRow = () => {
           <li className={classes["list-item"]}></li>
         </ul>
       </div>
+      <Button text="Show less" onClick={hideHandler} className={classes["show-less"]}/>
     </React.Fragment>
   );
 };
@@ -42,7 +52,7 @@ const Services = () => {
   return (
     <section className={classes["section-services"]} id="section-services">
       <h3 className={styles["heading-tertiary"]}>Services</h3>
-      <h2 className={styles["heading-secondary"]}>What we offer</h2>
+      <h2 className={styles["heading-secondary"]}>Find something for everyone with our wide collection</h2>
       <div className={classes["section-services__area"]}>
         <div className={classes["section-services__area--item"]}>
           <figure className={classes["section-services__area--figure"]}>
@@ -143,9 +153,9 @@ const Services = () => {
         </ul>
       </div>
         {isExpanded ? (
-          <SecondRow />
+          <SecondRow setHidden={setIsExpanded} />
         ) : (
-          <Button text="Show more" onClick={buttonHandler} />
+          <Button text="Show more" onClick={buttonHandler} className={classes["show-more"]}/>
         )}
       </div>
     </section>

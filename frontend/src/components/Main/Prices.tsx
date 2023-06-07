@@ -5,9 +5,9 @@ import { CheckmarkCircle, CloseCircle } from 'react-ionicons'
 
 const Prices = () => {
   return (
-    <section className={classes["section-prices"]}>
+    <section className={classes["section-prices"]} id="section-prices">
       <h3 className={styles["heading-tertiary"]}>Prices</h3>
-      <h2 className={styles["heading-secondary"]}>What we offer</h2>
+      <h2 className={styles["heading-secondary"]}>Order a service with the most competitive pricing</h2>
       <div className={classes["card-area"]}>
         <Card className={classes.starter}>
           <header className={classes["plan-header"]}>

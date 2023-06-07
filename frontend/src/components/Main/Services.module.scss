@@ -39,6 +39,8 @@
   }
 }
 
+
+
 .language {
   background-image: linear-gradient(#a70633, #cd2329), url("/language.jpg");
   span {
@@ -72,7 +74,6 @@
 }
 .section-services {
   padding: 3rem 1.5rem;
-  text-align: center;
   &-img {
     
     &__heading {
@@ -140,6 +141,13 @@
   }
 }
 @media (min-width: 1200px) {
+    .show-more{
+        grid-column: 2/4;
+    }
+    .show-less{
+        grid-row: 3/4;
+        grid-column: 2/4;
+    }
   .section-services {
     padding: 7.5rem 6rem;
     &__area {
