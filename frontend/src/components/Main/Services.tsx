@@ -1,161 +1,159 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Services.module.scss";
 import styles from "../../scss/utils/_helpers.module.scss";
 import Button from "../../UI/Button";
 
-interface SecondRowProps {
-  setHidden: (arg: boolean)=>void;
+
+
+interface ServiceItemProps {
+  imageClass: string;
+  title: string;
+  items: string[];
 }
-
-const SecondRow: React.FC<SecondRowProps> = ({setHidden}) => {
-
-  const hideHandler = ()=>{
-    setHidden(false)
-  }
-
+const ServiceItem: React.FC<ServiceItemProps> = ({
+  imageClass,
+  title,
+  items,
+}) => {
   return (
-    <React.Fragment>
-      <div className={classes["section-services__area--item"]}>
-        <figure className={classes["section-services__area--figure"]}>
-          <div className={`${classes["image-container"]} ${classes.music}`}>
-            &nbsp;
-            <figcaption>
-              <span className={classes["section-services-img__heading"]}>
-                MUSIC
-              </span>
-            </figcaption>
-          </div>
-        </figure>
-        <ul className={classes.list}>
-          <li className={classes["list-item"]}>
-            <span>Theory</span>
+    <div className={classes["section-services__area--item"]}>
+      <figure className={classes["section-services__area--figure"]}>
+        <div className={`${classes["image-container"]} ${imageClass}`}>
+          &nbsp;
+          <figcaption>
+            <span className={classes["section-services-img__heading"]}>
+              {title}
+            </span>
+          </figcaption>
+        </div>
+      </figure>
+
+      <ul className={classes.list}>
+        {items.map((item, index) => (
+          <li key={index} className={classes["list-item"]}>
+            <span>{item}</span>
           </li>
-          <li className={classes["list-item"]}>
-            <span>Vocal training</span>
-          </li>
-          <li className={classes["list-item"]}>
-            <span>Instruments (Guitar, Piano, Violin)</span>
-          </li>
-          <li className={classes["list-item"]}></li>
-        </ul>
-      </div>
-      <Button text="Show less" onClick={hideHandler} className={classes["show-less"]}/>
-    </React.Fragment>
+        ))}
+      </ul>
+    </div>
   );
 };
+
 const Services = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [visibleItems, setVisibleItems] = useState<
+    { imageClass: string; title: string; items: string[] }[]
+  >([]);
+  const [extraItems, setExtraItems] = useState<
+    { imageClass: string; title: string; items: string[] }[]
+  >([]);
   const buttonHandler = () => {
     setIsExpanded(true);
   };
+  const hideHandler = () => {
+    setIsExpanded(false);
+  };
+  useEffect(() => {
+    const serviceItems = [
+      {
+        imageClass: classes.code,
+        title: "Code",
+        items: [
+          "Mobile development",
+          "Frontend development",
+          "Backend development",
+          "Software as a service",
+        ],
+      },
+      {
+        imageClass: classes.art,
+        title: "Art",
+        items: ["Oil Paintings", "Pencil drawings", "Sculptures"],
+      },
+      {
+        imageClass: classes.language,
+        title: "Language",
+        items: ["English", "French", "Kiswahili"],
+      },
+      {
+        imageClass: classes.design,
+        title: "Design",
+        items: [
+          "User Interface design",
+          "User experience creation",
+          "Logo design",
+          "Flyer and poster design",
+        ],
+      },
+      {
+        imageClass: classes.music,
+        title: "Music",
+        items: [
+          "Music theory",
+          "Vocal training",
+          "Instruments (Guitar, Piano, Violin)",
+        ],
+      },
+      {
+        imageClass: classes.chess,
+        title: "Chess",
+        items: [
+          "Chess theory and history",
+          "Practical training",
+          "Competitions",
+        ],
+      },
+    ];
 
+    const calculateMaxVisibleItems = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth >= 1200) return 4;
+      else if (screenWidth >= 768) return 3;
+      else if (screenWidth >= 576) return 2;
+      else return 1;
+    };
+
+    const maxVisibleItems = calculateMaxVisibleItems();
+    setVisibleItems(serviceItems.slice(0, maxVisibleItems));
+    setExtraItems(serviceItems.slice(maxVisibleItems));
+  }, []);
   return (
     <section className={classes["section-services"]} id="section-services">
       <h3 className={styles["heading-tertiary"]}>Services</h3>
-      <h2 className={styles["heading-secondary"]}>Find something for everyone with our wide collection</h2>
+      <h2 className={styles["heading-secondary"]}>
+        Find something for everyone with our wide collection
+      </h2>
       <div className={classes["section-services__area"]}>
-        <div className={classes["section-services__area--item"]}>
-          <figure className={classes["section-services__area--figure"]}>
-            <div className={`${classes["image-container"]} ${classes.code}`}>
-              &nbsp;
-              <figcaption>
-                <span className={classes["section-services-img__heading"]}>
-                  CODE
-                </span>
-              </figcaption>
-            </div>
-          </figure>
-          <ul className={classes.list}>
-            <li className={classes["list-item"]}>
-              <span>Mobile development</span>
-            </li>
-            <li className={classes["list-item"]}>
-              <span>Frontend development</span>
-            </li>
-            <li className={classes["list-item"]}>
-              <span>Backend Development</span>
-            </li>
-            <li className={classes["list-item"]}>Software as a service</li>
-          </ul>
-        </div>
-        <div className={classes["section-services__area--item"]}>
-          <figure className={classes["section-services__area--figure"]}>
-            <div className={`${classes["image-container"]} ${classes.art}`}>
-              &nbsp;
-              <figcaption>
-                <span className={classes["section-services-img__heading"]}>
-                  ART
-                </span>
-              </figcaption>
-            </div>
-          </figure>
-          <ul className={classes.list}>
-            <li className={classes["list-item"]}>
-              <span>Painting</span>
-            </li>
-            <li className={classes["list-item"]}>
-              <span>Pencil drawings</span>
-            </li>
-            <li className={classes["list-item"]}>
-              <span>Sculptures</span>
-            </li>
-            <li className={classes["list-item"]}></li>
-          </ul>
-        </div>
-        <div className={classes["section-services__area--item"]}>
-          <figure className={classes["section-services__area--figure"]}>
-            <div
-              className={`${classes["image-container"]} ${classes.language}`}
-            >
-              &nbsp;
-              <figcaption>
-                <span className={classes["section-services-img__heading"]}>
-                  LANGUAGE
-                </span>
-              </figcaption>
-            </div>
-          </figure>
-          <ul className={classes.list}>
-            <li className={classes["list-item"]}>
-              <span>English</span>
-            </li>
-            <li className={classes["list-item"]}>
-              <span>French</span>
-            </li>
-            <li className={classes["list-item"]}>
-              <span>Kiswahili</span>
-            </li>
-            <li className={classes["list-item"]}></li>
-          </ul>
-        </div>
-        <div className={classes["section-services__area--item"]}>
-        <figure className={classes["section-services__area--figure"]}>
-          <div className={`${classes["image-container"]} ${classes.design}`}>
-            &nbsp;
-            <figcaption>
-              <span className={classes["section-services-img__heading"]}>
-                DESIGN
-              </span>
-            </figcaption>
-          </div>
-        </figure>
-        <ul className={classes.list}>
-          <li className={classes["list-item"]}>
-            <span>Logos</span>
-          </li>
-          <li className={classes["list-item"]}>
-            <span>Posters and fliers</span>
-          </li>
-          <li className={classes["list-item"]}>
-            <span>UI/UX</span>
-          </li>
-          <li className={classes["list-item"]}></li>
-        </ul>
-      </div>
+        {visibleItems.map((item, index) => (
+          <ServiceItem
+            key={index}
+            imageClass={item.imageClass}
+            title={item.title}
+            items={item.items}
+          />
+        ))}
         {isExpanded ? (
-          <SecondRow setHidden={setIsExpanded} />
+          extraItems.map((item, index) => (
+            <React.Fragment>
+              <ServiceItem
+                key={index}
+                imageClass={item.imageClass}
+                title={item.title}
+                items={item.items}
+              />
+              <Button
+                text="Show less"
+                onClick={hideHandler}
+                className={classes["show-less"]}
+              />
+            </React.Fragment>
+          ))
         ) : (
-          <Button text="Show more" onClick={buttonHandler} className={classes["show-more"]}/>
+          <Button
+            text="Show more"
+            onClick={buttonHandler}
+            className={classes["show-more"]}
+          />
         )}
       </div>
     </section>

@@ -6,8 +6,34 @@
   font-weight: 500;
   gap: 1.5rem;
 }
-.list-item{
+.list-item {
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease-out;
+}
+
 .design {
   background-image: linear-gradient(#a70633, #cd2329), url("/design.jpg");
   span {
@@ -38,8 +64,6 @@
     );
   }
 }
-
-
 
 .language {
   background-image: linear-gradient(#a70633, #cd2329), url("/language.jpg");
@@ -75,7 +99,6 @@
 .section-services {
   padding: 3rem 1.5rem;
   &-img {
-    
     &__heading {
       color: $color-white;
       font-size: $fs-400;
@@ -141,20 +164,19 @@
   }
 }
 @media (min-width: 1200px) {
-    .show-more{
-        grid-column: 2/4;
-    }
-    .show-less{
-        grid-row: 3/4;
-        grid-column: 2/4;
-    }
+  .show-more {
+    grid-column: 2/4;
+  }
+  .show-less {
+    grid-row: 3/4;
+    grid-column: 2/4;
+  }
   .section-services {
     padding: 7.5rem 6rem;
     &__area {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
-
     }
   }
   .btn {
