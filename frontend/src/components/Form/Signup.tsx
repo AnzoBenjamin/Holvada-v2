@@ -12,7 +12,7 @@ const Signup = () => {
         <Input type="email" placeholder='Email'/>
         <Input type='password' placeholder='Password'/>
         <Input type='password' placeholder='Confirm password'/>
-        <Button text='Signup' onClick={signupHandler}/>
+        <Button text='Signup' onClick={signupHandler} className=''/>
     </form>
   )
 }
