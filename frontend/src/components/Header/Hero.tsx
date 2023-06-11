@@ -36,7 +36,7 @@ const Hero = () => {
       </motion.div>
       <div className={classes["video-container"]}>
         <video className={classes["hero-video"]} autoPlay muted loop>
-          <source src="/hero.mp4" type="video/mp4" />
+        { window.innerWidth < 768 ? <source src="/hero-mobile.mp4" type="video/mp4" /> : <source src="/hero.mp4" type="video/mp4" />}
         </video>
       </div>
     </div>
