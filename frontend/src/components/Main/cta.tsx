@@ -1,6 +1,4 @@
-import React from 'react'
 import classes from "./Cta.module.scss"
-import styles from "../../scss/utils/_helpers.module.scss"
 import Button from '../../UI/Button'
 
 const Cta = () => {
