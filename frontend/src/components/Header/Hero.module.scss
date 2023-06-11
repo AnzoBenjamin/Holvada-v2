@@ -20,9 +20,6 @@
     z-index: 0;
     padding: 1.5rem 3rem 0 3rem;
   }
-  &-video {
-  }
-
   &__text-area {
     margin-top: 1rem;
   }
@@ -48,7 +45,6 @@ p {
 }
 @media (min-width: 660px) {
   .hero {
-    &-content {
-    }
+
   }
 }
