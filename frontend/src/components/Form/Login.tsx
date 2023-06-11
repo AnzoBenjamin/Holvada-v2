@@ -12,7 +12,7 @@ const Login = () => {
         <h2>Login</h2>
         <Input type="email" placeholder='Email'/>
         <Input type="password" placeholder='Password'/>
-        <Button text='Login' onClick={loginHandler}/>
+        <Button text='Login' onClick={loginHandler}  className=''/>
     </form>
   )
 }

@@ -15,6 +15,7 @@
     padding: 1rem 1.5rem;
     background-color: rgba($color-primary-light,.6);
     backdrop-filter: blur(20px);
+    box-shadow: 0 1px 4rem rgba($color: $color-grey, $alpha: 0.15);
   }
   &__hidden {
     position: fixed;

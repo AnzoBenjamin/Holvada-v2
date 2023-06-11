@@ -34,18 +34,12 @@
   animation: fadeOut 0.3s ease-out;
 }
 
-.design {
-  background-image: linear-gradient(#a70633, #cd2329), url("/design.jpg");
-  span {
-    background-image: linear-gradient(
-      to right bottom,
-      rgba(#a70633, 0.8),
-      rgba(#cd2329, 0.8)
-    );
-  }
-}
 .art {
-  background-image: linear-gradient(#b397fd, #6757c4), url("/art.jpg");
+  background-image: linear-gradient(to bottom right, #b397fd, #6757c4),
+    url("/art.jpg");
+  &__bg {
+    background-image: linear-gradient(to bottom right, #b397fd, #6757c4);
+  }
   span {
     background-image: linear-gradient(
       to right bottom,
@@ -55,7 +49,11 @@
   }
 }
 .design {
-  background-image: linear-gradient(#54653c, #4a624c), url("/design.jpg");
+  background-image: linear-gradient(to bottom right, #54653c, #4a624c),
+    url("/design.jpg");
+  &__bg {
+    background-image: linear-gradient(to bottom right, #54653c, #4a624c);
+  }
   span {
     background-image: linear-gradient(
       to right bottom,
@@ -66,7 +64,11 @@
 }
 
 .language {
-  background-image: linear-gradient(#a70633, #cd2329), url("/language.jpg");
+  background-image: linear-gradient(to bottom right, #a70633, #cd2329),
+    url("/language.jpg");
+  &__bg {
+    background-image: linear-gradient(to bottom right, #a70633, #cd2329);
+  }
   span {
     background-image: linear-gradient(
       to right bottom,
@@ -76,8 +78,11 @@
   }
 }
 .music {
-  background-image: linear-gradient(#090708, #292621), url("/music.jpg");
-  background-blend-mode: screen;
+  background-image: linear-gradient(to bottom right, #090708, #292621),
+    url("/music.jpg");
+  &__bg {
+    background-image: linear-gradient(to bottom right, #090708, #292621);
+  }
   span {
     background-image: linear-gradient(
       to right bottom,
@@ -87,7 +92,11 @@
   }
 }
 .code {
-  background-image: linear-gradient(#0192cb, #01a1b6), url("/code.jpg");
+  background-image: linear-gradient(to bottom right, #0192cb, #01a1b6),
+    url("/code.jpg");
+  &__bg {
+    background-image: linear-gradient(to bottom right, #0192cb, #01a1b6);
+  }
   span {
     background-image: linear-gradient(
       to right bottom,
@@ -121,9 +130,46 @@
       display: grid;
       gap: 0.5rem;
       width: 100%;
+      transform-style: preserve-3d;
+      transition: transform 300ms ease-in-out;
       box-shadow: 0 1px 4rem rgba($color: $color-secondary-light, $alpha: 0.1);
     }
+    &--front,
+    &--back {
+      backface-visibility: hidden;
+      transition: transform 0.3s ease-in-out;
+    }
+    &--back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 1.5rem;
+      display: grid;
+      color: $color-white;
+      font-family: 'Inter', sans-serif;
+      font-weight: normal;
+      align-items: center;
+      transform: rotateY(180deg);
+      &.flipped {
+        transform: rotateY(0deg);
+      }
+    }
+    &--front {
+      transform: rotateY(0deg);
+      &.flipped {
+        transform: rotateY(-180deg);
+      }
+    }
   }
+}
+.flipped .section-services__area--front {
+  transform: rotateY(-180deg);
+}
+
+.flipped .section-services__area--back {
+  transform: rotateY(0deg);
 }
 .image-container {
   position: relative;
