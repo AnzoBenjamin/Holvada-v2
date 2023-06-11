@@ -1,8 +1,7 @@
 import Services from './Services'
 import Prices from './Prices'
-import Cta from './Cta'
 import Guide from './Guide'
-
+import Cta from './Cta'
 const Main = () => {
   return (
     <main>
