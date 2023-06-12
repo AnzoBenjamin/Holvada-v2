@@ -5,7 +5,7 @@
     clip-path: ellipse(100% 100% at 50% 50%);
   }
   100% {
-    clip-path: ellipse(100% 100% at 50% 160%);
+    clip-path: ellipse(100% 100% at 50% 180%);
   }
 }
 
@@ -52,6 +52,15 @@ p {
 @media (min-width: 470px) {
 }
 @media (min-width: 1200px) {
+  @keyframes clip-from-top {
+    0% {
+      clip-path: ellipse(100% 100% at 50% 50%);
+    }
+    100% {
+      clip-path: ellipse(100% 100% at 50% 160%);
+    }
+  }
+  
   .video-container {
     position: absolute;
     bottom: 0;
