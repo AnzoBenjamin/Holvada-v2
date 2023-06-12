@@ -5,6 +5,12 @@ import { Link } from "react-scroll";
 import { animationStart, reveal } from "../../utils/animation";
 
 const Hero = () => {
+  const videoSource: string = (() => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth >= 1200) return "/hero.mp4";
+    else if (screenWidth >= 576) return "/hero-tablet.mp4";
+    else return "/hero-mobile.mp4";
+  })()
   return (
     <div className={classes.hero}>
       <motion.div
@@ -44,21 +50,21 @@ const Hero = () => {
           transition={{ delay: animationStart + 1.3, duration: 0.5 }}
           className={classes["hero__btn-area"]}
         >
-          <Link smooth to="section-prices"  className={classes["btn-primary"]}>
+          <Link smooth to="section-prices" className={classes["btn-primary"]}>
             Start Learning
           </Link>
-          <Link smooth to="section-services"  className={classes["btn-secondary"]}>
+          <Link
+            smooth
+            to="section-services"
+            className={classes["btn-secondary"]}
+          >
             Learn more
           </Link>
         </motion.div>
       </motion.div>
       <div className={classes["video-container"]}>
         <video className={classes["hero-video"]} autoPlay muted loop>
-          {window.innerWidth < 768 ? (
-            <source src="/hero-mobile.mp4" type="video/mp4" />
-          ) : (
-            <source src="/hero.mp4" type="video/mp4" />
-          )}
+          <source src={videoSource} type="video/mp4" />
         </video>
       </div>
     </div>

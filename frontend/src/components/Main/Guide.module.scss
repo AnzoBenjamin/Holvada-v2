@@ -1,11 +1,22 @@
+.steps {
+    margin-top: 4rem;
+  display: grid;
+  gap: 4rem;
+  &--one,
+  &--two,
+  &--three {
+    display: grid;
+  }
+}
 .step-img-box {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-row: 1/2;
 }
-.heading-tertiary{
-    font-size: 1.6rem;
+.heading-tertiary {
+  font-size: 1.4rem;
 }
 .step-img-box::before,
 .step-img-box::after {
@@ -35,19 +46,28 @@
 }
 
 .step-number {
-  font-size: 8.6rem;
+  font-size: 4.6rem;
   font-weight: 600;
   color: #ddd;
   margin-bottom: 1.2rem;
 }
 .step-description {
-  font-size: 1.2rem;
   line-height: 1.8;
 }
 
-.steps{
-    &--one, &--two, &--three{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+@media (min-width: 1200px) {
+  .steps {
+    gap: 6rem;
+    &--one,
+    &--two,
+    &--three {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
     }
+    &--two {
+      .step-img-box {
+        grid-column: 2/3;
+      }
+    }
+  }
 }

@@ -35,7 +35,7 @@
 
 .art {
   background-image: linear-gradient(to bottom right, #b397fd, #6757c4),
-    url("/art.jpg");
+    url("/art.webp");
   &__bg {
     background-image: linear-gradient(to bottom right, #b397fd, #6757c4);
   }
@@ -49,7 +49,7 @@
 }
 .design {
   background-image: linear-gradient(to bottom right, #54653c, #4a624c),
-    url("/design.jpg");
+    url("/design.webp");
   &__bg {
     background-image: linear-gradient(to bottom right, #54653c, #4a624c);
   }
@@ -64,7 +64,7 @@
 
 .language {
   background-image: linear-gradient(to bottom right, #a70633, #cd2329),
-    url("/language.jpg");
+    url("/language.webp");
   &__bg {
     background-image: linear-gradient(to bottom right, #a70633, #cd2329);
   }
@@ -78,7 +78,7 @@
 }
 .music {
   background-image: linear-gradient(to bottom right, #090708, #292621),
-    url("/music.jpg");
+    url("/music.webp");
   &__bg {
     background-image: linear-gradient(to bottom right, #090708, #292621);
   }
@@ -92,7 +92,7 @@
 }
 .code {
   background-image: linear-gradient(to bottom right, #0192cb, #01a1b6),
-    url("/code.jpg");
+    url("/code.webp");
   &__bg {
     background-image: linear-gradient(to bottom right, #0192cb, #01a1b6);
   }
@@ -101,6 +101,21 @@
       to right bottom,
       rgba(#0192cb, 0.8),
       rgba(#01a1b6, 0.8)
+    );
+  }
+}
+
+.chess {
+  background-image: linear-gradient(to bottom right, #919191, #919191),
+    url("/chess.webp");
+  &__bg {
+    background-image: linear-gradient(to bottom right, #919191, #919191);
+  }
+  span {
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(#919191, 0.8),
+      rgba(#919191, 0.8)
     );
   }
 }

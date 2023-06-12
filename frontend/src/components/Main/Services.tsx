@@ -10,6 +10,7 @@ interface ServiceItemProps {
   items: string[];
   bgClass: string;
   otherClass: string;
+  description: string;
 }
 const ServiceItem: React.FC<ServiceItemProps> = ({
   imageClass,
@@ -17,6 +18,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   items,
   bgClass,
   otherClass,
+  description
 }) => {
   const [isFlipped, setisFlipped] = useState(false);
 
@@ -60,10 +62,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       </div>
       <div className={`${classes["section-services__area--back"]} ${bgClass}`}>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores sed,
-          ad sint nihil molestias suscipit laudantium praesentium nisi unde ab
-          maiores temporibus sequi veritatis enim. Vero magni tempora laudantium
-          quae?
+        {description}
         </p>
       </div>
     </div>
@@ -73,10 +72,10 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
 const Services = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [visibleItems, setVisibleItems] = useState<
-    { imageClass: string; bgClass: string; title: string; items: string[] }[]
+    { imageClass: string; bgClass: string; title: string; items: string[]; description: string }[]
   >([]);
   const [extraItems, setExtraItems] = useState<
-    { imageClass: string; bgClass: string; title: string; items: string[] }[]
+    { imageClass: string; bgClass: string; title: string; items: string[]; description: string }[]
   >([]);
 
   const buttonHandler = () => {
@@ -91,25 +90,29 @@ const Services = () => {
       {
         imageClass: classes.code,
         bgClass: classes["code__bg"],
-        title: "Code",
+        title: "Software",
         items: [
           "Mobile development",
           "Frontend development",
           "Backend development",
           "Software as a service",
         ],
+        description:
+          "Whether you need a mobile application that puts your business in the hands of your customers or a robust software system that powers your operations, our team of experts has you covered. From frontend development that creates captivating user interfaces to backend development that ensures seamless functionality, we deliver tailored software solutions that meet your unique needs.",
       },
       {
         imageClass: classes.art,
         bgClass: classes["art__bg"],
         title: "Art",
         items: ["Oil Paintings", "Pencil drawings", "Sculptures"],
+        description: "Unleash your creativity and explore the world of art with our diverse art services. From oil paintings that bring life to your imagination to intricately detailed pencil drawings and awe-inspiring sculptures, our art offerings cater to various artistic expressions."
       },
       {
         imageClass: classes.language,
         bgClass: classes["language__bg"],
         title: "Language",
         items: ["English", "French", "Kiswahili"],
+        description: "Whether you're looking to expand your business reach or enhance your personal growth, our language programs offer a tailored approach to mastering English, French, or Kiswahili. Our experienced instructors employ engaging teaching methods that encompass listening, speaking, reading, and writing skills. From beginner levels to advanced fluency."
       },
       {
         imageClass: classes.design,
@@ -121,6 +124,7 @@ const Services = () => {
           "Logo design",
           "Flyer and poster design",
         ],
+        description: "From user interface (UI) design that focuses on crafting intuitive and aesthetically pleasing digital experiences to user experience (UX) design that ensures seamless interactions, we are dedicated to creating designs that captivate and engage. Additionally, we offer logo design services that reflect your brand identity and flyer/poster design that grabs attention and delivers your message effectively."
       },
       {
         imageClass: classes.music,
@@ -131,6 +135,7 @@ const Services = () => {
           "Vocal training",
           "Instruments (Guitar, Piano, Violin)",
         ],
+        description: "Discover the joy of music and develop your musical talents with our comprehensive music services. From music theory that lays a solid foundation to vocal training that refines your singing abilities, we offer a range of courses for aspiring musicians and vocalists. Additionally, we provide instrument lessons to help you master your chosen instrument."
       },
       {
         imageClass: classes.chess,
@@ -141,6 +146,7 @@ const Services = () => {
           "Practical training",
           "Competitions",
         ],
+        description: "Engage in the strategic world of chess and sharpen your mind with our chess services. Whether you're a beginner seeking to learn the fundamentals or an experienced player looking to refine your skills, our chess programs cater to all levels."
       },
     ];
 
@@ -171,6 +177,7 @@ const Services = () => {
             items={item.items}
             bgClass={item.bgClass}
             otherClass=""
+            description={item.description}
           />
         ))}
         {isExpanded ? (
@@ -185,6 +192,7 @@ const Services = () => {
                 otherClass={
                   isExpanded ? classes["fade-in"] : classes["fade-out"]
                 }
+                description={item.description}
               />
             ))}
             <Button

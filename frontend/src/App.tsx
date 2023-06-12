@@ -1,15 +1,29 @@
-import './App.scss'
-import Header from './components/Header/Header'
-import Main from './components/Main/Main'
-import Footer from './components/Footer/Footer'
+import { useState, useEffect } from "react";
+import "./App.scss";
+import Home from "./components/Home";
+import Loading from "./UI/Loading";
+
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const handleLoad = () => {
+      setIsLoading(false);
+    };
+
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+
+    return () => window.removeEventListener("load", handleLoad);
+  }, []);
   return (
     <>
-    <Header/>
-    <Main/>
-    <Footer/>
+     { isLoading ? <Loading/> : <Home /> }
     </>
-  )
+  );
 }
 
-export default App
+export default App;

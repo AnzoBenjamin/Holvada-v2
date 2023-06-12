@@ -12,6 +12,9 @@ body {
   background-color: #eee;
 }
 
+p {
+  font-size: $fs-300;
+}
 section {
   max-width: 120rem;
   padding-inline: 1.5rem;

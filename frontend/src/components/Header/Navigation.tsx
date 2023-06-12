@@ -46,7 +46,7 @@ const HiddenNav: React.FC<HiddenNavProps> = ({ isVisible, setMenu }) => {
         </li>
         <li className={classes["nav__hidden--item"]}>
           <Link smooth to="section-about" onClick={hiddenMenuHandler}>
-            About us
+            How To
           </Link>
         </li>
         <li className={classes["nav__hidden--item"]}>
@@ -112,8 +112,8 @@ const Navigation: React.FC<NavigationProps> = ({ isFixed }) => {
               variants={reveal}
               className={classes["desktop-nav--item"]}
             >
-              <Link smooth to="section-about">
-                About us
+              <Link smooth to="section-guide">
+                How To
               </Link>
             </motion.li>
             <motion.li
@@ -133,7 +133,7 @@ const Navigation: React.FC<NavigationProps> = ({ isFixed }) => {
               </Link>
             </motion.li>
           </ul>
-        
+
           <motion.a
             variants={reveal}
             href="#"

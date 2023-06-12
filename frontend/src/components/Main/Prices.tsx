@@ -98,7 +98,7 @@ const Prices = () => {
             <h4 className={classes["common__area--heading"]}>
               {" "}
               Online collaboration
-              <img src="/online.png" alt="" className={classes.icon} />{" "}
+              <img src="/online.webp" alt="" className={classes.icon} />{" "}
             </h4>
             <p>
               With our powerful online collaboration feature, holvada enables
@@ -111,7 +111,7 @@ const Prices = () => {
             <h4 className={classes["common__area--heading"]}>
               {" "}
               7 days a week availability
-              <img src="/available.png" alt="" className={classes.icon} />
+              <img src="/available.webp" alt="" className={classes.icon} />
             </h4>
             <p>
               We're proud to offer our services seven days a week, ensuring that
