@@ -160,7 +160,7 @@ const Services = () => {
     <section className={classes["section-services"]} id="section-services">
       <h3 className={styles["heading-tertiary"]}>Services</h3>
       <h2 className={styles["heading-secondary"]}>
-        Find something for everyone with our wide collection
+        Comprehensive Solutions Tailored to Your Needs
       </h2>
       <div className={classes["section-services__area"]}>
         {visibleItems.map((item, index) => (

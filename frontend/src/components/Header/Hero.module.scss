@@ -10,10 +10,10 @@
 }
 
 .video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation: clip-from-top 1s ease-in-out 5.5s forwards;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: clip-from-top 1s ease-in-out 5.5s forwards;
 }
 .hero {
   text-align: center;
@@ -23,8 +23,27 @@
     padding: 1.5rem 3rem 0 3rem;
   }
   &__text-area {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
+  &__btn-area {
+    margin-top: 1rem;
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+  }
+}
+.btn{
+  &-primary{
+    color: $color-white;
+    background-color: $color-primary-dark;
+    padding: 1rem;
+  }
+  &-secondary{
+    padding: 1rem;
+    color: $color-primary-dark;
+    background-color: $color-white;
+  }
+  
 }
 p {
   font-family: "Inter", sans-serif;

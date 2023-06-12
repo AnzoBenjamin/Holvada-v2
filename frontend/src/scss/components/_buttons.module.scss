@@ -3,12 +3,13 @@
     border: none;
     background-color: $color-tertiary;
     color: $color-white;
-    font-size: $fs-300;
+    font-size: $fs-400;
     padding: .25rem 1rem;
     display: grid;
     align-items: center;
     box-shadow: 0 1px 16px $color-tertiary;
     transition: box-shadow 400ms, background-color 400ms;
+    font-family: 'Cera-light', sans-serif;
     &:active{
         box-shadow: none;
         transform: translateY(.1rem);

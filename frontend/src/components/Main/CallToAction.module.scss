@@ -1,14 +1,25 @@
 @import "../../scss/utils/variables";
 
 .section-cta {
-    padding: 3rem 1.5rem;
-    background-color: $color-primary;
+  padding: 3rem 1.5rem;
+  background-color: $color-primary;
 }
 
+.cta-card {
+  background-color: $color-white;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  margin-inline: auto;
+}
 
-.cta-card{
-    background-color: $color-white;
-    padding: 1.5rem;
-    display: grid;
-    gap: 1rem;
+.btn {
+  margin-inline: auto;
+  width: 10rem;
+}
+
+@media (min-width: 1200px) {
+  .cta-card {
+    width: 40%;
+  }
 }

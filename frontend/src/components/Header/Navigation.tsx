@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 import Popup from "../../UI/Popup";
-import { animationStart, reveal} from "../../utils/animation";
+import { animationStart, reveal } from "../../utils/animation";
 
 import barsStaggered from "/bars-staggered.svg";
 import timesHexagon from "/times-hexagon.svg";
@@ -76,86 +76,87 @@ const Navigation: React.FC<NavigationProps> = ({ isFixed }) => {
   };
 
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: animationStart }}
+    >
+      <Popup isVisible={isPopupVisible} setIsVisible={setIsPopupVisible} />
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: animationStart }}
+        variants={reveal}
+        initial="hiddenVariant"
+        animate="revealVariant"
+        transition={{
+          ease: "easeIn",
+          type: "tween",
+          duration: 0.5,
+          staggerChildren: 0.2,
+          delayChildren: animationStart + 0.5,
+        }}
+        className={`${classes.nav} ${isFixed ? classes.fixed : ""} `}
       >
-                <Popup isVisible={isPopupVisible} setIsVisible={setIsPopupVisible} />
-        <motion.div
-          variants={reveal}
-          initial="hiddenVariant"
-          animate="revealVariant"
-          transition={{
-            ease: "easeIn",
-            type: "tween",
-            duration: 0.5,
-            staggerChildren: 0.2,
-            delayChildren: animationStart + 0.5,
-          }}
-          className={`${classes.nav} ${isFixed ? classes.fixed : ""} `}
-        >
-          <motion.h2 variants={reveal} className={classes["nav__header"]}>
-            Holvada
-          </motion.h2>
-          <motion.div className={classes["nav__left"]}>
-            <ul className={classes["desktop-nav"]}>
-              <motion.li
-                variants={reveal}
-                className={classes["desktop-nav--item"]}
-              >
-                <Link smooth to="header">
-                  Home
-                </Link>
-              </motion.li>
-              <motion.li
-                variants={reveal}
-                className={classes["desktop-nav--item"]}
-              >
-                <Link smooth to="section-about">
-                  About us
-                </Link>
-              </motion.li>
-              <motion.li
-                variants={reveal}
-                className={classes["desktop-nav--item"]}
-              >
-                <Link smooth to="section-services">
-                  Services
-                </Link>
-              </motion.li>
-              <motion.li
-                variants={reveal}
-                className={classes["desktop-nav--item"]}
-              >
-                <Link smooth to="section-prices">
-                  Pricing
-                </Link>
-              </motion.li>
-            </ul>
-            <motion.a
+        <motion.h2 variants={reveal} className={classes["nav__header"]}>
+          Holvada
+        </motion.h2>
+        <motion.div className={classes["nav__left"]}>
+          <ul className={classes["desktop-nav"]}>
+            <motion.li
               variants={reveal}
-              href="#"
-              className={styles.btn}
-              onClick={buttonHandler}
+              className={classes["desktop-nav--item"]}
             >
-              Join us
-            </motion.a>
-            <motion.img
+              <Link smooth to="header">
+                Home
+              </Link>
+            </motion.li>
+            <motion.li
               variants={reveal}
-              src={barsStaggered}
-              alt="Bars Staggered"
-              className={`${classes["nav__icon"]} ${classes["mobile-nav"]}`}
-              onClick={menuHandler}
-            />
-          </motion.div>
+              className={classes["desktop-nav--item"]}
+            >
+              <Link smooth to="section-about">
+                About us
+              </Link>
+            </motion.li>
+            <motion.li
+              variants={reveal}
+              className={classes["desktop-nav--item"]}
+            >
+              <Link smooth to="section-services">
+                Services
+              </Link>
+            </motion.li>
+            <motion.li
+              variants={reveal}
+              className={classes["desktop-nav--item"]}
+            >
+              <Link smooth to="section-prices">
+                Pricing
+              </Link>
+            </motion.li>
+          </ul>
+        
+          <motion.a
+            variants={reveal}
+            href="#"
+            className={styles.btn}
+            onClick={buttonHandler}
+          >
+            Join us
+          </motion.a>
+          <motion.img
+            variants={reveal}
+            src={barsStaggered}
+            alt="Bars Staggered"
+            className={`${classes["nav__icon"]} ${classes["mobile-nav"]}`}
+            onClick={menuHandler}
+          />
         </motion.div>
-        {menuRoot &&
-          createPortal(
-            <HiddenNav isVisible={menu} setMenu={setMenu} />,
-            menuRoot
-          )}
       </motion.div>
+      {menuRoot &&
+        createPortal(
+          <HiddenNav isVisible={menu} setMenu={setMenu} />,
+          menuRoot
+        )}
+    </motion.div>
   );
 };
 

@@ -1,13 +1,15 @@
 import classes from "./Prices.module.scss";
 import styles from "../../scss/utils/_helpers.module.scss";
 import Card from "../../UI/Card";
-import { CheckmarkCircle, CloseCircle } from 'react-ionicons'
+import { CheckmarkCircle, CloseCircle } from "react-ionicons";
 
 const Prices = () => {
   return (
     <section className={classes["section-prices"]} id="section-prices">
       <h3 className={styles["heading-tertiary"]}>Prices</h3>
-      <h2 className={styles["heading-secondary"]}>Order a service with the most competitive pricing</h2>
+      <h2 className={styles["heading-secondary"]}>
+        Flexible Pricing Plans to Suit Your Goals
+      </h2>
       <div className={classes["card-area"]}>
         <Card className={classes.starter}>
           <header className={classes["plan-header"]}>
@@ -19,13 +21,16 @@ const Prices = () => {
           </header>
           <ul className={classes.list}>
             <li className={classes["list-item"]}>
-            <CheckmarkCircle color={'#90d0e3'}/><span>UI/UX design </span>
+              <CheckmarkCircle color={"#90d0e3"} />
+              <span>UI/UX design </span>
             </li>
             <li className={classes["list-item"]}>
-            <CheckmarkCircle color={'#90d0e3'}/><span>Deployment</span>
+              <CheckmarkCircle color={"#90d0e3"} />
+              <span>Deployment</span>
             </li>
             <li className={classes["list-item"]}>
-            <CloseCircle color={'#90d0e3'}/><span>Hosting</span>
+              <CloseCircle color={"#90d0e3"} />
+              <span>Hosting</span>
             </li>
             <li className={classes["list-item"]}></li>
           </ul>
@@ -40,17 +45,20 @@ const Prices = () => {
           </header>
           <ul className={classes.list}>
             <li className={classes["list-item"]}>
-            <CheckmarkCircle color={'#90d0e3'}/><span>
-              Learning equipment <strong>provided</strong> if needed
+              <CheckmarkCircle color={"#90d0e3"} />
+              <span>
+                Learning equipment <strong>provided</strong> if needed
               </span>
             </li>
             <li className={classes["list-item"]}>
-            <CheckmarkCircle color={'#90d0e3'}/><span>
-              Available <strong>7 days a week</strong>
+              <CheckmarkCircle color={"#90d0e3"} />
+              <span>
+                Available <strong>7 days a week</strong>
               </span>
             </li>
             <li className={classes["list-item"]}>
-            <CheckmarkCircle color={'#90d0e3'}/><span>Music, piano, violin, saxophone</span>
+              <CheckmarkCircle color={"#90d0e3"} />
+              <span>Music, piano, violin, saxophone</span>
             </li>
           </ul>
         </Card>
@@ -64,29 +72,53 @@ const Prices = () => {
           </header>
           <ul className={classes.list}>
             <li className={classes["list-item"]}>
-            <CheckmarkCircle color={'#90d0e3'}/><span>Logos</span>
+              <CheckmarkCircle color={"#90d0e3"} />
+              <span>Logos</span>
             </li>
             <li className={classes["list-item"]}>
-            <CheckmarkCircle color={'#90d0e3'}/><span>Posters and fliers</span>
+              <CheckmarkCircle color={"#90d0e3"} />
+              <span>Posters and fliers</span>
             </li>
             <li className={classes["list-item"]}>
-            <CheckmarkCircle color={'#90d0e3'}/><span>UI/UX</span>
+              <CheckmarkCircle color={"#90d0e3"} />
+              <span>UI/UX</span>
             </li>
             <li className={classes["list-item"]}></li>
           </ul>
         </Card>
       </div>
-      <p className={classes.note}>Kindly note: the prices are in the thousands (Shs 60 is 60000). All plans include the following</p>
-        <div className={classes.common}>
-          <div className={classes["common__area"]}>
-            <div className={classes["common__area--item"]}> <h4 className={classes["common__area--heading"]}> Online collaboration<img src="/online.png" alt="" className={classes.icon}/> </h4>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, consectetur.</p>
-            </div>
-            <div className={classes["common__area--item"]}> <h4 className={classes["common__area--heading"]}>  7 days a week availability<img src="/available.png" alt="" className={classes.icon}/></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, nisi!</p>
-            </div>
+      <p className={classes.note}>
+        Kindly note: the prices are in the thousands (Shs 60 is 60000). All
+        plans include the following
+      </p>
+      <div className={classes.common}>
+        <div className={classes["common__area"]}>
+          <div className={classes["common__area--item"]}>
+            {" "}
+            <h4 className={classes["common__area--heading"]}>
+              {" "}
+              Online collaboration
+              <img src="/online.png" alt="" className={classes.icon} />{" "}
+            </h4>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore,
+              consectetur.
+            </p>
+          </div>
+          <div className={classes["common__area--item"]}>
+            {" "}
+            <h4 className={classes["common__area--heading"]}>
+              {" "}
+              7 days a week availability
+              <img src="/available.png" alt="" className={classes.icon} />
+            </h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
+              nisi!
+            </p>
           </div>
         </div>
+      </div>
     </section>
   );
 };

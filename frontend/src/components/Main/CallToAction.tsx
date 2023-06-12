@@ -7,11 +7,17 @@ const CallToAction = () => {
     <section className={classes["section-cta"]}>
       <div className={classes["cta-card"]}>
         <h3>Sign up for free</h3>
-        <h2>Start an exciting journey</h2>
+        <h2>Start Your Journey with holvada Today</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, eaque.
+          Ready to embark on a transformative journey of innovation and
+          learning? Contact us now to kickstart your project or enroll in our
+          skill-building courses.{" "}
         </p>
-        <Button text="Join us" className="" onClick={buttonHandler} />
+        <Button
+          text="Join us"
+          className={classes.btn}
+          onClick={buttonHandler}
+        />
       </div>
     </section>
   );
