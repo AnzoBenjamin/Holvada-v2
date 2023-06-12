@@ -14,17 +14,15 @@ const Guide = () => {
               Tell us what you like (and what not)
             </h3>
             <p className={classes["step-description"]}>
-              Visit our website at [website URL]. Navigate to the Programs
-              section or explore our offerings on the homepage. Browse through
-              the various programs available, including software development,
-              language learning, art, music, design, and chess. Click on the
-              program that interests you to learn more about its details,
-              curriculum, and benefits.
+              Browse through the various programs available, including software
+              development, language learning, art, music, design, and chess.
+              Hover the cursor over (swipe on mobile) the program that interests
+              you to learn more about its details, curriculum, and benefits.
             </p>
           </div>
           <div className={classes["step-img-box"]}>
             <img
-              src="/join.png"
+              src="/start.png"
               className={classes["step-img"]}
               alt="IPhone app preferences selection screen"
             />
@@ -38,17 +36,16 @@ const Guide = () => {
               Tell us what you like (and what not)
             </h3>
             <p className={classes["step-description"]}>
-              Once you have selected your desired program, click on the "Enroll"
-              or "Get Started" button. You will be directed to the payment page
-              where you can choose your preferred payment method. Select from
-              our secure and convenient payment options, which may include
-              credit/debit card, PayPal, or other available methods. Follow the
-              instructions provided to complete the payment process securely.
+              Once you have selected your desired program, click on the "Join
+              us" button. You will be directed to the payment page where you can
+              choose your preferred payment method. Select from our secure and
+              convenient payment options, which may include credit/debit card,
+              mobile money, or other available methods.
             </p>
           </div>
           <div className={classes["step-img-box"]}>
             <img
-              src="/join.png"
+              src="/join-us.png"
               className={classes["step-img"]}
               alt="IPhone app preferences selection screen"
             />
