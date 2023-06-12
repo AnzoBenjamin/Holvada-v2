@@ -101,8 +101,9 @@ const Prices = () => {
               <img src="/online.png" alt="" className={classes.icon} />{" "}
             </h4>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore,
-              consectetur.
+              With our powerful online collaboration feature, holvada enables
+              you to work together seamlessly with your team, no matter where
+              you are located.
             </p>
           </div>
           <div className={classes["common__area--item"]}>
@@ -113,8 +114,8 @@ const Prices = () => {
               <img src="/available.png" alt="" className={classes.icon} />
             </h4>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
-              nisi!
+              We're proud to offer our services seven days a week, ensuring that
+              our expertise and assistance are available to you every day.
             </p>
           </div>
         </div>

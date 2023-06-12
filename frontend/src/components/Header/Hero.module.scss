@@ -37,11 +37,21 @@
     color: $color-white;
     background-color: $color-primary-dark;
     padding: 1rem;
+    box-shadow: 0 1px 4rem rgba($color: $color-primary, $alpha: 0.5);
+    transition: background-color 300ms linear;
+    &:hover{
+      background-color: darken($color: $color-primary-dark, $amount: 20%) ;
+    }
   }
   &-secondary{
     padding: 1rem;
     color: $color-primary-dark;
     background-color: $color-white;
+    transition: background-color 300ms linear;
+    &:hover{
+      background-color: darken($color: $color-white, $amount: 10%) ;
+    }
+
   }
   
 }
