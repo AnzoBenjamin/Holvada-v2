@@ -7,9 +7,9 @@ import { animationStart, reveal } from "../../utils/animation";
 const Hero = () => {
   const videoSource: string = (() => {
     const screenWidth = window.innerWidth;
-    if (screenWidth >= 1200) return "/hero.mp4";
-    else if (screenWidth >= 576) return "/hero-tablet.mp4";
-    else return "/hero-mobile.mp4";
+    if (screenWidth >= 1200) return "/hero.webm";
+    else if (screenWidth >= 576) return "/hero-tablet.webm";
+    else return "/hero-mobile.webm";
   })()
   return (
     <div className={classes.hero}>
@@ -64,7 +64,7 @@ const Hero = () => {
       </motion.div>
       <div className={classes["video-container"]}>
         <video className={classes["hero-video"]} autoPlay muted loop>
-          <source src={videoSource} type="video/mp4" />
+          <source src={videoSource} type="video/webm" />
         </video>
       </div>
     </div>
