@@ -15,7 +15,7 @@ const Prices = () => {
           <header className={classes["plan-header"]}>
             <p className={classes["plan-name"]}>Development</p>
             <p className={classes["plan-price"]}>
-              <span>Shs</span>500
+              <span>Ugx</span>500
             </p>
             <p className={classes["plan-text"]}>the minimum per project.</p>
           </header>
@@ -39,7 +39,7 @@ const Prices = () => {
           <header className={classes["plan-header"]}>
             <p className={classes["plan-name"]}>Skilling</p>
             <p className={classes["plan-price"]}>
-              <span>Shs</span>50
+              <span>Ugx</span>50
             </p>
             <p className={classes["plan-text"]}>per hourly session.</p>
           </header>
@@ -66,7 +66,7 @@ const Prices = () => {
           <header className={classes["plan-header"]}>
             <p className={classes["plan-name"]}>Graphics design</p>
             <p className={classes["plan-price"]}>
-              <span>Shs</span>60
+              <span>Ugx</span>60
             </p>
             <p className={classes["plan-text"]}>per project.</p>
           </header>
@@ -88,7 +88,7 @@ const Prices = () => {
         </Card>
       </div>
       <p className={classes.note}>
-        Kindly note: the prices are in the thousands (Shs 60 is 60000). All
+        Kindly note: the prices are in the thousands (Ugx 60 is 60000). All
         plans include the following
       </p>
       <div className={classes.common}>
