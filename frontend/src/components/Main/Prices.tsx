@@ -58,7 +58,7 @@ const Prices = () => {
             </li>
             <li className={classes["list-item"]}>
               <CheckmarkCircle color={"#90d0e3"} />
-              <span>Music, piano, violin, saxophone</span>
+              <span>Includes music, lanuage, chess, art</span>
             </li>
           </ul>
         </Card>

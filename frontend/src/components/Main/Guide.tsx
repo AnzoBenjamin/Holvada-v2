@@ -11,7 +11,7 @@ const Guide = () => {
           <div className={classes["step-text-box"]}>
             <p className={classes["step-number"]}>01</p>
             <h3 className={classes["heading-tertiary"]}>
-              Tell us what you like (and what not)
+              Select Your Desired Program
             </h3>
             <p className={classes["step-description"]}>
               Browse through the various programs available, including software
@@ -32,9 +32,7 @@ const Guide = () => {
         <div className={classes["steps--two"]}>
           <div className={classes["step-text-box"]}>
             <p className={classes["step-number"]}>02</p>
-            <h3 className="heading-tertiary">
-              Tell us what you like (and what not)
-            </h3>
+            <h3 className="heading-tertiary">Choose Your Payment Method</h3>
             <p className={classes["step-description"]}>
               Once you have selected your desired program, click on the "Join
               us" button. You will be directed to the payment page where you can
@@ -56,13 +54,11 @@ const Guide = () => {
           <div className={classes["step-text-box"]}>
             <p className={classes["step-number"]}>03</p>
             <h3 className="heading-tertiary">
-              Tell us what you like (and what not)
+              Select Online or Physical Program{" "}
             </h3>
             <p className={classes["step-description"]}>
-              After completing the payment, you can choose
-              between online or physical collaboration, depending on the
-              program you have selected. If you opt for the online program, you
-              will gain access to our virtual learning platform, where you can
+              After completing the payment, you can choose between online or
+              physical collaboration. If you opt for the online program, you can
               access course materials, interact with instructors, and
               participate in collaborative activities remotely. If you prefer
               the physical program, you will be provided with details on the

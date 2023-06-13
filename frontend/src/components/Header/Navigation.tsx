@@ -45,7 +45,7 @@ const HiddenNav: React.FC<HiddenNavProps> = ({ isVisible, setMenu }) => {
           </Link>
         </li>
         <li className={classes["nav__hidden--item"]}>
-          <Link smooth to="section-about" onClick={hiddenMenuHandler}>
+          <Link smooth to="section-guide" onClick={hiddenMenuHandler}>
             How To
           </Link>
         </li>

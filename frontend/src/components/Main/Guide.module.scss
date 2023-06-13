@@ -1,3 +1,7 @@
+.section-guide{
+    margin-top: 8.6rem;
+}
+
 .steps {
     margin-top: 8rem;
   display: grid;
@@ -17,6 +21,7 @@
 }
 .heading-tertiary {
   font-size: 1.4rem;
+  margin-bottom: .6rem;
 }
 .step-img-box::before,
 .step-img-box::after {
@@ -53,6 +58,7 @@
 }
 .step-description {
   line-height: 1.8;
+  margin-top: .75rem;
 }
 
 @media (min-width: 1200px) {
