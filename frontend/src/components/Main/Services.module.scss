@@ -5,6 +5,15 @@
   font-family: "Inter", sans-serif;
   font-weight: 500;
   gap: 1.5rem;
+  &-item{
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    &__icon{
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
 }
 
 @keyframes fadeIn {

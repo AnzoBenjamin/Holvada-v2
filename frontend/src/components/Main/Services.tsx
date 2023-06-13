@@ -8,6 +8,7 @@ interface ServiceItemProps {
   imageClass: string;
   title: string;
   items: string[];
+  itemIcon: string;
   bgClass: string;
   otherClass: string;
   description: string;
@@ -16,6 +17,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   imageClass,
   title,
   items,
+  itemIcon,
   bgClass,
   otherClass,
   description
@@ -55,7 +57,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
         <ul className={classes.list}>
           {items.map((item, index) => (
             <li key={index} className={classes["list-item"]}>
-              <span>{item}</span>
+              <img src={itemIcon} className={classes["list-item__icon"]}/> <span>{item}</span>
             </li>
           ))}
         </ul>
@@ -72,10 +74,10 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
 const Services = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [visibleItems, setVisibleItems] = useState<
-    { imageClass: string; bgClass: string; title: string; items: string[]; description: string }[]
+    { imageClass: string; bgClass: string; title: string; items: string[]; itemIcon: string; description: string }[]
   >([]);
   const [extraItems, setExtraItems] = useState<
-    { imageClass: string; bgClass: string; title: string; items: string[]; description: string }[]
+    { imageClass: string; bgClass: string; title: string; items: string[]; itemIcon: string; description: string }[]
   >([]);
 
   const buttonHandler = () => {
@@ -97,6 +99,7 @@ const Services = () => {
           "Backend development",
           "Software as a service",
         ],
+        itemIcon: "/code-icon.webp",
         description:
           "Whether you need a mobile application that puts your business in the hands of your customers or a robust software system that powers your operations, our team of experts has you covered. From frontend development that creates captivating user interfaces to backend development that ensures seamless functionality, we deliver tailored software solutions that meet your unique needs.",
       },
@@ -105,6 +108,7 @@ const Services = () => {
         bgClass: classes["art__bg"],
         title: "Art",
         items: ["Oil Paintings", "Pencil drawings", "Sculptures"],
+        itemIcon: "/art-icon.webp",
         description: "Unleash your creativity and explore the world of art with our diverse art services. From oil paintings that bring life to your imagination to intricately detailed pencil drawings and awe-inspiring sculptures, our art offerings cater to various artistic expressions."
       },
       {
@@ -112,6 +116,7 @@ const Services = () => {
         bgClass: classes["language__bg"],
         title: "Language",
         items: ["English", "French", "Kiswahili"],
+        itemIcon: "/language-icon.webp",
         description: "Whether you're looking to expand your business reach or enhance your personal growth, our language programs offer a tailored approach to mastering English, French, or Kiswahili. Our experienced instructors employ engaging teaching methods that encompass listening, speaking, reading, and writing skills. From beginner levels to advanced fluency."
       },
       {
@@ -124,6 +129,7 @@ const Services = () => {
           "Logo design",
           "Flyer and poster design",
         ],
+        itemIcon: "/design-icon.webp",
         description: "From user interface (UI) design that focuses on crafting intuitive and aesthetically pleasing digital experiences to user experience (UX) design that ensures seamless interactions, we are dedicated to creating designs that captivate and engage. Additionally, we offer logo design services that reflect your brand identity and flyer/poster design that grabs attention and delivers your message effectively."
       },
       {
@@ -135,6 +141,7 @@ const Services = () => {
           "Vocal training",
           "Instruments (Guitar, Piano, Violin)",
         ],
+        itemIcon: "/music-icon.webp",
         description: "Discover the joy of music and develop your musical talents with our comprehensive music services. From music theory that lays a solid foundation to vocal training that refines your singing abilities, we offer a range of courses for aspiring musicians and vocalists. Additionally, we provide instrument lessons to help you master your chosen instrument."
       },
       {
@@ -146,6 +153,7 @@ const Services = () => {
           "Practical training",
           "Competitions",
         ],
+        itemIcon: "/chess-icon.webp",
         description: "Engage in the strategic world of chess and sharpen your mind with our chess services. Whether you're a beginner seeking to learn the fundamentals or an experienced player looking to refine your skills, our chess programs cater to all levels."
       },
     ];
@@ -175,6 +183,7 @@ const Services = () => {
             imageClass={item.imageClass}
             title={item.title}
             items={item.items}
+            itemIcon={item.itemIcon}
             bgClass={item.bgClass}
             otherClass=""
             description={item.description}
@@ -188,6 +197,7 @@ const Services = () => {
                 imageClass={item.imageClass}
                 title={item.title}
                 items={item.items}
+                itemIcon={item.itemIcon}
                 bgClass={item.bgClass}
                 otherClass={
                   isExpanded ? classes["fade-in"] : classes["fade-out"]
