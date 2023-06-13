@@ -72,7 +72,7 @@ const Guide = () => {
           </div>
           <div className={classes["step-img-box"]}>
             <img
-              src="/join.png"
+              src="/success.png"
               className={classes["step-img"]}
               alt="IPhone app preferences selection screen"
             />
