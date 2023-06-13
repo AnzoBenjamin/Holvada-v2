@@ -22,7 +22,7 @@ const Guide = () => {
           </div>
           <div className={classes["step-img-box"]}>
             <img
-              src="/start.png"
+              src="/start.webp"
               className={classes["step-img"]}
               alt="IPhone app preferences selection screen"
             />
@@ -45,7 +45,7 @@ const Guide = () => {
           </div>
           <div className={classes["step-img-box"]}>
             <img
-              src="/join-us.png"
+              src="/join-us.webp"
               className={classes["step-img"]}
               alt="IPhone app preferences selection screen"
             />
@@ -59,8 +59,8 @@ const Guide = () => {
               Tell us what you like (and what not)
             </h3>
             <p className={classes["step-description"]}>
-              After completing the payment, you will be prompted to choose
-              between online or physical program delivery, depending on the
+              After completing the payment, you can choose
+              between online or physical collaboration, depending on the
               program you have selected. If you opt for the online program, you
               will gain access to our virtual learning platform, where you can
               access course materials, interact with instructors, and
@@ -72,7 +72,7 @@ const Guide = () => {
           </div>
           <div className={classes["step-img-box"]}>
             <img
-              src="/success.png"
+              src="/success.webp"
               className={classes["step-img"]}
               alt="IPhone app preferences selection screen"
             />
