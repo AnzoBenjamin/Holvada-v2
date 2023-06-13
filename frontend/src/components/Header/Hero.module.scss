@@ -41,6 +41,7 @@
     box-shadow: 0 1px 4rem rgba($color: $color-primary, $alpha: 0.5);
     transition: background-color 300ms linear;
     font-family: 'Inter', sans-serif;
+    width: max-content;
     &:hover{
       background-color: darken($color: $color-primary-dark, $amount: 20%) ;
     }

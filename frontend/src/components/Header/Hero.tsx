@@ -51,14 +51,14 @@ const Hero = () => {
           className={classes["hero__btn-area"]}
         >
           <Link smooth to="section-prices" className={classes["btn-primary"]}>
-            Start Learning
+            Discover
           </Link>
           <Link
             smooth
             to="section-services"
             className={classes["btn-secondary"]}
           >
-            Learn more
+            Details
           </Link>
         </motion.div>
       </motion.div>
