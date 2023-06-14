@@ -11,6 +11,7 @@
   display: grid;
   gap: 1rem;
   margin-inline: auto;
+  box-shadow: 0 4px 4rem rgba($color: $color-primary, $alpha: 0.5);
 }
 
 .btn {

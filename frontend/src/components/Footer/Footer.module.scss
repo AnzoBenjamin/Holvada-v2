@@ -1,72 +1,101 @@
-@import '../../scss/utils/variables';
+@import "../../scss/utils/variables";
 
-.footer{
-    background-color: $color-grey-light;
-    color: $color-grey;
-    margin-top: 6rem;
-    padding: 1.5rem;
+.footer {
+  background-color: $color-grey-light;
+  color: $color-grey;
+  margin-top: 6rem;
+  padding: 1.5rem;
+  display: grid;
+  justify-content: space-between;
+  grid-template-areas:
+    "link"
+    "text" 
+    "contact";
+  align-items: center;
+  font-size: 0.8rem;
+  row-gap: 2.5rem;
+  &__link-container {
     display: grid;
-    justify-content: space-between;
-    grid-template-areas: "link link"
-                        "text contact";
+    grid-area: link;
+  }
+  &__text-content {
+    display: grid;
+    grid-area: text;
+    gap: 0.5rem;
+    justify-content: center;
     align-items: center;
-    font-size: .8rem;
-    row-gap: 1.5rem;
-    &__link-container{
-        display: flex;
-        justify-content: space-between;
-        grid-area: link;
-    }
-    &__text-content{
-        display: grid;
-        grid-area: text;
-        gap: .5rem;
-        justify-content: center;
-        align-items: center;
-    }
-    &__contact-info{
-        display: grid;
-        grid-area: contact;
-        gap: .75rem;
-    }
-    &__icon-container{
-        display: flex;
-        gap: 1rem;
-    }
-    &-copyright{
-        margin-top: 1rem;
-    }
-    &-icon{
-        width: .8rem;
-        height: .8rem;
-    }
+  }
+  &__contact-info {
+    display: grid;
+    grid-area: contact;
+    gap: 0.75rem;
+  }
+  &__links {
+    display: grid;
+  }
+  &__icon-container {
+    display: flex;
+    gap: 1rem;
+  }
+  &-about {
+    font-size: $fs-300;
+  }
+  &-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
 
-    &__header{
+  &__header {
     font-family: "Cera-heavy", sans-serif;
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: $fs-600;
+  }
+  &-heading-secondary {
+    font-size: $fs-500;
+    font-family: "Cera-bold", sans-serif;
+  }
 }
+.contact-container{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+@media (min-width: 660px) {
+  .footer {
+    grid-template-areas: "text link contact";
+    padding-inline: 2.5rem;
+    &__link-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
 }
 
 @media (min-width: 1200px) {
-    .footer{
-        grid-template-areas: 'text link contact';
-        &__link-container{
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
+  .footer {
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    gap: 2rem;
+    &__link-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
     }
-}
-
-@media (min-width: 660px) {
-    .footer{
-        grid-template-areas: 'text link contact';
-        padding-inline: 2.5rem;
-        &__link-container{
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
+    &__links {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
     }
+    &__text-content {
+      gap: 1rem;
+    }
+    &__link-container {
+      justify-self: center;
+    }
+    &__contact-info {
+      justify-self: end;
+      font-size: $fs-400;
+    }
+  }
 }

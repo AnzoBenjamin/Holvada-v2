@@ -145,6 +145,28 @@
   padding: 1rem;
   border-radius: 2px;
 }
+@media (min-width: 768px) {
+  .section-prices {
+    padding: 3rem 2rem;
+  }
+  .common {
+    &__area {
+      grid-template-columns: repeat(2, 1fr);
+      &--item {
+        width: 70%;
+        margin-inline: auto;
+      }
+    }
+  }
+  .card-area {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .starter, .complete{
+    padding: 1rem;
+    height: 100%;
+  }
+}
 
 @media (min-width: 1000px) {
   .common {
@@ -168,30 +190,12 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
+  .starter, .complete{
+    padding: 2rem;
+  }
   .starter {
     height: 90%;
   }
 }
 
-@media (min-width: 768px) {
-  .section-prices {
-    padding: 3rem 2rem;
-  }
-  .common {
-    &__area {
-      grid-template-columns: repeat(2, 1fr);
-      &--item {
-        width: 70%;
-        margin-inline: auto;
-      }
-    }
-  }
-  .card-area {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-  .starter, .complete{
-    padding: 1rem;
-    height: 100%;
-  }
-}
+

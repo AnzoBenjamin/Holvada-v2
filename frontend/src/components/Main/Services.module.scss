@@ -254,6 +254,9 @@
   }
 }
 @media (min-width: 1200px) {
+  .list {
+    padding: 2rem;
+  }
   .show-more {
     grid-column: 2/4;
   }
