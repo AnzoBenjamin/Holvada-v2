@@ -6,6 +6,7 @@ import Loading from "./UI/Loading";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
+  /* Loading screen animation */
   useEffect(() => {
     const handleLoad = () => {
       setIsLoading(false);
@@ -19,6 +20,8 @@ function App() {
 
     return () => window.removeEventListener("load", handleLoad);
   }, []);
+
+
   return (
     <>
      { isLoading ? <Loading/> : <Home /> }

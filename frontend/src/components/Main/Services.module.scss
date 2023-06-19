@@ -8,13 +8,15 @@
   &-item{
     display: flex;
     align-items: center;
-    gap: .25rem;
+    gap: .5rem;
     &__icon{
-      width: 1.2rem;
-      height: 1.2rem;
+      width: 1.6rem;
+      height: 1.6rem;
     }
   }
 }
+
+
 
 @keyframes fadeIn {
   0% {
@@ -202,20 +204,21 @@
   background-position: center;
 }
 .btn {
+  text-align: center;
   margin-inline: auto;
   margin-top: 0.75rem;
-  background-color: $color-tertiary;
+  background-color: $color-primary;
   color: $color-white;
   padding: 0.5rem 1.5rem;
   width: 50%;
-  box-shadow: 0 1px 16px $color-tertiary;
+  box-shadow: 0 1px 16px $color-white;
   transition: box-shadow 400ms, background-color 400ms;
   &:active {
     box-shadow: none;
     transform: translateY(0.1rem);
   }
   &:hover {
-    background-color: $color-tertiary-dark;
+    background-color: $color-primary-dark;
   }
 }
 @media (min-width: 470px) {
@@ -268,8 +271,9 @@
     padding: 7.5rem 6rem;
     &__area {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
+      justify-content: center;
     }
   }
   .btn {
