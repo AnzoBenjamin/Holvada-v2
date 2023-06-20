@@ -11,6 +11,7 @@ interface ServiceItemProps {
   itemIcon: string[];
   bgClass: string;
   otherClass: string;
+  link: string;
   description: string;
 }
 const ServiceItem: React.FC<ServiceItemProps> = ({
@@ -20,6 +21,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   itemIcon,
   bgClass,
   otherClass,
+  link,
   description,
 }) => {
   const [isFlipped, setisFlipped] = useState(false);
@@ -68,7 +70,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       </div>
       <div className={`${classes["section-services__area--back"]} ${bgClass}`}>
         <p>{description}</p>
-        <a href="#" className={classes.btn}>More</a>
+        <Link to={link} className={classes.btn}>More</Link>
       </div>
     </div>
   );
@@ -92,6 +94,7 @@ const Services = () => {
         "/design-icon.webp",
         "/saas.webp",
       ],
+      link: "/tech",
       description:
         "Whether you need a mobile application that puts your business in the hands of your customers or a robust software system that powers your operations, our team of experts has you covered. From frontend development that creates captivating user interfaces to backend development that ensures seamless functionality, we deliver tailored software solutions that meet your unique needs.",
     },
@@ -106,6 +109,7 @@ const Services = () => {
         "/music-icon.webp",
         "/chess-icon.webp",
       ],
+      link: "/learn",
       description:
         "Unleash your creativity and explore the world of art with our diverse art services. From oil paintings that bring life to your imagination to intricately detailed pencil drawings and awe-inspiring sculptures, our art offerings cater to various artistic expressions.",
     },
@@ -120,6 +124,7 @@ const Services = () => {
         "/music-icon.webp",
         "/chess-icon.webp",
       ],
+      link: "/performance",
       description:
         "Unleash your creativity and explore the world of art with our diverse art services. From oil paintings that bring life to your imagination to intricately detailed pencil drawings and awe-inspiring sculptures, our art offerings cater to various artistic expressions.",
     },
@@ -141,6 +146,7 @@ const Services = () => {
             itemIcon={item.itemIcon}
             bgClass={item.bgClass}
             otherClass=""
+            link={item.link}
             description={item.description}
           />
         ))}

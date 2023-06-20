@@ -5,7 +5,7 @@
   align-items: center;
   font-size: $fs-500;
   padding: 1rem 1.5rem;
-  font-family: 'Cera-light', sans-serif;
+  font-family: "Cera-light", sans-serif;
   &.fixed {
     z-index: 10000;
     position: fixed;
@@ -17,28 +17,6 @@
     backdrop-filter: blur(20px);
     box-shadow: 0 1px 4rem rgba($color: $color-grey, $alpha: 0.15);
   }
-  &__hidden {
-    position: fixed;
-    background-image: linear-gradient(
-      to top left,
-      $color-primary,
-      $color-primary-light
-    );
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 100;
-    grid-template-rows: 3rem 1fr;
-    padding: 1.5rem;
-    opacity: 0;
-    transform: translate(100%, -100%);
-    transition: opacity 400ms, transform 200ms;
-
-    &.visible {
-      opacity: 1;
-      transform: translate(0, 0);
-    }
     &--header {
       display: flex;
       justify-content: space-between;
@@ -60,29 +38,25 @@
         color: $color-secondary;
       }
     }
-  }
-
-  &__header {
-    font-family: "Cera-bold", sans-serif;
-    text-transform: uppercase;
-    font-size: $fs-500;
-    letter-spacing: 1px;
-  }
-  &__left {
+    
+    &__header {
+      font-family: "Cera-bold", sans-serif;
+      text-transform: uppercase;
+      font-size: $fs-500;
+      letter-spacing: 1px;
+    }
+    &__left {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
   &__icon {
-    
     height: 1.6rem;
     width: 1.6rem;
     cursor: pointer;
   }
 }
-.desktop-nav {
-  display: none;
-}
+
 
 @media (min-width: 470px) {
   .nav {
@@ -96,77 +70,19 @@
     padding-inline: 1rem;
   }
 }
-@keyframes fill {
-  0% {
-    width: 0%;
-    height: 1px;
-  }
-  50% {
-    width: 100%;
-    height: 1px;
-  }
-  100% {
-    width: 100%;
-    height: 100%;
-    background: $color-primary;
-  }
-}
+
 @media (min-width: 1000px) {
-  .desktop-nav {
-    display: flex;
-    gap: 2.5rem;
-
-    &--item {
-      color: $color-secondary-light;
-      position: relative;
-      padding: .5rem .75rem;
-
-      &::before {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 0%;
-        content: ".";
-        color: transparent;
-        background: #aaa;
-        height: 1px;
-        transition: all 2s;
-        text-align: left;
-        margin: 0;
-        opacity: 0;
-      }
-
-      &:hover {
-        color: $color-white;
-        z-index: 1;
-
-        &::before {
-          z-index: -10;
-          animation: fill 1s forwards;
-          -webkit-animation: fill 1s forwards;
-          -moz-animation: fill 1s forwards;
-          opacity: 1;
-        }
-      }
-    }
-  }
   .mobile-nav {
     display: none;
   }
   .nav {
     display: grid;
-    grid-template-columns: 1fr 2.5fr;
+    grid-template-columns: 1fr 2fr;
     padding: 1.5rem 6rem;
     &.fixed {
       padding: 1.5rem 6rem;
     }
-    &__hidden {
-      &--items {
-        font-size: $fs-800;
-        transform: translate(-100%, -50%);
-      }
-    }
+
 
     &__header {
       font-size: $fs-600;
