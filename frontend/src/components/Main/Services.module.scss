@@ -58,9 +58,9 @@
     );
   }
 }
-.design {
+.performance {
   background-image: linear-gradient(to bottom right, #54653c, #4a624c),
-    url("/design.webp");
+    url("/performance.webp");
   &__bg {
     background-image: linear-gradient(to bottom right, #54653c, #4a624c);
   }
@@ -73,34 +73,6 @@
   }
 }
 
-.language {
-  background-image: linear-gradient(to bottom right, #a70633, #cd2329),
-    url("/language.webp");
-  &__bg {
-    background-image: linear-gradient(to bottom right, #a70633, #cd2329);
-  }
-  span {
-    background-image: linear-gradient(
-      to right bottom,
-      rgba(#a70633, 0.8),
-      rgba(#cd2329, 0.8)
-    );
-  }
-}
-.music {
-  background-image: linear-gradient(to bottom right, #090708, #292621),
-    url("/music.webp");
-  &__bg {
-    background-image: linear-gradient(to bottom right, #090708, #292621);
-  }
-  span {
-    background-image: linear-gradient(
-      to right bottom,
-      rgba(#090708, 0.8),
-      rgba(#292621, 0.8)
-    );
-  }
-}
 .code {
   background-image: linear-gradient(to bottom right, #0192cb, #01a1b6),
     url("/code.webp");
@@ -177,6 +149,10 @@
       font-weight: normal;
       align-items: center;
       transform: rotateY(180deg);
+      .btn{
+        background-color: $color-white;
+        color: $color-secondary;
+      }
       &.flipped {
         transform: rotateY(0deg);
       }
@@ -218,7 +194,7 @@
     transform: translateY(0.1rem);
   }
   &:hover {
-    background-color: $color-primary-dark;
+    background-color: $color-grey-light;
   }
 }
 @media (min-width: 470px) {
@@ -272,8 +248,9 @@
     &__area {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 5rem;
       justify-content: center;
+      padding-inline: 3rem;
     }
   }
   .btn {
