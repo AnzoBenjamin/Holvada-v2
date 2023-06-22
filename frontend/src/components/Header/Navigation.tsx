@@ -52,7 +52,7 @@ const Navigation: React.FC<NavigationProps> = ({ isFixed, navHeading, navItems, 
         className={`${classes.nav} ${isFixed ? classes.fixed : ""} `}
       >
         <motion.h2 variants={reveal} className={classes["nav__header"]}>
-          Holvada
+          {navHeading}
         </motion.h2>
         <motion.div className={classes["nav__left"]}>
 

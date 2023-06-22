@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Home from "./components/Home";
 import Technology from "./components/Technology/Technology";
-import Learning from "./components/Learning";
-import Performance from "./Performance";
+import Learning from "./components/Main/Learning/Learning";
+import Performance from "./components/Main/Performance/Performance";
 import Loading from "./UI/Loading";
 
 function App() {

@@ -7,12 +7,14 @@ interface HeaderProps {
   navHeading: string;
   navItems: string[];
   navLinks: string[];
+  otherClasses: string;
 }
 const Header: React.FC<HeaderProps> = ({
   HeroElement,
   navHeading,
   navItems,
   navLinks,
+  otherClasses
 }) => {
   const headerRef = useRef(null);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -35,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({
   }, [isHeaderVisible]);
 
   return (
-    <header ref={headerRef} className={classes.header} id="header">
+    <header ref={headerRef} className={`${otherClasses} ${classes.header}`} id="header">
       <Navigation
         isFixed={isHeaderVisible}
         navItems={navItems}

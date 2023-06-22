@@ -29,11 +29,11 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-  background: #17191f;
+  background: $color-secondary-light;
 }
 
 html::-webkit-scrollbar-thumb {
-  background: #3d3f44;
+  background: $color-secondary;
   border-radius: 10px;
 }
 @media (min-width: 470px) {
