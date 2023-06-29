@@ -4,6 +4,7 @@ import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
 import Hero from "./Header/Hero";
 import classes from './Home.module.scss'
+import {animationStart} from '../utils/animation'
 
 const Home = () => {
   const navItems = ["Home", "How to", "Services", "Pricing"];
@@ -22,6 +23,7 @@ const Home = () => {
         navLinks={navLinks}
         navHeading="Holvada"
         otherClasses={classes.hero}
+        animationStart={animationStart}
       />
       <Main />
       <Footer />

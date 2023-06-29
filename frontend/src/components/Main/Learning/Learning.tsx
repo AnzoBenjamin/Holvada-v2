@@ -1,13 +1,35 @@
-import React from 'react'
-import Header from '../../Header/Header'
-import LearnHero from './LearnHero'
+import React from "react";
+import Header from "../../Header/Header";
+import LearnHero from "./LearnHero";
+import classes from "./Learning.module.scss";
+import Footer from "../../Footer/Footer";
+import LearnMain from "./LearnMain";
+import {secondaryAnimationStart} from '../../../utils/animation'
 
-const Learning = () => {
-  const navItems=["Home","Music", "Code", "Chess", "Art"]
-  const navLinks=["section-home", "section-music", "section-code", "section-chess", "section-art"]
+const Learning: React.FC = () => {
+  const navItems = ["Home", "Art", "Tech", "Chess", "Language", "Music"];
+  const navLinks = [
+    "section-home",
+    "section-art",
+    "section-tech",
+    "section-chess",
+    "section-language",
+    "section-music"
+  ];
   return (
-    <Header navItems={navItems} navLinks={navLinks} navHeading='Learn' HeroElement={LearnHero} otherClasses={classes.hero}/>
-  )
-}
+    <React.Fragment>
+      <Header
+        navItems={navItems}
+        navLinks={navLinks}
+        navHeading="Learn"
+        HeroElement={LearnHero}
+        otherClasses={classes.hero}
+        animationStart={secondaryAnimationStart}
+      />
+      <LearnMain/>
+      <Footer />
+    </React.Fragment>
+  );
+};
 
-export default Learning
+export default Learning;

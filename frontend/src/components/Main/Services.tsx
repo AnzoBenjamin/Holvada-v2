@@ -70,7 +70,9 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       </div>
       <div className={`${classes["section-services__area--back"]} ${bgClass}`}>
         <p>{description}</p>
-        <Link to={link} className={classes.btn}>More</Link>
+        <Link to={link} className={classes.btn}>
+          More
+        </Link>
       </div>
     </div>
   );

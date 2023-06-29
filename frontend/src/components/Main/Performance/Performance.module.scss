@@ -2,10 +2,6 @@
 
 .hero {
   color: $color-primary-light !important;
-  background-image: linear-gradient(
-      rgba($color-black, 0.75),
-      rgba($color-black, 0.75)
-    ),
-    url("/performance.webp");
-  background-size: cover;
+  z-index: 0;
+  background-color: $color-primary-light;
 }

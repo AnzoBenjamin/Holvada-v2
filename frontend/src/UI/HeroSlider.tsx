@@ -1,61 +1,94 @@
-import React, { useEffect, useRef } from "react";
-import classes from './HeroSlider.module.scss'
+import React, { useEffect, useState } from "react";
+import classes from "./HeroSlider.module.scss";
+import { Link } from "react-scroll";
 
 interface SlideProps {
   imageURL: string;
-  mainText: string;
-  subText: string;
+  text: string;
+  category: string;
+  index: number;
+  currentPair: number;
+  tag: string;
 }
 
-interface HeroSliderProps{
-    slideData: {imageURL: string, mainText: string, subText: string}[];
+interface HeroSliderProps {
+  slideData: {
+    imageURL: string;
+    text: string;
+    category: string;
+    tag: string;
+  }[];
 }
 
-const Slide: React.FC<SlideProps> = ({ imageURL, mainText, subText }) => {
+const Slide: React.FC<SlideProps> = ({
+  index,
+  currentPair,
+  imageURL,
+  text,
+  category,
+  tag,
+}) => {
+  console.log(category);
   return (
-    <div className={classes.slide}>
-      <div
-        className={classes["slide__background"]}
-        style={{ backgroundImage: `url(${imageURL})` }}
-      ></div>
-      <div className={classes["slide__content"]}>
-        <h1 className={classes["slide__main-text"]}>{mainText}</h1>
-        <p className={classes["slide__subtext"]}>{subText}</p>
+    <div
+      key={index}
+      className={` ${classes["hero-slider__pair"]} ${
+        index === currentPair ? classes.active : classes.exit
+      }`}
+      style={{
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.85)) ,url(${imageURL})`,
+      }}
+    >
+      <div className={classes["hero-slider__text"]}>
+        <div className={classes["hero-slider__heading-area"]}>
+          <h3 className={classes["heading-secondary"]}>0{index + 1}</h3>
+          <h1 className={classes["heading-primary"]}>{text}</h1>
+        </div>
+        <div className={classes["hero-slider__other-area"]}>
+          <p>
+            <span className={classes["category-tag"]}>category</span>
+
+            <span className={classes["heading-tertiary"]}>{category}</span>
+          </p>
+            <Link smooth to={`section-${category}`} className={classes.btn}>
+              {tag}
+            </Link>
+        </div>
       </div>
     </div>
   );
 };
 
-const HeroSlider: React.FC<HeroSliderProps> = ({slideData}) => {
-  const sliderRef = useRef<HTMLDivElement>(null);
+const HeroSlider: React.FC<HeroSliderProps> = ({ slideData }) => {
+  const [currentPair, setCurrentPair] = useState(0);
 
   useEffect(() => {
-    const slider = sliderRef.current;
-    const slides: NodeListOf<HTMLElement> | undefined = slider?.querySelectorAll('.slide')
-    let currentSlide = 0;
+    const intervalID = setInterval(() => {
+      setCurrentPair((prevPair) => (prevPair + 1) % slideData.length);
+    }, 7000);
 
-    const showSlide = (slideIndex: number)=>{
-        slides?.forEach((slide, index)=>{
-            if(index == slideIndex) slide.classList.add('active')
-            else slide.classList.remove('active')
-        })
-    }
-
-    const nextSlide = () => {
-        if(slides){
-            currentSlide = (currentSlide + 1) % slides.length
-        }
-        showSlide(currentSlide)
-    }
-
-    const intervalID = setInterval(nextSlide, 7000)
-
-    return () => {clearInterval(intervalID)};
+    return () => {
+      clearInterval(intervalID);
+    };
   }, []);
 
-  return <div ref={sliderRef} className={classes["hero-slider"]}>
-    {slideData.map((slide, index) => <Slide key={index} imageURL={slide.imageURL} mainText={slide.mainText} subText={slide.subText}/>)}
-  </div>;
+  return (
+    <div className={classes["hero-slider"]}>
+      {slideData.map((slide, index) => {
+        return (
+          <Slide
+            key={index}
+            imageURL={slide.imageURL}
+            text={slide.text}
+            currentPair={currentPair}
+            index={index}
+            category={slide.category}
+            tag={slide.tag}
+          />
+        );
+      })}
+    </div>
+  );
 };
 
 export default HeroSlider;

@@ -14,7 +14,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ items, links }) => {
   return (
     <ul className={classes["desktop-nav"]}>
       {items.map((item, index) => (
-        <motion.li key={index} variants={reveal} className={classes["desktop-nav--item"]}>
+        <motion.li key={index} variants={reveal} className={`${classes["desktop-nav--item"]}`}>
           <Link smooth to={links[index]}>
             {item}
           </Link>

@@ -12,6 +12,7 @@
   color: $color-secondary-light;
   font-size: $fs-400;
   font-family: "Cera-light", sans-serif;
+  text-transform: capitalize;
 }
 .heading-primary {
   color: $color-secondary;
@@ -35,10 +36,17 @@
     font-size: $fs-700;
   }
 }
+.grid{
+  display: grid;
+  align-items: center;
+}
 
-@media (min-width: 1200px) {
+.grid-2-cols{
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 1000px) {
   .heading-secondary {
-    font-size: $fs-700;
+    font-size: $fs-800;
   }
   .heading-tertiary {
     font-size: $fs-500;

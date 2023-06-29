@@ -1,14 +1,3 @@
-@import '../../../scss/utils/variables';
 .hero{
-    height: 80%;
-    padding: 14rem;
-    &-heading{
-        font-size: $fs-900*2.5;
-        text-transform: lowercase;
-        word-break: break-all;
-    }
-    &-number{
-        font-size: $fs-700;
-        color: $color-grey;
-    }
+    z-index: 0;
 }
