@@ -16,10 +16,10 @@ p {
   font-size: $fs-300;
 }
 section {
-  max-width: 120rem;
+  max-width: 75rem;
   padding-inline: 1.5rem;
   margin-inline: auto;
-  margin-block: 6.5rem;
+  margin-block: 15rem;
 }
 *:focus {
   outline: 2px solid $color-primary;
@@ -43,6 +43,5 @@ html::-webkit-scrollbar-thumb {
 }
 @media (min-width: 1000px) {
   section {
-    padding-inline: 6rem;
   }
 }

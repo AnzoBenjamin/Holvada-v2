@@ -5,7 +5,7 @@
     clip-path: ellipse(100% 100% at 50% 50%);
   }
   100% {
-    clip-path: ellipse(100% 100% at 50% 180%);
+    clip-path: ellipse(100% 100% at 50% 160%);
   }
 }
 
@@ -19,9 +19,12 @@
 .hero {
   text-align: center;
   display: grid;
+  max-width: 75rem;
+  margin-inline: auto;
   &-content {
     z-index: 0;
     padding: 1.5rem 3rem 0 3rem;
+    margin-top: 2.5rem;
   }
   &__text-area {
     margin-top: 1.5rem;

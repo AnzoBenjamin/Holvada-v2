@@ -51,11 +51,11 @@
     gap: 6rem;
     transform: translate( 0,-50%);
     .heading-secondary{
-      font-size: $fs-700;
+      font-size: $fs-600;
       color: $color-grey;
     }
     .heading-primary{
-      font-size: $fs-900*2.5;
+      font-size: $fs-900*1.8;
       max-width: 10ch;
       text-transform: uppercase;
       font-family: 'Cera-heavy', sans-serif;
@@ -120,7 +120,7 @@
 }
 .btn{
   text-transform: capitalize;
-  font-size: $fs-600;
+  font-size: $fs-500;
   background-color: $color-tertiary;
   padding: 1rem 1.2rem;
   font-family: 'Cera-light', sans-serif;
@@ -131,5 +131,22 @@
   &:active{
     background-color: $color-tertiary-dark;
     box-shadow: none;
+  }
+}
+
+@media (min-width: 1000px){
+  .hero-slider{
+    &__text{
+      .heading-secondary{
+        font-size: $fs-700;
+      }
+      .heading-primary{
+        font-size: $fs-900*2.5;
+        max-width: 10ch;
+      }
+    }
+    .btn{
+      font-size: $fs-600;
+    }
   }
 }

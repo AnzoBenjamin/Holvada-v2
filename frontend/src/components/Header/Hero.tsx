@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
         layout
         initial={{ height: 0 }}
         animate={{ height: "unset" }}
-        transition={{ delay: animationStart, duration: 1 }}
+        transition={{ delay: animationStart, duration: 1, ease: "easeIn", staggerChildren: 0.2, delayChildren: animationStart + 0.5 }}
         className={classes["hero-content"]}
       >
         <motion.div

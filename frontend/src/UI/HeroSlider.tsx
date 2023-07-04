@@ -28,7 +28,14 @@ const Slide: React.FC<SlideProps> = ({
   category,
   tag,
 }) => {
-  console.log(category);
+  const [link, setLink] = useState("");
+  useEffect(() => {
+    if (currentPair === 0) setLink("art");
+    else if (currentPair === 1) setLink("tech");
+    else if (currentPair === 2) setLink("chess");
+    else if (currentPair === 3) setLink("language");
+    else if (currentPair === 4) setLink("music");
+  }, [currentPair])
   return (
     <div
       key={index}
@@ -50,9 +57,9 @@ const Slide: React.FC<SlideProps> = ({
 
             <span className={classes["heading-tertiary"]}>{category}</span>
           </p>
-            <Link smooth to={`section-${category}`} className={classes.btn}>
-              {tag}
-            </Link>
+          <Link smooth to={`section-${link}`} className={classes.btn}>
+            {tag}
+          </Link>
         </div>
       </div>
     </div>

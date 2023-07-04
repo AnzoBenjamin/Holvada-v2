@@ -244,13 +244,11 @@
     grid-column: 2/4;
   }
   .section-services {
-    padding: 7.5rem 6rem;
     &__area {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 5rem;
+      gap: 1rem;
       justify-content: center;
-      padding-inline: 3rem;
     }
   }
   .btn {

@@ -82,8 +82,6 @@ const Navigation: React.FC<NavigationProps> = ({
           </React.Fragment>
         ) : (
           <motion.div className={classes["nav__left"]}>
-            <DesktopNav items={navItems} links={navLinks} />
-
             <motion.a
               variants={reveal}
               href="#"

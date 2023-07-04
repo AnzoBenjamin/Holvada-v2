@@ -1,11 +1,9 @@
-.section-guide{
-    margin-top: 8.6rem;
-}
+
 
 .steps {
     margin-top: 8rem;
   display: grid;
-  gap: 6rem;
+  gap: 8rem;
   &--one,
   &--two,
   &--three {
@@ -60,7 +58,9 @@
   line-height: 1.8;
   margin-top: .75rem;
 }
-
+.step-text-box{
+  margin-top: 2rem;
+}
 @media (min-width: 1000px) {
   .steps {
     gap: 6rem;
@@ -76,4 +76,5 @@
       }
     }
   }
+
 }
