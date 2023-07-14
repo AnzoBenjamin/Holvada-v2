@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 import classes from './Button.module.scss'
 interface buttonType{
     text: string;
-    onClick: ()=>void;
     className: string;
+    type: "button" | "submit" | "reset";
+    disabled: boolean;
 }
 
-const Button: React.FC<buttonType> = ({text, onClick, className}) => {
+const Button: React.FC<buttonType> = ({text, className, type, disabled}) => {
   return (
-    <button onClick={onClick} className={`${classes.btn} ${className}`}>
+    <button className={`${classes.btn} ${className}`} type={type} disabled={disabled}>
         {text}
     </button>
   )

@@ -4,6 +4,8 @@ import LearnHero from "./LearnHero";
 import classes from "./Learning.module.scss";
 import Footer from "../../Footer/Footer";
 import LearnMain from "./LearnMain";
+import LearningPrices from './LearningPrices'
+import IntroText from "../../../UI/IntroText";
 import {secondaryAnimationStart} from '../../../utils/animation'
 
 const Learning: React.FC = () => {
@@ -26,7 +28,9 @@ const Learning: React.FC = () => {
         otherClasses={classes.hero}
         animationStart={secondaryAnimationStart}
       />
+      <IntroText/>
       <LearnMain/>
+      <LearningPrices/>
       <Footer />
     </React.Fragment>
   );

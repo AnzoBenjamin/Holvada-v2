@@ -5,18 +5,48 @@
   font-family: "Inter", sans-serif;
   font-weight: 500;
   gap: 1.5rem;
-  &-item{
+  &-item {
     display: flex;
     align-items: center;
-    gap: .5rem;
-    &__icon{
+    gap: 0.5rem;
+    font-size: $fs-300;
+    &__icon {
       width: 1.6rem;
       height: 1.6rem;
     }
   }
 }
+.note {
+  text-align: center;
+  color: $color-secondary-light;
+  font-size: $fs-200;
+  margin-top: 2rem;
+}
 
+.common {
+  margin-top: 3rem;
+  &__area {
+    display: grid;
+    gap: 2rem;
+    &--item {
+      display: grid;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    &--heading {
+      display: grid;
+      font-size: $fs-500;
+    }
+  }
+}
 
+.icon {
+  width: 4.8rem;
+  height: 4.8rem;
+  background-color: $color-primary-light;
+  padding: 1rem;
+  border-radius: 50%;
+}
 
 @keyframes fadeIn {
   0% {
@@ -149,7 +179,7 @@
       font-weight: normal;
       align-items: center;
       transform: rotateY(180deg);
-      .btn{
+      .btn {
         background-color: $color-white;
         color: $color-secondary;
       }
@@ -203,7 +233,8 @@
   }
 }
 @media (min-width: 576px) {
-  .show-more, .show-less {
+  .show-more,
+  .show-less {
     grid-column: 1/3;
     width: 50%;
     justify-self: center;
@@ -216,6 +247,15 @@
   }
 }
 @media (min-width: 768px) {
+  .common {
+    &__area {
+      grid-template-columns: repeat(2, 1fr);
+      &--item {
+        width: 70%;
+        margin-inline: auto;
+      }
+    }
+  }
   .list {
     padding: 1rem;
   }
@@ -254,6 +294,20 @@
   .btn {
     width: 40%;
   }
+  .note{
+    font-size: $fs-300;
+  }
+  .common {
+    &__area {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      &--item {
+        margin-inline: auto;
+      }
+      &:last-child {
+        grid-row: 2/3;
+        grid-column: 2/3;
+      }
+    }
+  }
 }
-
-

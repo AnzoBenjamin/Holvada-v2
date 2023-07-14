@@ -153,6 +153,49 @@ const Services = () => {
           />
         ))}
       </div>
+      <p className={classes.note}>All plans include the following</p>
+      <div className={classes.common}>
+        <div className={classes["common__area"]}>
+          <div className={classes["common__area--item"]}>
+            {" "}
+            <h4 className={classes["common__area--heading"]}>
+              {" "}
+              Online collaboration
+              <img src="/online.webp" alt="" className={classes.icon} />{" "}
+            </h4>
+            <p>
+              With our powerful online collaboration feature, holvada enables
+              you to work together seamlessly with your team, no matter where
+              you are located.
+            </p>
+          </div>
+          <div className={classes["common__area--item"]}>
+            {" "}
+            <h4 className={classes["common__area--heading"]}>
+              {" "}
+              7 days a week availability
+              <img src="/available.webp" alt="" className={classes.icon} />
+            </h4>
+            <p>
+              We're proud to offer our services seven days a week, ensuring that
+              our expertise and assistance are available to you every day.
+            </p>
+          </div>
+          <div className={classes["common__area--item"]}>
+            {" "}
+            <h4 className={classes["common__area--heading"]}>
+              {" "}
+              Full Refund
+              <img src="/refund.webp" alt="" className={classes.icon} />{" "}
+            </h4>
+            <p>
+              If you find yourself dissatisfied with any product or service
+              you've purchased from our website, you can request a refund within
+              7 days from the date of purchase.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

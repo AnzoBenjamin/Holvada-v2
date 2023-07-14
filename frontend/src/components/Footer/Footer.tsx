@@ -4,7 +4,7 @@ const Footer = () => {
     <footer className={classes.footer}>
       <h1 className={classes["footer-header"]}>2023</h1>
       <div className={classes["footer-bottom"]}>
-        <p>Copyright &copy; <br /> All rights reserved</p>
+        <p>Copyright &copy;  All rights reserved</p>
       <div className={classes["footer--icon-area"]}>
         <img src="/gmail.webp" alt="" className={classes.icon}/>
         <img src="/twitter.webp" alt="Twitter" className={classes.icon} />

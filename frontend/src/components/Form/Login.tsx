@@ -1,20 +1,50 @@
-import Button from '../../UI/Button'
-import Input from '../../UI/Input'
-import classes from './Login.module.scss'
+import { useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "../../UI/Button";
+import Input from "../../UI/Input";
+import { Form } from "./Form";
+import { useAuth } from "../../store/auth-context";
+import classes from "./Login.module.scss";
 
 const Login = () => {
-    const loginHandler = () => {
-      console.log('login');
+  const emailRef = useRef<HTMLInputElement>();
+  const passwordRef = useRef<HTMLInputElement>();
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
+  const { logIn, currentUser } = useAuth();
+
+  const loginHandler = async (e: any) => {
+    e.preventDefault();
+
+    try {
+      setError("");
+      setLoading(true);
+      if (emailRef.current && passwordRef.current)
+        await logIn(emailRef.current.value, passwordRef.current.value);
+      navigate("/dashboard/add");
+      console.log(currentUser?.emailVerified)
+    } catch (error: any) {
+      console.log(error);
+      setError(error.code);
+      setLoading(false);
     }
+  };
 
   return (
-    <form className={classes['form-login']}>
+    <Form>
+      <form className={classes["form-login"]} onSubmit={loginHandler}>
         <h2>Login</h2>
-        <Input type="email" placeholder='Email'/>
-        <Input type="password" placeholder='Password'/>
-        <Button text='Login' onClick={loginHandler}  className=''/>
-    </form>
-  )
-}
+        {error && <p>{error}</p>}
+        <Input type="email" ref={emailRef} placeholder="Email" />
+        <Input type="password" ref={passwordRef} placeholder="Password" />
 
-export default Login
+        <Button text="Login" disabled={loading} type="submit" className="" />
+        <Link to={"/signup"}>Don't have an account? Signup</Link>
+        <Link to={"/forgot-password"}>Forgot Password</Link>
+      </form>
+    </Form>
+  );
+};
+
+export default Login;

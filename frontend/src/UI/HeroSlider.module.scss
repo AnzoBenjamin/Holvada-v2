@@ -1,7 +1,7 @@
 @import "../scss/utils/variables";
 
 .hero-slider {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 
   &__pair {
@@ -18,30 +18,28 @@
     &.active {
       opacity: 1;
       animation: slideIn 1s ease-in-out; /* Add slideIn animation */
-      .hero-slider__text{
+      .hero-slider__text {
         animation-delay: 1s;
         animation: slide-in 2s ease-in-out, opacity 2.5s ease-in-out;
-
       }
     }
 
     &.exit {
       animation: slideOut 1s ease-in-out; /* Add slideOut animation */
-      .hero-slider__text{
+      .hero-slider__text {
         animation-delay: 1s;
         animation: slide-out 2s ease-in-out, opacity 2.5s ease-in-out;
-
       }
     }
   }
-  &__heading-area{
+  &__heading-area {
     display: grid;
     gap: 1.2rem;
   }
   &__text {
     position: absolute;
     top: 50%;
-    left: 10%;
+    left: 5%;
     font-size: 3rem;
     color: $color-primary-light;
     line-height: 1;
@@ -49,36 +47,36 @@
     display: grid;
     justify-content: start;
     gap: 6rem;
-    transform: translate( 0,-50%);
-    .heading-secondary{
+    transform: translate(0, -50%);
+    .heading-secondary {
       font-size: $fs-600;
       color: $color-grey;
     }
-    .heading-primary{
-      font-size: $fs-900*1.8;
+    .heading-primary {
+      font-size: $fs-900 * 1.5;
       max-width: 10ch;
       text-transform: uppercase;
-      font-family: 'Cera-heavy', sans-serif;
+      font-family: "Cera-heavy", sans-serif;
       color: $color-primary;
     }
-
   }
-  &__other-area{
+  &__other-area {
     text-transform: uppercase;
     display: flex;
     align-items: center;
-    gap: 5rem;
+    gap: 2.5rem;
   }
 }
-.category-tag{
+.category-tag {
   background-color: $color-primary-dark;
   padding: 1rem 1.2rem;
   color: $color-primary-light;
 }
-.heading-tertiary{
-  padding: .9rem 1.2rem;
+.heading-tertiary {
+  padding: 0.9rem 1.2rem;
   box-shadow: 0 0 0 1px $color-primary-dark;
   color: $color-primary;
+  font-size: $fs-300;
 }
 @keyframes slideIn {
   from {
@@ -118,35 +116,39 @@
     transform: translate(200%, -50%);
   }
 }
-.btn{
+.btn {
   text-transform: capitalize;
-  font-size: $fs-500;
+  font-size: $fs-400;
   background-color: $color-tertiary;
-  padding: 1rem 1.2rem;
-  font-family: 'Cera-light', sans-serif;
+  padding: .9rem 1.1rem;
+  font-family: "Cera-light", sans-serif;
   box-shadow: 0 1px 1rem $color-tertiary;
-  &:hover{
+  &:hover {
     background-color: $color-tertiary-dark;
   }
-  &:active{
+  &:active {
     background-color: $color-tertiary-dark;
     box-shadow: none;
   }
 }
 
-@media (min-width: 1000px){
-  .hero-slider{
-    &__text{
-      .heading-secondary{
+@media (min-width: 1000px) {
+  .hero-slider {
+    &__text {
+      left: 10%;
+      .heading-secondary {
         font-size: $fs-700;
       }
-      .heading-primary{
-        font-size: $fs-900*2.5;
+      .heading-primary {
+        font-size: $fs-900 * 2.5;
         max-width: 10ch;
       }
     }
-    .btn{
-      font-size: $fs-600;
+    .btn {
+      font-size: $fs-500;
+    }
+    &__other-area {
+      gap: 5rem;
     }
   }
 }

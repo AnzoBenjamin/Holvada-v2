@@ -1,0 +1,30 @@
+@import '../../../scss/utils/variables';
+
+.layout{
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    height: 100vh;
+}
+
+.main{
+    padding: 1.5rem 3rem;
+    &-top{
+        display: grid;
+        gap: 0;
+    }
+}
+
+.email{
+    text-align: right;
+}
+.btn{
+    cursor: pointer;
+    border: none;
+    background-color: $color-tertiary;
+    color: $color-primary-light;
+    margin-left: auto;
+    padding: .5rem 1rem;
+    &:hover{
+        background-color: $color-tertiary-dark;
+    }
+}

@@ -22,14 +22,17 @@
   margin-bottom: 1rem;
 }
 .plan-text {
-  line-height: 1.6;
+  line-height: 1.4;
   color: #6f6f6f;
 }
 .plan-price {
-  font-size: $fs-800;
+  font-size: $fs-900*1.5;
   font-family: "Cera-heavy";
   color: $color-secondary-light;
-  margin-bottom: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 .plan-price span {
   font-size: $fs-700;
@@ -96,10 +99,10 @@
   padding: 2rem;
 
   &::after {
-    content: "50% for multiple";
+    content: "Best Value";
     position: absolute;
-    top: 7%;
-    right: -12%;
+    top: 3%;
+    right: -7%;
     background-color: $color-secondary-light;
     color: $color-white;
     padding: 0.5rem 2rem;
@@ -186,14 +189,12 @@
   .section-prices {
   }
   .card-area {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    padding-inline: 3rem;
   }
   .starter, .complete{
     padding: 2rem;
-  }
-  .starter {
-    height: 90%;
   }
 }
 

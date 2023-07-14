@@ -1,0 +1,21 @@
+@import '../../../scss/utils/variables';
+.select{
+    border: 1px solid $color-secondary-light;
+    padding: .5rem 1rem;
+    color: $color-secondary;
+}
+.add{
+    display: flex;
+    gap: 4rem;
+}
+
+.btn{
+    cursor: pointer;
+    padding: .5rem 1rem;
+    border: none;
+    background-color: $color-secondary;
+    color: $color-primary-light;
+    &:hover{
+        background-color: $color-secondary-light;
+    }
+}

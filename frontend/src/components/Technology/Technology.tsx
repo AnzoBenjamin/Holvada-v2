@@ -1,15 +1,34 @@
-import React from 'react'
-import Header from '../Header/Header'
-import TechHero from './TechHero'
-import { secondaryAnimationStart } from '../../utils/animation'
+import React from "react";
+import Header from "../Header/Header";
+import TechHero from "./TechHero";
+import Footer from "../Footer/Footer";
+import TechMain from "./TechMain";
+import classes from './Technology.module.scss'
+import { secondaryAnimationStart } from "../../utils/animation";
 
 const Technology = () => {
-  const navItems=["Home", "Web", "Mobile", "Graphics"]
-  const navLinks=["section-home", "section-web", "section-mobile", "section-graphics"]
-  
-  return (
-    <Header navItems={navItems} navLinks={navLinks} navHeading='Tech' HeroElement={TechHero} animationStart={secondaryAnimationStart} otherClasses=''/>
-  )
-}
+  const navItems = ["Home", "Web", "Graphics", "Mobile"];
+  const navLinks = [
+    "section-home",
+    "section-web",
+    "section-graphics",
+    "section-mobile",
+  ];
 
-export default Technology
+  return (
+    <React.Fragment>
+      <Header
+        navItems={navItems}
+        navLinks={navLinks}
+        navHeading="Tech"
+        HeroElement={TechHero}
+        animationStart={secondaryAnimationStart}
+        otherClasses={classes.hero}
+      />
+      <TechMain/>
+      <Footer />
+    </React.Fragment>
+  );
+};
+
+export default Technology;

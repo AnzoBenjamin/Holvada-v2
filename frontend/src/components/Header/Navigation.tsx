@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
-import Popup from "../../UI/Popup";
 import { reveal } from "../../utils/animation";
 import MobileNav from "../Nav/MobileNav";
 import DesktopNav from "../Nav/DesktopNav";
+import { useAuth } from "../../store/auth-context";
 
 import barsStaggered from "/bars-staggered.svg";
 import classes from "./Navigation.module.scss";
@@ -27,14 +28,11 @@ const Navigation: React.FC<NavigationProps> = ({
 }) => {
   const menuRoot = document?.getElementById("menu-root");
   const [menu, setMenu] = useState(false);
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const { currentUser } = useAuth();
   const menuHandler = () => {
     setMenu(true);
   };
 
-  const buttonHandler = () => {
-    setIsPopupVisible(true);
-  };
   const screenWidth = window.innerWidth;
 
   return (
@@ -43,7 +41,6 @@ const Navigation: React.FC<NavigationProps> = ({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: animationStart }}
     >
-      <Popup isVisible={isPopupVisible} setIsVisible={setIsPopupVisible} />
       <motion.div
         variants={reveal}
         initial="hiddenVariant"
@@ -64,14 +61,13 @@ const Navigation: React.FC<NavigationProps> = ({
           <React.Fragment>
             <DesktopNav items={navItems} links={navLinks} />
 
-            <motion.a
-              variants={reveal}
-              href="#"
-              className={styles.btn}
-              onClick={buttonHandler}
-            >
-              Join us
-            </motion.a>
+            <motion.div variants={reveal} className={styles.btn}>
+              {currentUser ? (
+                <Link to={"/dashboard"}>Account</Link>
+              ) : (
+                <Link to={"/signup"}>Join Us</Link>
+              )}
+            </motion.div>
             <motion.img
               variants={reveal}
               src={barsStaggered}
@@ -82,14 +78,15 @@ const Navigation: React.FC<NavigationProps> = ({
           </React.Fragment>
         ) : (
           <motion.div className={classes["nav__left"]}>
-            <motion.a
-              variants={reveal}
-              href="#"
-              className={styles.btn}
-              onClick={buttonHandler}
-            >
-              Join us
-            </motion.a>
+            <motion.div variants={reveal}>
+              <Link className={styles.btn} to={"/signup"}>
+                {currentUser ? (
+                  <Link to={"/dashboard"}>Account</Link>
+                ) : (
+                  <Link to={"/signup"}>Join Us</Link>
+                )}
+              </Link>
+            </motion.div>
             <motion.img
               variants={reveal}
               src={barsStaggered}

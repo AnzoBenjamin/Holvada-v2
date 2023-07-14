@@ -11,7 +11,7 @@ interface PopupProps {
 }
 
 const Popup: React.FC<PopupProps> = ({ isVisible, setIsVisible }) => {
-  const [activeForm, setActiveForm] = useState("login");
+  const [activeForm, setActiveForm] = useState("signup");
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => setActiveForm("login"),
     onSwipedRight: () => setActiveForm("signup"),
