@@ -1,5 +1,9 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState, useRef } from "react";
 import classes from "./Add.module.scss";
+import { updateDoc, arrayUnion, doc, setDoc, collection, addDoc } from "firebase/firestore";
+import { db } from "../../../config/firebase";
+import { useAuth } from "../../../store/auth-context";
+import { v4 } from "uuid";
 
 interface Option {
   label: string;
@@ -11,7 +15,8 @@ export const Add = () => {
   const [selectedParent, setSelectedParent] = useState<Option | null>(null);
   const [selectedChild, setSelectedChild] = useState<Option | null>(null);
   const [selectedSubChild, setSelectedSubChild] = useState<Option | null>(null);
-
+  const dateRef = useRef(null);
+  const nameRef = useRef(null);
   const handleParentSelect = (option: Option | null) => {
     setSelectedParent(option);
     setSelectedChild(null);
@@ -109,10 +114,40 @@ export const Add = () => {
       ],
     },
   ];
+  const { currentUser } = useAuth();
 
-  const buttonHandler = (e) => {
-    console.log(selectedParent, selectedChild, selectedSubChild)
-  }
+  const buttonHandler = async (e) => {
+    if (selectedChild && selectedParent && selectedSubChild) {
+      const email = currentUser?.email || "";
+
+      if (email) {
+
+        try {
+          const userDocRef = doc(db, "users", email);
+          const transactionsCollectionRef = collection(userDocRef, "transactions"); // Reference the subcollection
+
+          const transactionData = {
+            id: v4(),
+            branch: selectedParent.value,
+            item: selectedChild.value,
+            category: selectedSubChild.value,
+            amount: 15,
+            date: dateRef.current?.value,
+            studentName: nameRef.current?.value,
+            paid: false,
+            attended: false
+          };
+  
+          await addDoc(transactionsCollectionRef, transactionData); // Create a new document in the subcollection
+    
+          console.log("Successfully added");
+        } catch (error) {
+          console.log("Error adding entry:", error);
+        }
+      }
+    }
+  };
+
   return (
     <>
       <div className={classes.add}>
@@ -186,8 +221,26 @@ export const Add = () => {
             </select>
           </div>
         )}
+        {selectedSubChild && (
+          <>
+            <div>
+              <input
+                type="text"
+                placeholder="Student name"
+                className={classes.input}
+                ref={nameRef}
+              />
+            </div>
+            <div>
+              <input type="date" className={classes.input} ref={dateRef} />
+            </div>
+            <div></div>
+            <button className={classes.btn} onClick={buttonHandler}>
+              Add
+            </button>
+          </>
+        )}
       </div>
-      <button className={classes.btn} onClick={buttonHandler}>Add</button>
     </>
   );
 };

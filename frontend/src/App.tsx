@@ -86,36 +86,44 @@ function App() {
             <Route
               path="/dashboard/add"
               element={
-                <DashboardLayout>
-                  <Add />
-                </DashboardLayout>
+                <PrivateRoute>
+                  <DashboardLayout>
+                    <Add />
+                  </DashboardLayout>
+                </PrivateRoute>
               }
             />
 
             <Route
               path="/dashboard/upcoming"
               element={
-                <DashboardLayout>
-                  <Upcoming />
-                </DashboardLayout>
+                <PrivateRoute>
+                  <DashboardLayout>
+                    <Upcoming />
+                  </DashboardLayout>
+                </PrivateRoute>
               }
             />
 
             <Route
               path="/dashboard/pending"
               element={
-                <DashboardLayout>
-                  <Pending />
-                </DashboardLayout>
+                <PrivateRoute>
+                  <DashboardLayout>
+                    <Pending />
+                  </DashboardLayout>
+                </PrivateRoute>
               }
             />
 
             <Route
               path="/dashboard/completed"
               element={
-                <DashboardLayout>
-                  <Completed />
-                </DashboardLayout>
+                <PrivateRoute>
+                  <DashboardLayout>
+                    <Completed />
+                  </DashboardLayout>
+                </PrivateRoute>
               }
             />
           </Routes>

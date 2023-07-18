@@ -57,19 +57,12 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     password: string
   ): Promise<UserCredential> {
     const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
-    await sendEmailVerification(auth.currentUser)
-    await setDoc(doc(db, 'users', email), {
-      branch: [],
-      item: [],
-      category: [],
-      amount: [],
-      paid: []
-    })
+    if(auth.currentUser) await sendEmailVerification(auth.currentUser)
     return userCredentials
   }
 
   async function resendVerificationEmail() {
-    return sendEmailVerification(auth.currentUser)
+    if(auth.currentUser) return sendEmailVerification(auth.currentUser)
   }
   async function logIn(
     email: string,

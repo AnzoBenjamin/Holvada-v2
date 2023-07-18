@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 import { DashboardHeader } from "./DashboardHeader";
 import { DashboardNav } from "./DashboardNav";
 import classes from './DashboardLayout.module.scss';
@@ -10,12 +11,14 @@ interface DashboardLayoutProps{
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
     const { currentUser, signout } = useAuth();
+    const navigate = useNavigate()
 
     const buttonHandler = async()=>{
         try{
             await signout();
+            navigate('/')
         }
-        catch(error){
+        catch(error: any){
             console.log(error.message)
         }
     }

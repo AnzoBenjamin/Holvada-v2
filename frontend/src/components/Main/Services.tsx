@@ -91,7 +91,7 @@ const Services = () => {
         "Software as a service",
       ],
       itemIcon: [
-        "/mobile.webp",
+        "/mobile-icon.png",
         "/web.webp",
         "/design-icon.webp",
         "/saas.webp",
