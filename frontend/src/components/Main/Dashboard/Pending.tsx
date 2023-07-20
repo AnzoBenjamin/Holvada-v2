@@ -9,14 +9,53 @@ import {
 import { useAuth } from "../../../store/auth-context";
 import { db } from "../../../config/firebase";
 import classes from "./Pending.module.scss";
+import axios from "axios";
 
 export const Pending = () => {
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
   const [transactions, setTransactions] = useState<DocumentData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
 
   const { currentUser } = useAuth();
   const email = currentUser?.email;
+
+
+  const handlePayment = async (event) => {
+    event.preventDefault();
+  
+    // Get the total amount of the transactions
+    const totalAmount = transactions.reduce(
+      (total, transaction) => total + transaction.amount,
+      0
+    );
+  
+    // Prepare the data to be sent to the backend server
+    const paymentData = {
+      email: currentUser?.email,
+      credentials: { /* Add bank credentials here */ },
+      amount: totalAmount,
+    };
+  
+    try {
+      setIsProcessingPayment(true);
+      // Make an HTTP request to the backend server to process the payment
+      const response = await axios.post("/process-payment", paymentData);
+      // Update the 'paid' status of the transactions to true
+      if (response.data.success) {
+        const updatedTransactions = transactions.map((transaction) => ({
+          ...transaction,
+          paid: true,
+        }));
+        setTransactions(updatedTransactions);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsProcessingPayment(false);
+    }
+  };
+  
 
   const fetchData = async () => {
     if (email) {
