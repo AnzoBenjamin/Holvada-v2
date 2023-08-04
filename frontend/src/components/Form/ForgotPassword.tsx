@@ -4,9 +4,10 @@ import { useAuth } from "../../store/auth-context";
 import { Form } from "./Form";
 import Button from "../../UI/Button";
 import Input from "../../UI/Input";
+import classes from './ForgotPassword.module.scss'
 
 export const ForgotPassword: React.FC = () => {
-  const emailRef = useRef<HTMLInputElement>()
+  const emailRef = useRef<HTMLInputElement | null>(null)
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
@@ -29,12 +30,11 @@ export const ForgotPassword: React.FC = () => {
   }
   return (
     <Form>
-      <form action="" onSubmit={resetHandler}>
-
+      <form action="" onSubmit={resetHandler} className={classes.forgot}>
       <h2>Forgot Password</h2>
       {message && <p>{message}</p>}
       {error && <p>{error}</p>}
-      <Input type="email" ref={emailRef} placeholder="Email" />
+      <Input type="email" placeholder="Email" ref={emailRef} />
       <Button text="Reset" disabled={loading} type="submit" className="" />
       <Link to={"/signup"}>Don't have an account? Signup</Link>
       <Link to={"/login"}>Already have an account? Login</Link>

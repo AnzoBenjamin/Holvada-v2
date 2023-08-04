@@ -19,9 +19,8 @@ import {
   updateEmail,
   updatePassword,
   sendEmailVerification,
-  
 } from "firebase/auth";
-import { setDoc, doc} from 'firebase/firestore'
+import { setDoc, doc, collection, addDoc } from "firebase/firestore";
 import { auth, db } from "../config/firebase";
 
 interface AuthProviderProps {
@@ -30,12 +29,21 @@ interface AuthProviderProps {
 
 interface AuthContextValue {
   currentUser: FirebaseAuthUser | null;
-  signUp: (email: string, password: string) => Promise<UserCredential>;
+  signUp: (
+    email: string,
+    password: string,
+    telephoneNumber: string,
+    location: number[],
+    street?: string,
+    lane?: string,
+    apartmentBlock?: string,
+    apartmentNo?: string
+  ) => Promise<UserCredential>;
   logIn: (email: string, password: string) => Promise<UserCredential>;
   signout: () => Promise<void>;
   forgotPassword: (email: string) => Promise<void>;
-  changeEmail: (email: string)=> Promise<void>;
-  changePassword: (password: string)=> Promise<void>;
+  changeEmail: (email: string) => Promise<void>;
+  changePassword: (password: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -54,24 +62,60 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   async function signUp(
     email: string,
-    password: string
+    password: string,
+    telephoneNumber: string,
+    location: number[],
+    street?: string,
+    lane?: string,
+    apartmentBlock?: string,
+    apartmentNo?: string
   ): Promise<UserCredential> {
-    const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
-    if(auth.currentUser) await sendEmailVerification(auth.currentUser)
-    return userCredentials
+    const userCredentials = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    if (auth.currentUser) {
+      await sendEmailVerification(auth.currentUser);
+      const userDocRef = doc(db, "users", email);
+      const infoCollectionRef = collection(userDocRef, "info");
+
+      // Check and provide default values for optional fields
+      const infoData = {
+        telephoneNumber,
+        location,
+        street: street ?? "",
+        lane: lane ?? "",
+        apartmentBlock: apartmentBlock ?? "",
+        apartmentNo: apartmentNo ?? "",
+      };
+
+      await addDoc(infoCollectionRef, infoData);
+    }
+    return userCredentials;
+  }
+
+  function createCustomError(message: string, errorCode: number): Error {
+    return Object.assign(new Error(message), { errorCode });
   }
 
   async function resendVerificationEmail() {
-    if(auth.currentUser) return sendEmailVerification(auth.currentUser)
+    if (auth.currentUser) return sendEmailVerification(auth.currentUser);
   }
   async function logIn(
     email: string,
     password: string
   ): Promise<UserCredential> {
-    const userCredentials = await signInWithEmailAndPassword(auth, email, password);
-    if(!userCredentials.user.emailVerified){
-      await signOut(auth)
-      throw new Error("Email not verified. Please check your inbox and verify your email.")
+    const userCredentials = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    if (!userCredentials.user.emailVerified) {
+      await signOut(auth);
+      const errorCode = 500;
+      const errorMessage = "An error occurred";
+      throw createCustomError(errorMessage, errorCode);
     }
     return userCredentials;
   }
@@ -112,7 +156,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     signout,
     forgotPassword,
     changeEmail,
-    changePassword
+    changePassword,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

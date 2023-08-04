@@ -7,7 +7,6 @@ import Learning from "./components/Main/Learning/Learning";
 import Performance from "./components/Main/Performance/Performance";
 import Loading from "./UI/Loading";
 import AuthProvider from "./store/auth-context";
-import { Dashboard } from "./components/Main/Dashboard/Dashboard";
 import Login from "./components/Form/Login";
 import Signup from "./components/Form/Signup";
 import { Verification } from "./components/Verification";
@@ -18,6 +17,7 @@ import { Upcoming } from "./components/Main/Dashboard/Upcoming";
 import { Pending } from "./components/Main/Dashboard/Pending";
 import { Completed } from "./components/Main/Dashboard/Completed";
 import DashboardLayout from "./components/Main/Dashboard/DashboardLayout";
+import AccountDetails from "./components/Main/Dashboard/AccountDetails";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -42,19 +42,6 @@ function App() {
         <AuthProvider>
           <Routes>
             <Route path="/" element={isLoading ? <Loading /> : <Home />} />
-            <Route
-              path="/dashboard"
-              element={
-                isLoading ? (
-                  <Loading />
-                ) : (
-                  <PrivateRoute>
-                    {" "}
-                    <Dashboard />
-                  </PrivateRoute>
-                )
-              }
-            />
             <Route
               path="/login"
               element={isLoading ? <Loading /> : <Login />}
@@ -122,6 +109,16 @@ function App() {
                 <PrivateRoute>
                   <DashboardLayout>
                     <Completed />
+                  </DashboardLayout>
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/account/details"
+              element={
+                <PrivateRoute>
+                  <DashboardLayout>
+                    <AccountDetails />
                   </DashboardLayout>
                 </PrivateRoute>
               }

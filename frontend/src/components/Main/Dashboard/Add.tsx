@@ -1,6 +1,6 @@
-import React, { ChangeEvent, useState, useRef } from "react";
+import React, { useState, useRef, MouseEventHandler } from "react";
 import classes from "./Add.module.scss";
-import { updateDoc, arrayUnion, doc, setDoc, collection, addDoc } from "firebase/firestore";
+import { doc, collection, addDoc } from "firebase/firestore";
 import { db } from "../../../config/firebase";
 import { useAuth } from "../../../store/auth-context";
 import { v4 } from "uuid";
@@ -11,12 +11,13 @@ interface Option {
   children?: Option[];
 }
 
-export const Add = () => {
+export const Add: React.FC = () => {
   const [selectedParent, setSelectedParent] = useState<Option | null>(null);
   const [selectedChild, setSelectedChild] = useState<Option | null>(null);
   const [selectedSubChild, setSelectedSubChild] = useState<Option | null>(null);
-  const dateRef = useRef(null);
-  const nameRef = useRef(null);
+  const [message, setMessage] = useState("");
+  const dateRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
   const handleParentSelect = (option: Option | null) => {
     setSelectedParent(option);
     setSelectedChild(null);
@@ -116,7 +117,7 @@ export const Add = () => {
   ];
   const { currentUser } = useAuth();
 
-  const buttonHandler = async (e) => {
+  const buttonHandler = async (e: MouseEventHandler<HTMLButtonElement>) => {
     if (selectedChild && selectedParent && selectedSubChild) {
       const email = currentUser?.email || "";
 
@@ -125,7 +126,7 @@ export const Add = () => {
         try {
           const userDocRef = doc(db, "users", email);
           const transactionsCollectionRef = collection(userDocRef, "transactions"); // Reference the subcollection
-
+          
           const transactionData = {
             id: v4(),
             branch: selectedParent.value,
@@ -139,10 +140,15 @@ export const Add = () => {
           };
   
           await addDoc(transactionsCollectionRef, transactionData); // Create a new document in the subcollection
-    
-          console.log("Successfully added");
+          setMessage("Successfully scheduled")
+          setSelectedChild(null)
+          setSelectedParent(null)
+          setSelectedSubChild(null)
         } catch (error) {
           console.log("Error adding entry:", error);
+        }
+        finally{
+          setMessage("")
         }
       }
     }
@@ -241,6 +247,7 @@ export const Add = () => {
           </>
         )}
       </div>
+      {message && <p>{message}</p>}
     </>
   );
 };

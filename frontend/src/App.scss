@@ -36,6 +36,9 @@ html::-webkit-scrollbar-thumb {
   background: $color-secondary;
   border-radius: 10px;
 }
+.leaflet-container{
+  height: 10rem;
+}
 @media (min-width: 470px) {
   p {
     font-size: $fs-400;
@@ -43,5 +46,8 @@ html::-webkit-scrollbar-thumb {
 }
 @media (min-width: 1000px) {
   section {
+  }
+  .leaflet-container{
+    height: 10rem;
   }
 }

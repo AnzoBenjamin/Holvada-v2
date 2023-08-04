@@ -63,7 +63,7 @@ const Navigation: React.FC<NavigationProps> = ({
 
             <motion.div variants={reveal} className={styles.btn}>
               {currentUser ? (
-                <Link to={"/dashboard"}>Account</Link>
+                <Link to={"/dashboard/add"}>Account</Link>
               ) : (
                 <Link to={"/signup"}>Join Us</Link>
               )}
@@ -81,7 +81,7 @@ const Navigation: React.FC<NavigationProps> = ({
             <motion.div variants={reveal}>
               <Link className={styles.btn} to={"/signup"}>
                 {currentUser ? (
-                  <Link to={"/dashboard"}>Account</Link>
+                  <Link to={"/dashboard/add"}>Account</Link>
                 ) : (
                   <Link to={"/signup"}>Join Us</Link>
                 )}

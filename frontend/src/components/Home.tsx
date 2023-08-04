@@ -7,12 +7,11 @@ import classes from './Home.module.scss'
 import {animationStart} from '../utils/animation'
 
 const Home = () => {
-  const navItems = ["Home", "How to", "Services", "Pricing"];
+  const navItems = ["Home", "How to", "Services"];
   const navLinks = [
     "section-home",
     "section-guide",
     "section-services",
-    "section-prices",
   ];
 
   return (

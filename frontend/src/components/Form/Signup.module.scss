@@ -1,4 +1,64 @@
-.form-signup{
+@import "../../scss/utils/variables";
+.form-signup {
+  display: grid;
+  gap: 1rem;
+
+  h2 {
+    font-family: "Cera-bold", sans-serif;
+    text-transform: uppercase;
+    font-size: $fs-500;
+  }
+}
+
+.error {
+  background-color: lightcoral;
+  padding: 0.5rem 0.6rem;
+  color: $color-primary-light;
+}
+
+.message {
+  background-color: lightgreen;
+  padding: 0.5rem 0.6rem;
+  color: $color-primary-light;
+}
+
+.map{
+  display: grid;
+  gap: .5rem;
+}
+.additional-content{
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-info{
+
+}
+@media (min-width: 1000px) {
+  .form-signup {
+    h2 {
+      font-size: $fs-600;
+      margin-bottom: 1rem;
+    }
+  }
+  .passwords{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .map{
     display: grid;
     gap: .5rem;
+  }
+  .additional-content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .contact-info{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }

@@ -1,22 +1,23 @@
 import React, { forwardRef } from 'react';
 import classes from './Input.module.scss';
 
-interface InputProps {
-  type: string;
-  placeholder: string;
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  // You can include other props specific to your Input component if needed
 }
 
-const Input: React.FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
-  ({ type, placeholder }, ref) => {
-    return (
-      <input
-        type={type}
-        placeholder={placeholder}
-        ref={ref}
-        className={classes.input}
-      />
-    );
-  }
-);
+const Input: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
+  { type, placeholder, ...rest },
+  ref
+) => {
+  return (
+    <input
+      type={type}
+      placeholder={placeholder}
+      ref={ref}
+      className={classes.input}
+      {...rest}
+    />
+  );
+};
 
-export default Input;
+export default forwardRef(Input);
