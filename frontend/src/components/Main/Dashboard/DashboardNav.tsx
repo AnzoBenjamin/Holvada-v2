@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./DashboardNav.module.scss";
+import barsStaggered from "/bars-staggered.svg";
 
-export const DashboardNav = () => {
-  return (
+export const DashboardNav: React.FC = () => {
+  const screenWidth = window.innerWidth;
+  return screenWidth > 1000 ? (
     <nav className={classes.nav}>
-      <div className={classes["nav-header"]}>
-        <img src="/back.svg" alt="Back" className={classes.img} />
-        <h2>Home</h2>
-      </div>
-      <ul className={classes.list}> 
+
+      <ul className={classes.list}>
         <li className={classes["list-item"]}>
           <img src="/add.png" alt="add" className={classes.icon} />
           <Link to={"/dashboard/add"}>Add</Link>
@@ -28,5 +27,9 @@ export const DashboardNav = () => {
         </li>
       </ul>
     </nav>
+  ) : (
+    <div className={classes["mobile-nav"]}>
+      <img src={barsStaggered} alt="Menu bar" className={classes.icon} />
+    </div>
   );
 };

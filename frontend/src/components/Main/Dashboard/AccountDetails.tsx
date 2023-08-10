@@ -5,7 +5,7 @@ import { db } from "../../../config/firebase";
 
 const AccountDetails = () => {
   const { currentUser } = useAuth();
-  const [userInfo, setUserInfo] = useState<{}>({});
+  const [userInfo, setUserInfo] = useState<{}|null>({});
 
   const getUserInfo = async () => {
     const email = currentUser?.email || "";

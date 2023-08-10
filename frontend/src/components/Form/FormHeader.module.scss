@@ -2,11 +2,10 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 1rem;
   position: absolute;
   top: 0;
   width: 100%;
-
   h2 {
     font-family: "Cera-bold", sans-serif;
     text-transform: uppercase;
@@ -15,9 +14,15 @@
     z-index: 5;
   }
 }
+.btn-area{
+  display: flex;
+  gap: .5rem;
+}
 
 @media (min-width: 1000px) {
   .header {
+    padding: 1.5rem 3rem;
+
     h2 {
       font-size: $fs-600;
     }

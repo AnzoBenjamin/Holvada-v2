@@ -122,11 +122,13 @@ export const Add: React.FC = () => {
       const email = currentUser?.email || "";
 
       if (email) {
-
         try {
           const userDocRef = doc(db, "users", email);
-          const transactionsCollectionRef = collection(userDocRef, "transactions"); // Reference the subcollection
-          
+          const transactionsCollectionRef = collection(
+            userDocRef,
+            "transactions"
+          ); // Reference the subcollection
+
           const transactionData = {
             id: v4(),
             branch: selectedParent.value,
@@ -136,26 +138,25 @@ export const Add: React.FC = () => {
             date: dateRef.current?.value,
             studentName: nameRef.current?.value,
             paid: false,
-            attended: false
+            attended: false,
           };
-  
+
           await addDoc(transactionsCollectionRef, transactionData); // Create a new document in the subcollection
-          setMessage("Successfully scheduled")
-          setSelectedChild(null)
-          setSelectedParent(null)
-          setSelectedSubChild(null)
+          setMessage("Successfully scheduled");
+          setSelectedChild(null);
+          setSelectedParent(null);
+          setSelectedSubChild(null);
         } catch (error) {
           console.log("Error adding entry:", error);
-        }
-        finally{
-          setMessage("")
+        } finally {
+          setMessage("");
         }
       }
     }
   };
 
   return (
-    <>
+    <main className={classes.main}>
       <div className={classes.add}>
         <div>
           <label htmlFor="parentSelect"></label>
@@ -240,14 +241,24 @@ export const Add: React.FC = () => {
             <div>
               <input type="date" className={classes.input} ref={dateRef} />
             </div>
-            <div></div>
+            <select id="frequencySelect" className={classes.select}>
+              <option value="">Select your desired frequency</option>
+              <option value="1">Once a week</option>
+              <option value="2">Twice a week</option>
+              <option value="3">Thrice a week</option>
+              <option value="4">Four times a week</option>
+              <option value="5">Five times a week</option>
+              <option value="6">Six times a week</option>
+              <option value="7">Daily</option>
+            </select>
             <button className={classes.btn} onClick={buttonHandler}>
               Add
             </button>
           </>
         )}
       </div>
+      <div className={classes["order-details"]}>All your orders go here</div>
       {message && <p>{message}</p>}
-    </>
+    </main>
   );
 };

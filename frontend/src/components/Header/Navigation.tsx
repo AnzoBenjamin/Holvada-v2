@@ -61,11 +61,11 @@ const Navigation: React.FC<NavigationProps> = ({
           <React.Fragment>
             <DesktopNav items={navItems} links={navLinks} />
 
-            <motion.div variants={reveal} className={styles.btn}>
+            <motion.div variants={reveal}>
               {currentUser ? (
-                <Link to={"/dashboard/add"}>Account</Link>
+                <Link to={"/dashboard/add"} className={styles.btn}>Account</Link>
               ) : (
-                <Link to={"/signup"}>Join Us</Link>
+                <Link to={"/signup"} className={styles.btn}>Join Us</Link>
               )}
             </motion.div>
             <motion.img
@@ -79,13 +79,11 @@ const Navigation: React.FC<NavigationProps> = ({
         ) : (
           <motion.div className={classes["nav__left"]}>
             <motion.div variants={reveal}>
-              <Link className={styles.btn} to={"/signup"}>
                 {currentUser ? (
-                  <Link to={"/dashboard/add"}>Account</Link>
+                  <Link to={"/dashboard/add"} className={styles.btn}>Account</Link>
                 ) : (
-                  <Link to={"/signup"}>Join Us</Link>
+                  <Link to={"/signup"} className={styles.btn}>Join Us</Link>
                 )}
-              </Link>
             </motion.div>
             <motion.img
               variants={reveal}

@@ -111,7 +111,7 @@ const Signup = () => {
             <Input ref={apartmentBlockRef} type="text" placeholder="Apartment Block" />
             <Input ref={apartmentNoRef} type="text" placeholder="Apartment No" />
           </div>
-          <Button text="Signup" disabled={loading} type="submit" className="" />
+          <Button text="Signup" disabled={loading} type="submit" className={classes.btn} />
         </form>
       </Form>
     </>

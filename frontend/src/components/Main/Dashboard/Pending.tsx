@@ -12,7 +12,7 @@ import { db } from "../../../config/firebase";
 import classes from "./Pending.module.scss";
 import axios from "axios";
 
-export const Pending = () => {
+export const Pending: React.FC = () => {
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
   const [transactions, setTransactions] = useState<DocumentData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +20,7 @@ export const Pending = () => {
   const { currentUser } = useAuth();
   const email = currentUser?.email;
 
-  const handlePayment = async (event) => {
+  const handlePayment = async (event: MouseEvent) => {
     event.preventDefault();
 
     // Get the total amount of the transactions
@@ -61,7 +61,6 @@ export const Pending = () => {
 
   const fetchData = async () => {
     if (email) {
-      const documentRef = doc(db, "users", email);
       try {
         const userDocRef = doc(db, "users", email);
         const transactionsCollectionRef = collection(

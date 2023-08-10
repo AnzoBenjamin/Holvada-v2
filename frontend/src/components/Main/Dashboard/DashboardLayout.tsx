@@ -1,16 +1,91 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { DashboardHeader } from "./DashboardHeader";
+import { createPortal } from "react-dom";
 import { DashboardNav } from "./DashboardNav";
+import barsStaggered from "/bars-staggered.svg";
+import DesktopNav from "../../Nav/DesktopNav";
+import MobileNav from "../../Nav/MobileNav";
 import classes from "./DashboardLayout.module.scss";
+import styles from "../../../scss/components/_buttons.module.scss"
 import { useAuth } from "../../../store/auth-context";
 
 interface DashboardLayoutProps {
   children: ReactNode;
 }
+const Navigation = () =>{
+
+  const menuRoot = document?.getElementById("menu-root");
+  const [menu, setMenu] = useState(false);
+  const [isFixed, setisFixed] = useState(false)
+  const { currentUser } = useAuth();
+  const menuHandler = () => {
+    setMenu(true);
+  };
+
+  const screenWidth = window.innerWidth;
+  const navItems = ["Home", "Learn", "Showcases"]
+  const navLinks = ["home", "learn", "perform"]
+  return (
+    <div
+    >
+      <div
+        className={`${classes.nav} ${isFixed ? classes.fixed : ""} `}
+      >
+        <h2 className={classes["nav__header"]}>
+          Holvada
+        </h2>
+        {screenWidth > 1000 ? (
+          <React.Fragment>
+            <DesktopNav items={navItems} links={navLinks} />
+
+            <div className={styles.btn}>
+            {currentUser ? (
+                  <Link to={"/dashboard/add"} className={styles.btn}>Account</Link>
+                ) : (
+                  <Link to={"/signup"} className={styles.btn}>Join Us</Link>
+                )}
+            </div>
+            <img
+              src={barsStaggered}
+              alt="Bars Staggered"
+              className={`${classes["nav__icon"]} ${classes["mobile-nav"]}`}
+              onClick={menuHandler}
+            />
+          </React.Fragment>
+        ) : (
+          <div className={classes["nav__left"]}>
+            <div>
+                {currentUser ? (
+                  <Link to={"/dashboard/add"} className={styles.btn}>Account</Link>
+                ) : (
+                  <Link to={"/signup"} className={styles.btn}>Join Us</Link>
+                )}
+            </div>
+            <img
+              src={barsStaggered}
+              alt="Bars Staggered"
+              className={`${classes["nav__icon"]} ${classes["mobile-nav"]}`}
+              onClick={menuHandler}
+            />
+          </div>
+        )}
+      </div>
+      {menuRoot &&
+        createPortal(
+          <MobileNav
+            isVisible={menu}
+            setMenu={setMenu}
+            items={navItems}
+            links={navLinks}
+          />,
+          menuRoot
+        )}
+    </div>
+  );
+}
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
-  const { currentUser, signout } = useAuth();
+  const { signout } = useAuth();
   const navigate = useNavigate();
 
   const buttonHandler = async () => {
@@ -21,30 +96,13 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
       console.log(error.message);
     }
   };
+  
   return (
     <div>
+      <Navigation/>
       <div className={classes.layout}>
         <DashboardNav />
-        <div className={classes.main}>
-          <div className={classes["main-top"]}>
-            <div className={classes.menu}>
-              <Link to={"/account/details"} className={classes.img}>
-                {" "}
-                <img src="/account.png" alt="Account" />{" "}
-              </Link>
-              <div className={classes.dropdown}>
-                <Link to={"/account/details"} className={classes.account}>
-                  {" "}
-                  Accout details
-                </Link>
-                <button className={classes.btn} onClick={buttonHandler}>
-                  Sign out
-                </button>
-              </div>
-            </div>
-          </div>
-          {children}
-        </div>
+        <div className={classes.main}>{children}</div>
       </div>
     </div>
   );
