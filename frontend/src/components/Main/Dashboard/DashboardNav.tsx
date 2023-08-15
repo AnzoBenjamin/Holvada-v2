@@ -25,6 +25,10 @@ export const DashboardNav: React.FC = () => {
           <img src="/complete.png" alt="completed" className={classes.icon} />
           <Link to={"/dashboard/completed"}>Completed</Link>
         </li>
+        <li className={classes["list-item"]}>
+          <img src="/account.png" alt="completed" className={classes.icon} />
+          <Link to={"/account/details"}>Account</Link>
+        </li>
       </ul>
     </nav>
   ) : (

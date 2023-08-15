@@ -7,6 +7,9 @@
   color: $color-primary-light;
   padding: 1.5rem 3rem;
   box-shadow: 1px 1px 2rem rgba($color: $color-secondary-light, $alpha: 0.5);
+  display: grid;
+  align-items: center;
+  height: 50vh;
   &-header {
     display: flex;
     align-items: center;
@@ -24,6 +27,7 @@
     align-items: center;
     gap: 0.25rem;
     font-size: $fs-500;
+    height: 100%;
     &:not(:first-child) {
       margin-top: 1rem;
     }

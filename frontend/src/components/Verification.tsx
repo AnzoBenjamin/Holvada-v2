@@ -1,11 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import classes from "./Verification.module.scss";
+import { Link } from "react-router-dom";
 
 export const Verification = () => {
   return (
-    <div>Check your email for verification
-        <Link to={"/login"}>Continue to signin</Link>
+    <div className={classes.verification}>
+      <p>Check your email for verification</p>
+      <Link to={"/login"}>Continue to signin</Link>
     </div>
-
-  )
-}
+  );
+};

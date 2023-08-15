@@ -1,49 +1,49 @@
 import React, { ReactNode, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
 import { createPortal } from "react-dom";
+import { useNavigate } from "react-router-dom";
 import { DashboardNav } from "./DashboardNav";
+import { useAuth } from "../../../store/auth-context";
 import barsStaggered from "/bars-staggered.svg";
 import DesktopNav from "../../Nav/DesktopNav";
 import MobileNav from "../../Nav/MobileNav";
 import classes from "./DashboardLayout.module.scss";
-import styles from "../../../scss/components/_buttons.module.scss"
-import { useAuth } from "../../../store/auth-context";
+import styles from "../../../scss/components/_buttons.module.scss";
 
 interface DashboardLayoutProps {
   children: ReactNode;
 }
-const Navigation = () =>{
-
+const Navigation = () => {
   const menuRoot = document?.getElementById("menu-root");
   const [menu, setMenu] = useState(false);
-  const [isFixed, setisFixed] = useState(false)
-  const { currentUser } = useAuth();
+  const [isFixed, setisFixed] = useState(false);
+  const { signout } = useAuth();
+  const navigate = useNavigate();
   const menuHandler = () => {
     setMenu(true);
   };
-
+  const signOutHandler = async () => {
+    try {
+      signout();
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const screenWidth = window.innerWidth;
-  const navItems = ["Home", "Learn", "Showcases"]
-  const navLinks = ["home", "learn", "perform"]
+  const navItems = ["Home", "Learn", "Showcases"];
+  const navLinks = ["home", "learn", "perform"];
   return (
-    <div
-    >
-      <div
-        className={`${classes.nav} ${isFixed ? classes.fixed : ""} `}
-      >
-        <h2 className={classes["nav__header"]}>
-          Holvada
-        </h2>
+    <div>
+      <div className={`${classes.nav} ${isFixed ? classes.fixed : ""} `}>
+        <h2 className={classes["nav__header"]}>Holvada</h2>
         {screenWidth > 1000 ? (
           <React.Fragment>
             <DesktopNav items={navItems} links={navLinks} />
 
-            <div className={styles.btn}>
-            {currentUser ? (
-                  <Link to={"/dashboard/add"} className={styles.btn}>Account</Link>
-                ) : (
-                  <Link to={"/signup"} className={styles.btn}>Join Us</Link>
-                )}
+            <div>
+              <button className={styles.btn} onClick={signOutHandler}>
+                Signout
+              </button>
             </div>
             <img
               src={barsStaggered}
@@ -55,11 +55,9 @@ const Navigation = () =>{
         ) : (
           <div className={classes["nav__left"]}>
             <div>
-                {currentUser ? (
-                  <Link to={"/dashboard/add"} className={styles.btn}>Account</Link>
-                ) : (
-                  <Link to={"/signup"} className={styles.btn}>Join Us</Link>
-                )}
+              <button className={styles.btn} onClick={signOutHandler}>
+                Signout
+              </button>
             </div>
             <img
               src={barsStaggered}
@@ -82,24 +80,12 @@ const Navigation = () =>{
         )}
     </div>
   );
-}
+};
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
-  const { signout } = useAuth();
-  const navigate = useNavigate();
-
-  const buttonHandler = async () => {
-    try {
-      await signout();
-      navigate("/");
-    } catch (error: any) {
-      console.log(error.message);
-    }
-  };
-  
   return (
     <div>
-      <Navigation/>
+      <Navigation />
       <div className={classes.layout}>
         <DashboardNav />
         <div className={classes.main}>{children}</div>

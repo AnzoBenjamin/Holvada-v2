@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../store/auth-context";
 import { Form } from "./Form";
+import FormHeader from "./FormHeader";
 import Button from "../../UI/Button";
 import Input from "../../UI/Input";
 import classes from './ForgotPassword.module.scss'
@@ -28,16 +29,16 @@ export const ForgotPassword: React.FC = () => {
       setMessage("")
     }
   }
+  const linkItems = ["Login", "Signup"]
   return (
     <Form>
+      <FormHeader linkContent={linkItems}/>
       <form action="" onSubmit={resetHandler} className={classes.forgot}>
       <h2>Forgot Password</h2>
-      {message && <p>{message}</p>}
+      {message && <p className={classes.message}>{message}</p>}
       {error && <p>{error}</p>}
       <Input type="email" placeholder="Email" ref={emailRef} />
       <Button text="Reset" disabled={loading} type="submit" className="" />
-      <Link to={"/signup"}>Don't have an account? Signup</Link>
-      <Link to={"/login"}>Already have an account? Login</Link>
       </form>
     </Form>
   );

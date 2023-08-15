@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./ItemCard.module.scss";
-import styles from "../../../scss/components/_buttons.module.scss";
+import Button from "../../../UI/Button";
 
 interface ItemCardProps {
   item: string;
@@ -13,12 +13,12 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, date, category }) => {
     <div className={classes.card}>
       <div className={classes["img-container"]}>
         <img src={`/${item}.jpg`} alt={`${item}`} className={classes.img} />
+        <p className={classes.category}>{category}</p>
       </div>
       <div className={classes["text-content"]}>
-        <p>{category}</p>
         <p>{date}</p>
       </div>
-        <button className={styles.btn}>Remove</button>
+        <Button className={""} text="Remove" type="submit" disabled={false} />
     </div>
   );
 };

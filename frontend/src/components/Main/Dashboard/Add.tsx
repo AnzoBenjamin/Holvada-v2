@@ -4,7 +4,7 @@ import { doc, collection, addDoc } from "firebase/firestore";
 import { db } from "../../../config/firebase";
 import { useAuth } from "../../../store/auth-context";
 import { v4 } from "uuid";
-
+import Button from "../../../UI/Button";
 interface Option {
   label: string;
   value: string;
@@ -16,6 +16,8 @@ export const Add: React.FC = () => {
   const [selectedChild, setSelectedChild] = useState<Option | null>(null);
   const [selectedSubChild, setSelectedSubChild] = useState<Option | null>(null);
   const [message, setMessage] = useState("");
+  const [hour, setHour] = useState("12")
+  const [minute, setMinute] = useState("00")
   const dateRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
   const handleParentSelect = (option: Option | null) => {
@@ -155,9 +157,28 @@ export const Add: React.FC = () => {
     }
   };
 
+  const handleHour = (e) => {
+    console.log(e.target.value);
+    setHour(e.target.value)
+  };
+  const handleMinute = (e) => {
+    console.log(e.target.value);
+    setMinute(e.target.value)
+  };
+
   return (
     <main className={classes.main}>
       <div className={classes.add}>
+        <select id="frequencySelect" className={classes.select}>
+          <option value="">Select your desired frequency</option>
+          <option value="1">Once a week</option>
+          <option value="2">Twice a week</option>
+          <option value="3">Thrice a week</option>
+          <option value="4">Four times a week</option>
+          <option value="5">Five times a week</option>
+          <option value="6">Six times a week</option>
+          <option value="7">Daily</option>
+        </select>
         <div>
           <label htmlFor="parentSelect"></label>
           <select
@@ -241,23 +262,45 @@ export const Add: React.FC = () => {
             <div>
               <input type="date" className={classes.input} ref={dateRef} />
             </div>
-            <select id="frequencySelect" className={classes.select}>
-              <option value="">Select your desired frequency</option>
-              <option value="1">Once a week</option>
-              <option value="2">Twice a week</option>
-              <option value="3">Thrice a week</option>
-              <option value="4">Four times a week</option>
-              <option value="5">Five times a week</option>
-              <option value="6">Six times a week</option>
-              <option value="7">Daily</option>
-            </select>
+            <div className={classes.clock}>
+              <div className={classes["clock-display"]}>{`${hour}:${minute}`}</div>
+              <input
+                type="range"
+                onClick={handleHour}
+                id="hourInput"
+                min="1"
+                max="12"
+              />
+              <input
+                type="range"
+                onClick={handleMinute}
+                id="minuteInput"
+                min="0"
+                max="59"
+              />
+            </div>
             <button className={classes.btn} onClick={buttonHandler}>
               Add
             </button>
           </>
         )}
       </div>
-      <div className={classes["order-details"]}>All your orders go here</div>
+      <div className={classes["order-details"]}>
+        <h3>Order details</h3>
+        <div>
+          <h4>Subscription</h4>
+          <p>Monthly</p>
+        </div>
+        <div>
+          <h4>Weekly lessons</h4>
+          <p></p>
+        </div>
+        <div>
+          <h4>Total Amount</h4>
+          <p></p>
+        </div>
+            <Button className={classes.proceed} type="submit" text="Proceed to payment" disabled={false}/>           
+      </div>
       {message && <p>{message}</p>}
     </main>
   );

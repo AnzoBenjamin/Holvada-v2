@@ -1,8 +1,10 @@
+@import "../../../scss/utils/variables";
 .img {
   height: 15rem;
   width: 100%;
   &-container {
     overflow: hidden;
+    position: relative;
   }
 }
 .card {
@@ -17,4 +19,13 @@
 .text-content {
   display: grid;
   gap: 0.5rem;
+}
+.category{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: $color-primary-dark;
+  padding: .5rem;
+  text-transform: capitalize;
+  color: $color-primary-light;
 }

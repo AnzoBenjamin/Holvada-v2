@@ -57,19 +57,10 @@ const Signup = () => {
       navigate("/verification");
     } catch (error: any) {
       setMessage("");
-      if (error instanceof Error) {
-        console.error('Custom Error caught:', error.message);
-        if ('errorCode' in error) {
-          console.error('Error Code:', (error as any).errorCode);
-        }
-      } else {
-        console.error('Unknown error:', error);
-        setError(error.message);
-        setLoading(false);
-      }
-      console.log(`${error.code}`);
-
-      console.log("Error")
+      setError(error.code)
+    }
+    finally{
+      setLoading(false)
     }
   };
 
