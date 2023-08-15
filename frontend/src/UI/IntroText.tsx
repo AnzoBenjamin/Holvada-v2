@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./IntroText.module.scss"
 
-const IntroText = () => {
+const IntroText: React.FC = () => {
   return (
     <div className={classes.intro}>
       <h2>Master Code, Chess, Music, Language, and Art</h2>

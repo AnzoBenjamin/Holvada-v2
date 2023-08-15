@@ -20,7 +20,7 @@ import {
   updatePassword,
   sendEmailVerification,
 } from "firebase/auth";
-import { setDoc, doc, collection, addDoc } from "firebase/firestore";
+import { doc, collection, addDoc } from "firebase/firestore";
 import { auth, db } from "../config/firebase";
 
 interface AuthProviderProps {
@@ -58,7 +58,6 @@ export function useAuth(): AuthContextValue {
 
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<FirebaseAuthUser | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
 
   async function signUp(
     email: string,
@@ -98,10 +97,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   function createCustomError(message: string, errorCode: number): Error {
     return Object.assign(new Error(message), { errorCode });
   }
-
+/*
   async function resendVerificationEmail() {
     if (auth.currentUser) return sendEmailVerification(auth.currentUser);
   }
+  */
   async function logIn(
     email: string,
     password: string
@@ -137,7 +137,6 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       (user: FirebaseAuthUser | null) => {
         if (user) {
           // Handle the case when the user is logged in
-          setLoading(false);
           setCurrentUser(user);
         } else {
           // Handle the case when the user is logged out

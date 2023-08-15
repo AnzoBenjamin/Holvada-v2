@@ -3,7 +3,7 @@ import { getDocs, doc, collection, query } from "firebase/firestore";
 import { useAuth } from "../../../store/auth-context";
 import { db } from "../../../config/firebase";
 
-const AccountDetails = () => {
+const AccountDetails: React.FC = () => {
   const { currentUser } = useAuth();
   const [userInfo, setUserInfo] = useState<{}|null>({});
 
@@ -35,7 +35,6 @@ const AccountDetails = () => {
       {userInfo ? (
         <div>
           <h2>User Info:</h2>
-          <p>Telephone Number: {userInfo.telephoneNumber}</p>
           {/* Add other user info fields here */}
         </div>
       ) : (

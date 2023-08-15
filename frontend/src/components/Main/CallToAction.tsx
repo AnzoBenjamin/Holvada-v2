@@ -2,7 +2,6 @@ import classes from "./CallToAction.module.scss";
 import Button from "../../UI/Button";
 
 const CallToAction = () => {
-  const buttonHandler = () => {};
   return (
     <section className={classes["section-cta"]}>
       <div className={classes["cta-card"]}>
@@ -16,7 +15,8 @@ const CallToAction = () => {
         <Button
           text="Join us"
           className={classes.btn}
-          onClick={buttonHandler}
+          disabled={false}
+          type="submit"
         />
       </div>
     </section>

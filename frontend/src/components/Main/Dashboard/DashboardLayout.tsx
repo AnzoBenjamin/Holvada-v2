@@ -20,6 +20,7 @@ const Navigation = () => {
   const navigate = useNavigate();
   const menuHandler = () => {
     setMenu(true);
+    setisFixed(false)
   };
   const signOutHandler = async () => {
     try {

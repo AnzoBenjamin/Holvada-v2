@@ -1,4 +1,4 @@
-import React, { useState, useRef, MouseEventHandler } from "react";
+import React, { useState, useRef } from "react";
 import classes from "./Add.module.scss";
 import { doc, collection, addDoc } from "firebase/firestore";
 import { db } from "../../../config/firebase";
@@ -16,8 +16,8 @@ export const Add: React.FC = () => {
   const [selectedChild, setSelectedChild] = useState<Option | null>(null);
   const [selectedSubChild, setSelectedSubChild] = useState<Option | null>(null);
   const [message, setMessage] = useState("");
-  const [hour, setHour] = useState("12")
-  const [minute, setMinute] = useState("00")
+  const [hour, setHour] = useState("12");
+  const [minute, setMinute] = useState("00");
   const dateRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
   const handleParentSelect = (option: Option | null) => {
@@ -119,7 +119,7 @@ export const Add: React.FC = () => {
   ];
   const { currentUser } = useAuth();
 
-  const buttonHandler = async (e: MouseEventHandler<HTMLButtonElement>) => {
+  const buttonHandler = async () => {
     if (selectedChild && selectedParent && selectedSubChild) {
       const email = currentUser?.email || "";
 
@@ -157,13 +157,13 @@ export const Add: React.FC = () => {
     }
   };
 
-  const handleHour = (e) => {
+  const handleHour = (e: any) => {
     console.log(e.target.value);
-    setHour(e.target.value)
+    setHour(e.target.value);
   };
-  const handleMinute = (e) => {
+  const handleMinute = (e: any) => {
     console.log(e.target.value);
-    setMinute(e.target.value)
+    setMinute(e.target.value);
   };
 
   return (
@@ -185,11 +185,14 @@ export const Add: React.FC = () => {
             id="parentSelect"
             value={selectedParent ? selectedParent.value : ""}
             className={classes.select}
-            onChange={(e) =>
-              handleParentSelect(
-                options.find((option) => option.value === e.target.value)
-              )
-            }
+            onChange={(e) => {
+              const selectedValue = e.target.value;
+              const selectedOption = options.find(
+                (option) => option.value === selectedValue
+              );
+
+              handleParentSelect(selectedOption || null);
+            }}
           >
             <option value="">Select a parent</option>
             {options.map((option) => (
@@ -207,13 +210,13 @@ export const Add: React.FC = () => {
               id="childSelect"
               value={selectedChild ? selectedChild.value : ""}
               className={classes.select}
-              onChange={(e) =>
-                handleChildSelect(
-                  selectedParent.children?.find(
-                    (option) => option.value === e.target.value
-                  )
-                )
-              }
+              onChange={(e) => {
+                const selectedValue = e.target.value;
+                const selectedOption = selectedParent.children?.find(
+                  (option) => option.value === selectedValue
+                );
+                handleChildSelect(selectedOption || null);
+              }}
             >
               <option value=""></option>
               {selectedParent.children?.map((option) => (
@@ -232,13 +235,13 @@ export const Add: React.FC = () => {
               id="subChildSelect"
               value={selectedSubChild ? selectedSubChild.value : ""}
               className={classes.select}
-              onChange={(e) =>
-                handleSubChildSelect(
-                  selectedChild.children?.find(
-                    (option) => option.value === e.target.value
-                  )
-                )
-              }
+              onChange={(e) => {
+                const selectedValue = e.target.value;
+                const selectedOption = selectedChild.children?.find(
+                  (option) => option.value === selectedValue
+                );
+                handleSubChildSelect(selectedOption || null);
+              }}
             >
               <option value="">Select a sub-child</option>
               {selectedChild.children?.map((option) => (
@@ -263,7 +266,9 @@ export const Add: React.FC = () => {
               <input type="date" className={classes.input} ref={dateRef} />
             </div>
             <div className={classes.clock}>
-              <div className={classes["clock-display"]}>{`${hour}:${minute}`}</div>
+              <div
+                className={classes["clock-display"]}
+              >{`${hour}:${minute}`}</div>
               <input
                 type="range"
                 onClick={handleHour}
@@ -299,7 +304,12 @@ export const Add: React.FC = () => {
           <h4>Total Amount</h4>
           <p></p>
         </div>
-            <Button className={classes.proceed} type="submit" text="Proceed to payment" disabled={false}/>           
+        <Button
+          className={classes.proceed}
+          type="submit"
+          text="Proceed to payment"
+          disabled={false}
+        />
       </div>
       {message && <p>{message}</p>}
     </main>

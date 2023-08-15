@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import React from 'react'
 import classes from './Button.module.scss'
 interface buttonType{
     text: string;

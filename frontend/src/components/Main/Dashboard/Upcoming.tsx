@@ -10,7 +10,7 @@ import { useAuth } from "../../../store/auth-context";
 import { db } from "../../../config/firebase";
 import classes from './Pending.module.scss'
 
-export const Upcoming = () => {
+export const Upcoming: React.FC = () => {
   const [transactions, setTransactions] = useState<DocumentData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -20,7 +20,6 @@ export const Upcoming = () => {
 
   const fetchData = async () => {
     if (email) {
-      const documentRef = doc(db, "users", email);
       try {
         const userDocRef = doc(db, "users", email);
         const transactionsCollectionRef = collection(

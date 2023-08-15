@@ -80,13 +80,14 @@ export const Pending: React.FC = () => {
         );
         setIsLoading(false);
       } catch (error) {
-        console.log(error);
+        console.log(error, isProcessingPayment);
       }
     }
   };
 
   useEffect(() => {
     fetchData();
+    handlePayment
     console.log(transactions);
   }, []);
 

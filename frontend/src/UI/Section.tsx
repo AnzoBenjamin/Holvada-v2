@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import classes from "./Section.module.scss";
 import styles from "../scss/utils/_helpers.module.scss";
 
