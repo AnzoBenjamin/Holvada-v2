@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { getDocs, doc, collection, query } from "firebase/firestore";
+import { getDocs, doc, collection, query, DocumentData } from "firebase/firestore";
 import { useAuth } from "../../../store/auth-context";
 import Input from "../../../UI/Input";
 import Button from "../../../UI/Button";
@@ -17,7 +17,7 @@ const AccountDetails: React.FC = () => {
   const apartmentBlockRef = useRef<HTMLInputElement | null>(null);
   const apartmentNoRef = useRef<HTMLInputElement | null>(null);
   const { currentUser } = useAuth();
-  const [userInfo, setUserInfo] = useState<{} | null>({});
+  const [userInfo, setUserInfo] = useState<DocumentData | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -32,7 +32,7 @@ const AccountDetails: React.FC = () => {
       const querySnapshot = await getDocs(q);
       const transactionsData = querySnapshot.docs.map((doc) => doc.data());
       setUserInfo(transactionsData[0]);
-      setLocation(transactionsData[0].location)
+      setLocation(transactionsData[0].location);
     } catch (error) {
       console.error("Error fetching user info:", error);
     }
@@ -40,15 +40,13 @@ const AccountDetails: React.FC = () => {
 
   useEffect(() => {
     (async () => {
-      try{
+      try {
         await getUserInfo();
-        console.log(location)
-        console.log(userInfo)
+        console.log(location);
+        console.log(userInfo);
+      } catch (error) {
+        console.log(error);
       }
-      catch(error){
-        console.log(error)
-      }
-
     })();
   }, [currentUser]);
 
@@ -82,7 +80,10 @@ const AccountDetails: React.FC = () => {
             <div className={classes.map}>
               <p>Select your home location</p>
               <MapContainer>
-                <Map onLocationChange={handleLocationChange} globalLocation={location}/>
+                <Map
+                  onLocationChange={handleLocationChange}
+                  globalLocation={location}
+                />
               </MapContainer>
             </div>
             <div className={classes["additional-content"]}>
