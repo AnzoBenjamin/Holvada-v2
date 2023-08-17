@@ -27,6 +27,9 @@ const AccountDetails: React.FC = () => {
     const email = currentUser?.email || "";
     const userDocRef = doc(db, "users", email);
     const infoCollectionRef = collection(userDocRef, "info");
+    setLoading(false)
+    setError("")
+    setMessage("")
     try {
       const q = query(infoCollectionRef);
       const querySnapshot = await getDocs(q);
