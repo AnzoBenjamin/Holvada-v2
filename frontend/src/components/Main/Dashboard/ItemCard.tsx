@@ -1,24 +1,29 @@
 import React from "react";
 import classes from "./ItemCard.module.scss";
-import Button from "../../../UI/Button";
 
 interface ItemCardProps {
   item: string;
   date: string;
   category: string;
+  time: string;
+  name: string;
 }
 
-const ItemCard: React.FC<ItemCardProps> = ({ item, date, category }) => {
+const ItemCard: React.FC<ItemCardProps> = ({ item, date, category, time, name }) => {
   return (
     <div className={classes.card}>
       <div className={classes["img-container"]}>
         <img src={`/${item}.jpg`} alt={`${item}`} className={classes.img} />
-        <p className={classes.category}>{category}</p>
+        <p className={classes.category}>{category.replaceAll("-", " ")}</p>
       </div>
       <div className={classes["text-content"]}>
-        <p>{date}</p>
+        <p className={classes.date}>{date}</p>
+        <p className={classes.time}>{time}</p>
+        <p className={classes.name}>{name}</p>
       </div>
-        <Button className={""} text="Remove" type="submit" disabled={false} />
+      {/*
+        <Button className={classes.btn} text="Remove" type="submit" disabled={false} />
+  */}
     </div>
   );
 };

@@ -36,6 +36,10 @@
 
 .clock {
   text-align: center;
+  &-display{
+    display: grid;
+    gap: .75rem;
+  }
   input[type="range"] {
     width: 80%;
     margin: 5px;
@@ -45,6 +49,7 @@
 .clockDisplay {
   font-size: 2em;
   margin-bottom: 10px;
+
 }
 
 .order-details {

@@ -22,7 +22,7 @@ const Signup = () => {
   const [error, setError] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [location, setLocation] = useState<[number, number] | null>();
+  const [location, setLocation] = useState<[number, number] | null>(null);
   const navigate = useNavigate();
   const { signUp } = useAuth();
 
@@ -93,7 +93,7 @@ const Signup = () => {
           <div className={classes.map}>
             <p>Select your home location</p>
             <MapContainer>
-              <Map onLocationChange={handleLocationChange} />
+              <Map onLocationChange={handleLocationChange} globalLocation={location}/>
             </MapContainer>
           </div>
           <div className={classes["additional-content"]}>

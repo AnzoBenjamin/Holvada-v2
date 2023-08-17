@@ -15,6 +15,8 @@ export const Add: React.FC = () => {
   const [selectedParent, setSelectedParent] = useState<Option | null>(null);
   const [selectedChild, setSelectedChild] = useState<Option | null>(null);
   const [selectedSubChild, setSelectedSubChild] = useState<Option | null>(null);
+  const [loading, setLoading] = useState(false)
+  const [frequency, setFrequency] = useState("")
   const [message, setMessage] = useState("");
   const [hour, setHour] = useState("12");
   const [minute, setMinute] = useState("00");
@@ -125,6 +127,7 @@ export const Add: React.FC = () => {
 
       if (email) {
         try {
+          setLoading(true)
           const userDocRef = doc(db, "users", email);
           const transactionsCollectionRef = collection(
             userDocRef,
@@ -141,6 +144,8 @@ export const Add: React.FC = () => {
             studentName: nameRef.current?.value,
             paid: false,
             attended: false,
+            time: `${hour}:${minute}`,
+            weeklyFrequency: frequency
           };
 
           await addDoc(transactionsCollectionRef, transactionData); // Create a new document in the subcollection
@@ -152,6 +157,7 @@ export const Add: React.FC = () => {
           console.log("Error adding entry:", error);
         } finally {
           setMessage("");
+          setLoading(false)
         }
       }
     }
@@ -169,7 +175,10 @@ export const Add: React.FC = () => {
   return (
     <main className={classes.main}>
       <div className={classes.add}>
-        <select id="frequencySelect" className={classes.select}>
+        <select id="frequencySelect" className={classes.select} onChange={(e)=>{
+          const selectedValue = e.target.value
+          setFrequency(selectedValue)
+        }}>
           <option value="">Select your desired frequency</option>
           <option value="1">Once a week</option>
           <option value="2">Twice a week</option>
@@ -266,9 +275,10 @@ export const Add: React.FC = () => {
               <input type="date" className={classes.input} ref={dateRef} />
             </div>
             <div className={classes.clock}>
-              <div
-                className={classes["clock-display"]}
-              >{`${hour}:${minute}`}</div>
+              <div className={classes["clock-display"]}>
+                <p>Time for the lesson</p>
+                <p>{`${hour}:${minute}`}</p>
+              </div>
               <input
                 type="range"
                 onClick={handleHour}
@@ -284,7 +294,7 @@ export const Add: React.FC = () => {
                 max="59"
               />
             </div>
-            <button className={classes.btn} onClick={buttonHandler}>
+            <button className={classes.btn} disabled={loading} onClick={buttonHandler}>
               Add
             </button>
           </>

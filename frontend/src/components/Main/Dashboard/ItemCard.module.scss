@@ -9,23 +9,43 @@
 }
 .card {
   width: 100%;
-  height: 100%;
+  height: max-content;
   box-shadow: 0 1px 1rem rgba($color: #000000, $alpha: 0.5);
-  align-content: space-between;
+
   > button {
     width: 50%;
   }
 }
 .text-content {
+  margin-top: 1rem;
+  width: 100%;
   display: grid;
   gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1rem;
+  grid-template-areas:
+    "date time"
+    "name name";
 }
-.category{
+.category {
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: $color-primary-dark;
-  padding: .5rem;
+  background-color: $color-tertiary-dark;
+  padding: 0.5rem 1rem;
   text-transform: capitalize;
   color: $color-primary-light;
+}
+.btn {
+  justify-self: center;
+  margin-inline: auto;
+}
+.date{
+  grid-area: date;
+}
+.time{
+  grid-area: time;
+}
+.name{
+  grid-area: name;
 }

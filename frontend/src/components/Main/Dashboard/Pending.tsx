@@ -29,7 +29,7 @@ export const Pending: React.FC = () => {
       0
     );
 
-    console.log(totalAmount)
+    console.log(totalAmount);
 
     // Prepare the data to be sent to the backend server
     const paymentData = {
@@ -87,7 +87,7 @@ export const Pending: React.FC = () => {
 
   useEffect(() => {
     fetchData();
-    handlePayment
+    handlePayment;
     console.log(transactions);
   }, []);
 
@@ -98,9 +98,23 @@ export const Pending: React.FC = () => {
   return (
     <>
       <div className={classes.pending}>
-        {transactions.map((transaction) => (
-          <ItemCard item={transaction.item} date={transaction.date} category={transaction.category}/>
-        ))}
+        {transactions.map((transaction) => {
+          const itemCards = [];
+
+          for (let i = 0; i < transaction.weeklyFrequency; i++) {
+            itemCards.push(
+              <ItemCard
+                item={transaction.item}
+                date={transaction.date}
+                category={transaction.category}
+                time={transaction.time}
+                name={transaction.studentName}
+              />
+            );
+          }
+
+          return itemCards;
+        })}
       </div>
     </>
   );

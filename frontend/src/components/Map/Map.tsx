@@ -1,8 +1,15 @@
 import React, { useEffect, useRef } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMapEvents,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 interface MapProps {
+  globalLocation: [number, number] | null;
   onLocationChange: (lat: number, lng: number) => void;
 }
 
@@ -12,7 +19,11 @@ interface LocationMarkerProps {
   onLocationChange: (lat: number, lng: number) => void;
 }
 
-const LocationMarker: React.FC<LocationMarkerProps> = ({ location, setLocation, onLocationChange }) => {
+const LocationMarker: React.FC<LocationMarkerProps> = ({
+  location,
+  setLocation,
+  onLocationChange,
+}) => {
   const handleMapClick = (e: any) => {
     const { lat, lng } = e.latlng;
     setLocation([lat, lng]);
@@ -31,8 +42,8 @@ const LocationMarker: React.FC<LocationMarkerProps> = ({ location, setLocation, 
   ) : null;
 };
 
-const Map: React.FC<MapProps> = ({ onLocationChange }) => {
-  const [location, setLocation] = React.useState<[number, number] | null>(null);
+const Map: React.FC<MapProps> = ({ onLocationChange, globalLocation }) => {
+  const [location, setLocation] = React.useState<[number, number] | null>(globalLocation);
 
   // Ref to store the map container
   const mapContainerRef = useRef<typeof MapContainer>(null);
@@ -40,21 +51,27 @@ const Map: React.FC<MapProps> = ({ onLocationChange }) => {
   // Call invalidateSize after map is mounted to force update
   useEffect(() => {
     if (!navigator || !navigator.geolocation) {
-      alert("Location services are not allowed or not supported by your browser.");
+      alert(
+        "Location services are not allowed or not supported by your browser."
+      );
       return;
     }
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setLocation([position.coords.latitude, position.coords.longitude]);
-        onLocationChange(position.coords.latitude, position.coords.longitude);
-      },
-      (error) => {
-        console.error("Error getting current position:", error.message);
-        alert("Error getting your location. Please allow location access.");
-      }
-    );
-  }, []);
+    if (!location) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLocation([position.coords.latitude, position.coords.longitude]);
+          onLocationChange(position.coords.latitude, position.coords.longitude);
+        },
+        (error) => {
+          console.error("Error getting current position:", error.message);
+          alert("Error getting your location. Please allow location access.");
+        }
+      );
+    }
+    else {
+      console.log("Location already present")
+    }
+  }, [navigator.geolocation, location]);
 
   return (
     location && (
@@ -63,7 +80,11 @@ const Map: React.FC<MapProps> = ({ onLocationChange }) => {
           attribution="&copy; Openstreet map"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <LocationMarker location={location} setLocation={setLocation} onLocationChange={onLocationChange} />
+        <LocationMarker
+          location={location}
+          setLocation={setLocation}
+          onLocationChange={onLocationChange}
+        />
       </MapContainer>
     )
   );

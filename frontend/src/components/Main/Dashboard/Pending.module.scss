@@ -3,8 +3,7 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     height: 100%;
-    overflow: scroll;
-    gap: 4rem;
+    gap: 1rem;
 }
 .form{
     position: relative;
