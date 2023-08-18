@@ -7,5 +7,6 @@ dotenv.config();
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/holvada/',
   plugins: [react()],
 });
