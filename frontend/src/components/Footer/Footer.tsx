@@ -27,7 +27,7 @@ const Footer = () => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://facebook.com/holvada"
+            href="https://facebook.com/profile.php?id=1000952211991679"
           >
             {" "}
             <img src="/facebook.webp" alt="Facebook" className={classes.icon} />
