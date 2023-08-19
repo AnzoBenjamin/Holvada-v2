@@ -61,7 +61,7 @@ const Navigation: React.FC<NavigationProps> = ({
           <React.Fragment>
             <DesktopNav items={navItems} links={navLinks} />
 
-            <motion.div variants={reveal}>
+            <motion.div variants={reveal} className={classes.btn}>
               {currentUser ? (
                 <Link to={"/dashboard/add"} className={styles.btn}>Account</Link>
               ) : (
@@ -78,7 +78,7 @@ const Navigation: React.FC<NavigationProps> = ({
           </React.Fragment>
         ) : (
           <motion.div className={classes["nav__left"]}>
-            <motion.div variants={reveal}>
+            <motion.div variants={reveal} className={classes.btn}>
                 {currentUser ? (
                   <Link to={"/dashboard/add"} className={styles.btn}>Account</Link>
                 ) : (

@@ -6,7 +6,7 @@ const Footer = () => {
       <div className={classes["footer-bottom"]}>
         <p>Copyright &copy; All rights reserved</p>
         <div className={classes["footer--icon-area"]}>
-          <a href="holvadaa@gmail.com">
+          <a href="info@holvada.com">
             <img src="/gmail.webp" alt="" className={classes.icon} />
           </a>
           <a href="twitter.com">

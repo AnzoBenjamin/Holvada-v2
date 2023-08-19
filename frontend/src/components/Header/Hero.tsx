@@ -18,7 +18,13 @@ const Hero: React.FC = () => {
         layout
         initial={{ height: 0 }}
         animate={{ height: "unset" }}
-        transition={{ delay: animationStart, duration: 1, ease: "easeIn", staggerChildren: 0.2, delayChildren: animationStart + 0.5 }}
+        transition={{
+          delay: animationStart,
+          duration: 1,
+          ease: "easeIn",
+          staggerChildren: 0.2,
+          delayChildren: animationStart + 0.5,
+        }}
         className={classes["hero-content"]}
       >
         <motion.div
@@ -28,7 +34,7 @@ const Hero: React.FC = () => {
           transition={{ delay: animationStart + 1, duration: 0.5 }}
         >
           <h1 className={styles["heading-primary"]}>
-            Empowering innovation through technology
+            Nurturing skills and promoting talents{" "}
           </h1>
         </motion.div>
         <motion.div

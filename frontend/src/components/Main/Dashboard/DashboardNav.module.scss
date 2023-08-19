@@ -1,6 +1,9 @@
 @import "../../../scss/utils/variables";
 .mobile-nav {
-  padding: 1.5rem;
+  padding:0 1.5rem;
+  position: relative;
+  margin-bottom: 1rem;
+  z-index: 10;
 }
 .nav {
   background-color: $color-secondary;
@@ -19,6 +22,20 @@
       font-size: $fs-700;
       text-transform: uppercase;
     }
+  }
+}
+
+.mobile-list{
+  background-color: $color-secondary;
+  color: $color-primary-light;
+  padding: 1.5rem 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 300ms ease-in-out;
+  transform: translateX(-100%);
+  &.active{
+    transform: translateX(0);
   }
 }
 .list {
@@ -45,4 +62,10 @@
   width: 2rem;
   height: 2rem;
   cursor: pointer;
+}
+.close{
+  position: absolute;
+  top: 0;
+  right: 0;
+
 }

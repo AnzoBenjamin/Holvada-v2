@@ -1,10 +1,22 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import classes from "./Add.module.scss";
 import { doc, collection, addDoc } from "firebase/firestore";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { db } from "../../../config/firebase";
 import { useAuth } from "../../../store/auth-context";
 import { v4 } from "uuid";
+import { DateTimePicker } from "@mui/x-date-pickers";
 import Button from "../../../UI/Button";
+
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  TextField,
+} from "@mui/material";
+
 interface Option {
   label: string;
   value: string;
@@ -15,12 +27,11 @@ export const Add: React.FC = () => {
   const [selectedParent, setSelectedParent] = useState<Option | null>(null);
   const [selectedChild, setSelectedChild] = useState<Option | null>(null);
   const [selectedSubChild, setSelectedSubChild] = useState<Option | null>(null);
-  const [loading, setLoading] = useState(false)
-  const [frequency, setFrequency] = useState("")
+  const [timeDate, setTimeDate] = useState();
+  const [loading, setLoading] = useState(false);
+  const [frequency, setFrequency] = useState({});
   const [message, setMessage] = useState("");
-  const [hour, setHour] = useState("12");
-  const [minute, setMinute] = useState("00");
-  const dateRef = useRef<HTMLInputElement>(null);
+  
   const nameRef = useRef<HTMLInputElement>(null);
   const handleParentSelect = (option: Option | null) => {
     setSelectedParent(option);
@@ -33,88 +44,78 @@ export const Add: React.FC = () => {
     setSelectedSubChild(null);
   };
 
-  const handleSubChildSelect = (option: Option | null) => {
-    setSelectedSubChild(option);
-  };
-
   const options: Option[] = [
     {
-      label: "Learning",
-      value: "learning",
+      label: "Chess",
+      value: "chess",
       children: [
         {
-          label: "Chess",
-          value: "chess",
-          children: [
-            {
-              label: "Chess for children",
-              value: "chess-for-children",
-            },
-            {
-              label: "Beginner Chess",
-              value: "beginner-chess",
-            },
-            {
-              label: "Intermediate Chess",
-              value: "intermediate-chess",
-            },
-          ],
+          label: "Chess for Children",
+          value: "chess-for-children",
         },
         {
-          label: "Music",
-          value: "music",
-          children: [
-            {
-              label: "Vocal training",
-              value: "vocal-training",
-            },
-            {
-              label: "Music theory",
-              value: "music-theory",
-            },
-          ],
+          label: "Beginner Chess",
+          value: "beginner-chess",
         },
         {
-          label: "Art",
-          value: "art",
-          children: [
-            {
-              label: "Pencil drawings",
-              value: "pencil-drawings",
-            },
-            {
-              label: "Watercolors",
-              value: "watercolors",
-            },
-          ],
+          label: "Intermediate Chess",
+          value: "intermediate-chess",
+        },
+      ],
+    },
+    {
+      label: "Music",
+      value: "music",
+      children: [
+        {
+          label: "Vocal Training",
+          value: "vocal-training",
         },
         {
-          label: "Langugage",
-          value: "language",
-          children: [
-            {
-              label: "English",
-              value: "english",
-            },
-            {
-              label: "Kiswahili",
-              value: "Kiswahili",
-            },
-          ],
+          label: "Music Theory",
+          value: "music-theory",
+        },
+      ],
+    },
+    {
+      label: "Art",
+      value: "art",
+      children: [
+        {
+          label: "Pencil Drawings",
+          value: "pencil-drawings",
         },
         {
-          label: "Tech",
-          value: "tech",
-          children: [
-            {
-              label: "Code",
-              value: "code",
-            },
-            {
-              label: "Scratch",
-              value: "scratch",
-            },
-          ],
+          label: "Watercolors",
+          value: "watercolors",
+        },
+      ],
+    },
+    {
+      label: "Language",
+      value: "language",
+      children: [
+        {
+          label: "English",
+          value: "english",
+        },
+        {
+          label: "Kiswahili",
+          value: "kiswahili",
+        },
+      ],
+    },
+    {
+      label: "Tech",
+      value: "tech",
+      children: [
+        {
+          label: "Code",
+          value: "code",
+        },
+        {
+          label: "Scratch",
+          value: "scratch",
         },
       ],
     },
@@ -127,7 +128,7 @@ export const Add: React.FC = () => {
 
       if (email) {
         try {
-          setLoading(true)
+          setLoading(true);
           const userDocRef = doc(db, "users", email);
           const transactionsCollectionRef = collection(
             userDocRef,
@@ -140,12 +141,12 @@ export const Add: React.FC = () => {
             item: selectedChild.value,
             category: selectedSubChild.value,
             amount: 15,
-            date: dateRef.current?.value,
+            date: `${timeDate}`,
             studentName: nameRef.current?.value,
             paid: false,
             attended: false,
-            time: `${hour}:${minute}`,
-            weeklyFrequency: frequency
+            time: `${timeDate}`,
+            weeklyFrequency: frequency,
           };
 
           await addDoc(transactionsCollectionRef, transactionData); // Create a new document in the subcollection
@@ -157,43 +158,43 @@ export const Add: React.FC = () => {
           console.log("Error adding entry:", error);
         } finally {
           setMessage("");
-          setLoading(false)
+          setLoading(false);
         }
       }
     }
   };
 
-  const handleHour = (e: any) => {
-    console.log(e.target.value);
-    setHour(e.target.value);
-  };
-  const handleMinute = (e: any) => {
-    console.log(e.target.value);
-    setMinute(e.target.value);
-  };
-
+  useEffect(()=>{
+    console.log(timeDate)
+  },[timeDate])
   return (
     <main className={classes.main}>
       <div className={classes.add}>
-        <select id="frequencySelect" className={classes.select} onChange={(e)=>{
-          const selectedValue = e.target.value
-          setFrequency(selectedValue)
-        }}>
-          <option value="">Select your desired frequency</option>
-          <option value="1">Once a week</option>
-          <option value="2">Twice a week</option>
-          <option value="3">Thrice a week</option>
-          <option value="4">Four times a week</option>
-          <option value="5">Five times a week</option>
-          <option value="6">Six times a week</option>
-          <option value="7">Daily</option>
-        </select>
-        <div>
-          <label htmlFor="parentSelect"></label>
-          <select
+        <FormControl>
+          <InputLabel id="demo-simple-select-label">Frequency</InputLabel>
+          <Select
+            id="frequencySelect"
+            label="Frequency"
+            onChange={(e) => {
+              const selectedValue = e.target.value;
+              if(selectedValue!=null && selectedValue !=undefined) setFrequency(selectedValue)
+            }}
+          >
+            <MenuItem value="1">Once a week</MenuItem>
+            <MenuItem value="2">Twice a week</MenuItem>
+            <MenuItem value="3">Thrice a week</MenuItem>
+            <MenuItem value="4">Four times a week</MenuItem>
+            <MenuItem value="5">Five times a week</MenuItem>
+            <MenuItem value="6">Six times a week</MenuItem>
+            <MenuItem value="7">Daily</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl>
+          <InputLabel id="demo-simple-select-label">Parent</InputLabel>
+          <Select
             id="parentSelect"
             value={selectedParent ? selectedParent.value : ""}
-            className={classes.select}
+            label="Parent"
             onChange={(e) => {
               const selectedValue = e.target.value;
               const selectedOption = options.find(
@@ -205,100 +206,64 @@ export const Add: React.FC = () => {
           >
             <option value="">Select a parent</option>
             {options.map((option) => (
-              <option key={option.value} value={option.value}>
+              <MenuItem key={option.value} value={option.value}>
                 {option.label}
-              </option>
+              </MenuItem>
             ))}
-          </select>
-        </div>
+          </Select>
+        </FormControl>
 
-        {selectedParent && (
-          <div>
-            <label htmlFor="childSelect"></label>
-            <select
-              id="childSelect"
-              value={selectedChild ? selectedChild.value : ""}
-              className={classes.select}
-              onChange={(e) => {
-                const selectedValue = e.target.value;
+        <FormControl>
+          <InputLabel htmlFor="childSelect">Group</InputLabel>
+          <Select
+            id="childSelect"
+            value={selectedChild ? selectedChild.value : ""}
+            label="Group"
+            onChange={(e) => {
+              const selectedValue = e.target.value;
+              if (selectedParent) {
                 const selectedOption = selectedParent.children?.find(
                   (option) => option.value === selectedValue
                 );
                 handleChildSelect(selectedOption || null);
-              }}
-            >
-              <option value=""></option>
-              {selectedParent.children?.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
+              }
+            }}
+          >
+            { selectedParent && selectedParent.children?.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
 
-        {selectedChild && (
-          <div>
-            <label htmlFor="subChildSelect"></label>
-            <select
-              id="subChildSelect"
-              value={selectedSubChild ? selectedSubChild.value : ""}
-              className={classes.select}
-              onChange={(e) => {
-                const selectedValue = e.target.value;
-                const selectedOption = selectedChild.children?.find(
-                  (option) => option.value === selectedValue
-                );
-                handleSubChildSelect(selectedOption || null);
-              }}
-            >
-              <option value="">Select a sub-child</option>
-              {selectedChild.children?.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
-        {selectedSubChild && (
-          <>
-            <div>
-              <input
-                type="text"
-                placeholder="Student name"
-                className={classes.input}
-                ref={nameRef}
-              />
-            </div>
-            <div>
-              <input type="date" className={classes.input} ref={dateRef} />
-            </div>
-            <div className={classes.clock}>
-              <div className={classes["clock-display"]}>
-                <p>Time for the lesson</p>
-                <p>{`${hour}:${minute}`}</p>
-              </div>
-              <input
-                type="range"
-                onClick={handleHour}
-                id="hourInput"
-                min="1"
-                max="12"
-              />
-              <input
-                type="range"
-                onClick={handleMinute}
-                id="minuteInput"
-                min="0"
-                max="59"
-              />
-            </div>
-            <button className={classes.btn} disabled={loading} onClick={buttonHandler}>
-              Add
-            </button>
-          </>
-        )}
+        <LocalizationProvider
+          dateAdapter={AdapterDayjs}
+        >
+          <DateTimePicker
+            label="Schedule"
+            value={timeDate}
+            className={classes.date}
+            onChange={(newValue) => {
+              if (newValue !== null && newValue !== undefined) {
+                setTimeDate(newValue);
+              }
+            }}
+          />
+        </LocalizationProvider>
+        <TextField
+          label="Student Name"
+          type="Text"
+          placeholder="Student Name"
+          className={classes["input-field"]}
+        />
+        <button
+          className={classes.btn}
+          disabled={loading}
+          onClick={buttonHandler}
+        >
+          Add
+        </button>
       </div>
       <div className={classes["order-details"]}>
         <h3>Order details</h3>
