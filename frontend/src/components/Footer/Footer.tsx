@@ -17,9 +17,13 @@ const Footer = () => {
             <img src="/twitter.webp" alt="Twitter" className={classes.icon} />
           </a>
 
-          <a target="blank" href="https://api.whatsapp.com/send?phone=+256780827089&text=Hello%20from%20your%20website">
+          <a
+            target="_blank"
+            href="https://api.whatsapp.com/send?phone=+256780827089&text=Hello%20from%20your%20website"
+          >
             <img src="/whatsapp.webp" alt="Whatsapp" className={classes.icon} />
           </a>
+
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -32,7 +36,9 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             href="https://instagram.com/holvada"
-          >            <img
+          >
+            {" "}
+            <img
               src="/instagram.webp"
               alt="Instagram"
               className={classes.icon}
