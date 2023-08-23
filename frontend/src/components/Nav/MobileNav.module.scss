@@ -3,6 +3,7 @@
 @media (min-width: 1000px) {
   .nav {
     &__hidden {
+      max-width: 100% !important;
       &--items {
         font-size: $fs-800;
         transform: translate(-100%, -50%);

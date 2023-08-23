@@ -10,7 +10,7 @@ interface FormHeaderProps {
 const FormHeader: React.FC<FormHeaderProps> = ({ linkContent }) => {
   return (
     <div className={classes.header}>
-      <h2>Holvada</h2>
+      <Link to={"/"} className={classes["nav__header"]}>Holvada</Link>
       <div className={classes["btn-area"]}>
         {linkContent.map((item, index) => (
           <Link to={`/${item.toLowerCase()}`} key={index} className={styles.btn}>

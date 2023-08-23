@@ -5,7 +5,7 @@ import { DashboardNav } from "./DashboardNav";
 import { useAuth } from "../../../store/auth-context";
 import Footer from "../../Footer/Footer";
 import barsStaggered from "/bars-staggered.svg";
-import MobileNav from "../../Nav/MobileNav";
+import timesHexagon from "/times-hexagon.svg";
 import classes from "./DashboardLayout.module.scss";
 import styles from "../../../scss/components/_buttons.module.scss";
 
@@ -17,6 +17,52 @@ interface DesktopNavProps {
   items: string[];
   links: string[];
 }
+
+interface MobileNavProps {
+  isVisible: boolean;
+  setMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  items: string[];
+  links: string[];
+}
+
+const MobileNav: React.FC<MobileNavProps> = ({
+  isVisible,
+  setMenu,
+  items,
+  links,
+}) => {
+  const hiddenMenuHandler = () => {
+    setMenu(false);
+  };
+  return (
+    <nav
+      className={`${classes["nav__hidden"]} ${
+        isVisible ? classes.visible : ""
+      }`}
+    >
+      <div className={classes["nav__hidden--header"]}>
+        <Link to={"/"} className={classes["nav__header"]}>Holvada</Link>
+        <img
+          src={timesHexagon}
+          alt=""
+          className={classes["nav__icon"]}
+          onClick={hiddenMenuHandler}
+        />
+      </div>
+      <ul className={classes["nav__hidden--items"]}>
+        {items.map((item, index) => (
+          <li key={index} className={classes["nav__hidden--item"]}>
+            <Link to={`/${links[index]}`}>
+              {item}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
+
+
 
 const DesktopNav: React.FC<DesktopNavProps> = ({ items, links }) => {
   return (
@@ -56,7 +102,7 @@ const Navigation = () => {
   return (
     <div>
       <div className={`${classes.nav} ${isFixed ? classes.fixed : ""} `}>
-        <h2 className={classes["nav__header"]}>Holvada</h2>
+        <Link to={"/"} className={classes["nav__header"]}>Holvada</Link>
         {screenWidth > 1000 ? (
           <React.Fragment>
             <DesktopNav items={navItems} links={navLinks} />

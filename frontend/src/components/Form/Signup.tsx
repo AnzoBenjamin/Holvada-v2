@@ -94,28 +94,28 @@ const Signup = () => {
             <TextField
               type="email"
               ref={emailRef}
-              placeholder="Email"
-              label="Required*"
+              placeholder="Required*"
+              label="Email"
             />
             <TextField
               type="tel"
               ref={phoneRef}
-              placeholder="Telephone number"
-              label="Required*"
+              placeholder="Required*"
+              label="Telephone number"
             />
           </div>
           <div className={classes.passwords}>
             <TextField
               type="password"
               ref={passwordRef}
-              placeholder="Password"
-              label="Required*"
+              placeholder="Required*"
+              label="Password"
             />
             <TextField
               type="password"
               ref={confirmPasswordRef}
-              placeholder="Confirm password"
-              label="Required*"
+              placeholder="Required*"
+              label="Confirm password"
             />
           </div>
           <div className={classes.map}>
@@ -128,19 +128,19 @@ const Signup = () => {
             </MapContainer>
           </div>
           <div className={classes["additional-content"]}>
-            <TextField ref={streetRef} type="text" placeholder="Street" label="Optional"/>
-            <TextField ref={laneRef} type="text" placeholder="Lane" label="Optional"/>
+            <TextField ref={streetRef} type="text" placeholder="Optional" label="Street"/>
+            <TextField ref={laneRef} type="text" placeholder="Optional" label="Lane"/>
             <TextField
               ref={apartmentBlockRef}
               type="text"
-              placeholder="Apartment Block"
-              label="Optional"
+              placeholder="Optional"
+              label="Apartment Block"
             />
             <TextField
               ref={apartmentNoRef}
               type="text"
-              placeholder="Apartment No"
-              label="Optional"
+              placeholder="Optional"
+              label="Apartment No"
             />
           </div>
           <Button

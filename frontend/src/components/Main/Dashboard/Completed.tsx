@@ -8,7 +8,7 @@ import {
 } from "firebase/firestore";
 import { useAuth } from "../../../store/auth-context";
 import { db } from "../../../config/firebase";
-import classes from "./Pending.module.scss";
+import ItemCard from "./ItemCard";
 
 export const Completed: React.FC = () => {
   const [transactions, setTransactions] = useState<DocumentData[]>([]);
@@ -52,34 +52,22 @@ export const Completed: React.FC = () => {
 
   return (
     <>
-      <table>
-        <thead>
-          <tr>
-            <th>Branch</th>
-            <th>Item</th>
-            <th>Category</th>
-            <th>Amount</th>
-            <th>Date</th>
-            <th>Student Name</th>
-            <th>Paid</th>
-            <th>Attended</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactions.map((transaction) => (
-            <tr key={transaction.id} className={classes.transactions}>
-              <td>{transaction.branch}</td>
-              <td>{transaction.item}</td>
-              <td>{transaction.category}</td>
-              <td>{transaction.amount}</td>
-              <td>{transaction.date}</td>
-              <td>{transaction.studentName}</td>
-              <td>{transaction.paid ? "Yes" : "No"}</td>
-              <td>{transaction.attended ? "Yes" : "No"}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    {transactions.map((transaction) => {
+          const itemCards = [];
+
+          for (let i = 0; i < transaction.weeklyFrequency; i++) {
+            itemCards.push(
+              <ItemCard
+                item={transaction.item}
+                date={transaction.date}
+                category={transaction.category}
+                time={transaction.time}
+                name={transaction.studentName}
+              />
+            );
+          }
+        })
+      }
     </>
   );
 };

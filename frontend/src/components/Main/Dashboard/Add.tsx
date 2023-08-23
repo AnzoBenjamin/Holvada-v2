@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Add.module.scss";
 import { doc, collection, addDoc } from "firebase/firestore";
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -15,6 +15,9 @@ import {
   Select,
   MenuItem,
   TextField,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
 } from "@mui/material";
 
 interface Option {
@@ -31,8 +34,18 @@ export const Add: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [frequency, setFrequency] = useState({});
   const [message, setMessage] = useState("");
-  
-  const nameRef = useRef<HTMLInputElement>(null);
+  const [name, setName] = useState("");
+
+  const [checkboxVisibility, setCheckboxVisibility] = useState(
+    Array(7).fill(false)
+  );
+
+  const handleCheckboxClick = (index: any) => {
+    const newVisibility = [...checkboxVisibility];
+    newVisibility[index] = !newVisibility[index];
+    setCheckboxVisibility(newVisibility);
+  };
+
   const handleParentSelect = (option: Option | null) => {
     setSelectedParent(option);
     setSelectedChild(null);
@@ -122,8 +135,14 @@ export const Add: React.FC = () => {
   ];
   const { currentUser } = useAuth();
 
+  const handleNameChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setName(event.target.value);
+  };
+
   const buttonHandler = async () => {
-    if (selectedChild && selectedParent && selectedSubChild) {
+    if (selectedChild && selectedParent) {
       const email = currentUser?.email || "";
 
       if (email) {
@@ -137,12 +156,11 @@ export const Add: React.FC = () => {
 
           const transactionData = {
             id: v4(),
-            branch: selectedParent.value,
-            item: selectedChild.value,
-            category: selectedSubChild.value,
+            item: selectedParent.value,
+            category: selectedChild.value,
             amount: 15,
             date: `${timeDate}`,
-            studentName: nameRef.current?.value,
+            studentName: name,
             paid: false,
             attended: false,
             time: `${timeDate}`,
@@ -164,31 +182,30 @@ export const Add: React.FC = () => {
     }
   };
 
-  useEffect(()=>{
-    console.log(timeDate)
-  },[timeDate])
+  useEffect(() => {
+    console.log(timeDate);
+    setFrequency(1)
+    selectedSubChild
+    setSelectedSubChild({label: 'none', value: 'none'})
+  }, [timeDate]);
   return (
     <main className={classes.main}>
       <div className={classes.add}>
-        <FormControl>
-          <InputLabel id="demo-simple-select-label">Frequency</InputLabel>
-          <Select
-            id="frequencySelect"
-            label="Frequency"
-            onChange={(e) => {
-              const selectedValue = e.target.value;
-              if(selectedValue!=null && selectedValue !=undefined) setFrequency(selectedValue)
-            }}
-          >
-            <MenuItem value="1">Once a week</MenuItem>
-            <MenuItem value="2">Twice a week</MenuItem>
-            <MenuItem value="3">Thrice a week</MenuItem>
-            <MenuItem value="4">Four times a week</MenuItem>
-            <MenuItem value="5">Five times a week</MenuItem>
-            <MenuItem value="6">Six times a week</MenuItem>
-            <MenuItem value="7">Daily</MenuItem>
-          </Select>
-        </FormControl>
+        <FormGroup className={classes.days}>
+          {["S", "M", "T", "W", "T", "F", "S"].map((label, index) => (
+            <FormControlLabel
+              key={index}
+              control={
+                <Checkbox
+                className={`${classes.checkbox} ${checkboxVisibility[index] ? classes["checked-checkbox"] : ''}`}
+                checked={checkboxVisibility[index]}
+                  onClick={() => handleCheckboxClick(index)}
+                />
+              }
+              label={label}
+            />
+          ))}
+        </FormGroup>
         <FormControl>
           <InputLabel id="demo-simple-select-label">Parent</InputLabel>
           <Select
@@ -229,17 +246,16 @@ export const Add: React.FC = () => {
               }
             }}
           >
-            { selectedParent && selectedParent.children?.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
+            {selectedParent &&
+              selectedParent.children?.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
           </Select>
         </FormControl>
 
-        <LocalizationProvider
-          dateAdapter={AdapterDayjs}
-        >
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateTimePicker
             label="Schedule"
             value={timeDate}
@@ -256,6 +272,8 @@ export const Add: React.FC = () => {
           type="Text"
           placeholder="Student Name"
           className={classes["input-field"]}
+          value={name}
+          onChange={handleNameChange}
         />
         <button
           className={classes.btn}

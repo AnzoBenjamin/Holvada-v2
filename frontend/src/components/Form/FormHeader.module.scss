@@ -18,7 +18,14 @@
   display: flex;
   gap: .5rem;
 }
-
+.nav__header{
+  font-family: "Cera-bold", sans-serif;
+  text-transform: uppercase;
+  font-size: $fs-500;
+  letter-spacing: 1px;
+  z-index: 5;
+  cursor: pointer;
+}
 @media (min-width: 1000px) {
   .header {
     padding: 1.5rem 3rem;

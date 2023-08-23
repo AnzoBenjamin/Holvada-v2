@@ -9,7 +9,7 @@ import { secondaryAnimationStart } from "../../utils/animation";
 const Technology = () => {
   const navItems = ["Home", "Web", "Graphics", "Mobile"];
   const navLinks = [
-    "section-home",
+    "hero",
     "section-web",
     "section-graphics",
     "section-mobile",
@@ -20,7 +20,7 @@ const Technology = () => {
       <Header
         navItems={navItems}
         navLinks={navLinks}
-        navHeading="Tech"
+        navHeading="Holvada"
         HeroElement={TechHero}
         animationStart={secondaryAnimationStart}
         otherClasses={classes.hero}

@@ -9,7 +9,7 @@ import {animationStart} from '../utils/animation'
 const Home = () => {
   const navItems = ["Home", "How to", "Services"];
   const navLinks = [
-    "section-home",
+    "section-header",
     "section-guide",
     "section-services",
   ];

@@ -1,5 +1,5 @@
 import classes from "./CallToAction.module.scss";
-import Button from "../../UI/Button";
+import { Link } from 'react-router-dom';
 
 const CallToAction = () => {
   return (
@@ -12,12 +12,10 @@ const CallToAction = () => {
           learning? Contact us now to kickstart your project or enroll in our
           skill-building courses.{" "}
         </p>
-        <Button
-          text="Join us"
+        <Link
           className={classes.btn}
-          disabled={false}
-          type="submit"
-        />
+          to={"/signup"}
+        >Signup</Link>
       </div>
     </section>
   );

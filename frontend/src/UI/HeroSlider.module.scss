@@ -1,8 +1,9 @@
 @import "../scss/utils/variables";
 
 .hero-slider {
-  width: 100vw;
+  max-width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
   &__pair {
     position: absolute;
     top: 0;
@@ -13,7 +14,7 @@
     transition: opacity 1s ease-in-out;
     background-size: cover;
     background-position: center;
-
+    overflow-x: hidden;
     &.active {
       opacity: 1;
       animation: slideIn 1s ease-in-out; /* Add slideIn animation */
@@ -52,7 +53,7 @@
       color: $color-grey;
     }
     .heading-primary {
-      font-size: $fs-900 * 1.5;
+      font-size: $fs-900 * 1.2;
       max-width: 10ch;
       text-transform: uppercase;
       font-family: "Cera-heavy", sans-serif;
@@ -63,7 +64,7 @@
     text-transform: uppercase;
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 }
 .category-tag {
@@ -119,7 +120,7 @@
   text-transform: capitalize;
   font-size: $fs-400;
   background-color: $color-tertiary;
-  padding: .9rem 1.1rem;
+  padding: 0.9rem 1.1rem;
   font-family: "Cera-light", sans-serif;
   box-shadow: 0 1px 1rem $color-tertiary;
   &:hover {

@@ -15,9 +15,32 @@
 }
 
 .btn {
+
+  border: none;
+  background-color: $color-secondary-light;
+  color: $color-white;
+  font-size: $fs-300;
+  padding: .8rem 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 1px 16px $color-secondary-light;
+  transition: box-shadow 400ms, background-color 400ms;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
   margin-inline: auto;
-  width: 10rem;
+  &:active {
+    box-shadow: none;
+    transform: translateY(0.1rem);
+  }
+  &:hover {
+    background-color: $color-secondary;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $color-grey;
+    box-shadow: 0 1px 16px $color-grey-light;
+  }
 }
+
 
 @media (min-width: 1200px) {
   .cta-card {

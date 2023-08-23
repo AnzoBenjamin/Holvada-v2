@@ -26,7 +26,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
       }`}
     >
       <div className={classes["nav__hidden--header"]}>
-        <h2 className={classes["nav__header"]}>Holvada</h2>
+        <Link to={"/"} className={classes["nav__header"]}>Holvada</Link>
         <img
           src={timesHexagon}
           alt=""
@@ -37,7 +37,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
       <ul className={classes["nav__hidden--items"]}>
         {items.map((item, index) => (
           <li key={index} className={classes["nav__hidden--item"]}>
-            <Link smooth to={links[index]}>
+            <Link smooth to={links[index]} onClick={hiddenMenuHandler}>
               {item}
             </Link>
           </li>

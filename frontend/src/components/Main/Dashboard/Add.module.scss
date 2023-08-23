@@ -25,7 +25,17 @@
 .container {
   display: inline-block;
 }
-
+.checkbox{
+  visibility: hidden;
+  padding: 0;
+}
+.checked-checkbox{
+  background-color: $color-primary-dark;
+}
+.days{
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+}
 .btn {
   cursor: pointer;
   padding: 0.5rem 1rem;

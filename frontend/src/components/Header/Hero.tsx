@@ -57,8 +57,8 @@ const Hero: React.FC = () => {
           transition={{ delay: animationStart + 1.3, duration: 0.5 }}
           className={classes["hero__btn-area"]}
         >
-          <Link smooth to="section-prices" className={classes["btn-primary"]}>
-            Discover
+          <Link smooth to="footer" className={classes["btn-primary"]}>
+            Contact
           </Link>
           <Link
             smooth

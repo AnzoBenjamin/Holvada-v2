@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({
     <header
       ref={headerRef}
       className={`${otherClasses} ${classes.header}`}
-      id="header"
+      id="section-header"
     >
       <Navigation
         isFixed={isHeaderVisible}

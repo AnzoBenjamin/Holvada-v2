@@ -55,7 +55,7 @@ const Navigation: React.FC<NavigationProps> = ({
         className={`${classes.nav} ${isFixed ? classes.fixed : ""} `}
       >
         <motion.h2 variants={reveal} className={classes["nav__header"]}>
-          {navHeading}
+          <Link to={"/"}>{navHeading}</Link>
         </motion.h2>
         {screenWidth > 1000 ? (
           <React.Fragment>
