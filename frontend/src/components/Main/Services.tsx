@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSwipeable } from "react-swipeable";
 import classes from "./Services.module.scss";
 import styles from "../../scss/utils/_helpers.module.scss";
 
@@ -25,24 +24,40 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   description,
 }) => {
   const [isFlipped, setisFlipped] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean>();
 
-  const handleHover = () => {
-    if (window.innerWidth >= 1200) setisFlipped(!isFlipped);
+  const handleFlip = () => {
+    setisFlipped(!isFlipped);
   };
 
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => setisFlipped(!isFlipped),
-    onSwipedRight: () => setisFlipped(!isFlipped),
-  });
+  const handleClick = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
 
+  useState(() => {
+    const handleWindowSizeChange = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust the breakpoint as needed
+    };
+
+    // Initial check
+    handleWindowSizeChange();
+
+    // Event listener for window size changes
+    window.addEventListener("resize", handleWindowSizeChange);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
   return (
     <div
       className={`${classes["section-services__area--item"]} ${
         isFlipped ? classes.flipped : ""
       } ${otherClass}`}
-      onMouseEnter={handleHover}
-      onMouseLeave={handleHover}
-      {...(window.innerWidth < 1200 ? swipeHandlers : {})}
+      onClick={isMobile? handleFlip: ''}
+      onMouseEnter={!isMobile?  handleFlip: ''}
+      onMouseLeave={!isMobile? handleFlip: ''}
     >
       <div className={`${classes["section-services__area--front"]}`}>
         <figure className={classes["section-services__area--figure"]}>
@@ -70,7 +85,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
       </div>
       <div className={`${classes["section-services__area--back"]} ${bgClass}`}>
         <p>{description}</p>
-        <Link to={link} className={classes.btn}>
+        <Link to={link} className={classes.btn} onClick={handleClick}>
           More
         </Link>
       </div>

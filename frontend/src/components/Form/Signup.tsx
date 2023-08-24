@@ -93,13 +93,13 @@ const Signup = () => {
           <div className={classes["contact-info"]}>
             <TextField
               type="email"
-              ref={emailRef}
+              inputRef={emailRef}
               placeholder="Required*"
               label="Email"
             />
             <TextField
               type="tel"
-              ref={phoneRef}
+              inputRef={phoneRef}
               placeholder="Required*"
               label="Telephone number"
             />
@@ -107,13 +107,13 @@ const Signup = () => {
           <div className={classes.passwords}>
             <TextField
               type="password"
-              ref={passwordRef}
+              inputRef={passwordRef}
               placeholder="Required*"
               label="Password"
             />
             <TextField
               type="password"
-              ref={confirmPasswordRef}
+              inputRef={confirmPasswordRef}
               placeholder="Required*"
               label="Confirm password"
             />
@@ -128,16 +128,16 @@ const Signup = () => {
             </MapContainer>
           </div>
           <div className={classes["additional-content"]}>
-            <TextField ref={streetRef} type="text" placeholder="Optional" label="Street"/>
-            <TextField ref={laneRef} type="text" placeholder="Optional" label="Lane"/>
+            <TextField inputRef={streetRef} type="text" placeholder="Optional" label="Street"/>
+            <TextField inputRef={laneRef} type="text" placeholder="Optional" label="Lane"/>
             <TextField
-              ref={apartmentBlockRef}
+              inputRef={apartmentBlockRef}
               type="text"
               placeholder="Optional"
               label="Apartment Block"
             />
             <TextField
-              ref={apartmentNoRef}
+              inputRef={apartmentNoRef}
               type="text"
               placeholder="Optional"
               label="Apartment No"

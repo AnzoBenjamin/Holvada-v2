@@ -35,15 +35,23 @@ export const Add: React.FC = () => {
   const [frequency, setFrequency] = useState({});
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
-
-  const [checkboxVisibility, setCheckboxVisibility] = useState(
-    Array(7).fill(false)
-  );
+  const [checkboxVisibility, setCheckboxVisibility] = useState([
+    false, // Sunday
+    false, // Monday
+    false, // Tuesday
+    false, // Wednesday
+    false, // Thursday
+    false, // Friday
+    false, // Saturday
+  ]);
 
   const handleCheckboxClick = (index: any) => {
-    const newVisibility = [...checkboxVisibility];
-    newVisibility[index] = !newVisibility[index];
-    setCheckboxVisibility(newVisibility);
+    // Create a copy of the array to modify
+    const updatedCheckboxVisibility = [...checkboxVisibility];
+    updatedCheckboxVisibility[index] = !updatedCheckboxVisibility[index];
+
+    // Update the state with the modified array
+    setCheckboxVisibility(updatedCheckboxVisibility);
   };
 
   const handleParentSelect = (option: Option | null) => {
@@ -184,28 +192,14 @@ export const Add: React.FC = () => {
 
   useEffect(() => {
     console.log(timeDate);
-    setFrequency(1)
-    selectedSubChild
-    setSelectedSubChild({label: 'none', value: 'none'})
-  }, [timeDate]);
+    console.log(checkboxVisibility);
+    setFrequency(1);
+    selectedSubChild;
+    setSelectedSubChild({ label: "none", value: "none" });
+  }, [timeDate, checkboxVisibility]);
   return (
     <main className={classes.main}>
       <div className={classes.add}>
-        <FormGroup className={classes.days}>
-          {["S", "M", "T", "W", "T", "F", "S"].map((label, index) => (
-            <FormControlLabel
-              key={index}
-              control={
-                <Checkbox
-                className={`${classes.checkbox} ${checkboxVisibility[index] ? classes["checked-checkbox"] : ''}`}
-                checked={checkboxVisibility[index]}
-                  onClick={() => handleCheckboxClick(index)}
-                />
-              }
-              label={label}
-            />
-          ))}
-        </FormGroup>
         <FormControl>
           <InputLabel id="demo-simple-select-label">Parent</InputLabel>
           <Select
@@ -275,6 +269,26 @@ export const Add: React.FC = () => {
           value={name}
           onChange={handleNameChange}
         />
+         <FormGroup className={classes.days}>
+          {["S", "M", "T", "W", "T", "F", "S"].map((label, index) => (
+            <FormControlLabel
+              key={index}
+              className={classes.labelParent}
+              control={
+                <Checkbox
+                  className={`${classes.checkbox}`}
+                  checked={checkboxVisibility[index]}
+                  onClick={() => handleCheckboxClick(index)}
+                />
+              }
+              label={label}
+              classes={{
+                label: `${checkboxVisibility[index] ? classes["checked-checkbox"] : ""} ${classes.label}`
+                ,
+              }}
+            />
+          ))}
+        </FormGroup>
         <button
           className={classes.btn}
           disabled={loading}

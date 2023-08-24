@@ -5,7 +5,7 @@
     clip-path: ellipse(100% 100% at 50% 50%);
   }
   100% {
-    clip-path: ellipse(100% 100% at 50% 160%);
+    clip-path: ellipse(100% 100% at 50.5% 160%);
   }
 }
 
@@ -14,6 +14,7 @@
   top: 0;
   left: 0;
   width: 100vw;
+  height: 100vh;
   animation: clip-from-top 1s ease-in-out 5.5s forwards;
 }
 .hero {

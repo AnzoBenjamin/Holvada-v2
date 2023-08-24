@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "../../scss/utils/_helpers.module.scss";
 import classes from "./Hero.module.scss";
 import { motion } from "framer-motion";
@@ -6,12 +6,22 @@ import { Link } from "react-scroll";
 import { animationStart, reveal } from "../../utils/animation";
 
 const Hero: React.FC = () => {
-  const videoSource: string = (() => {
-    const screenWidth = window.innerWidth;
-    if (screenWidth >= 1200) return "/hero.webm";
-    else if (screenWidth >= 576) return "/hero-tablet.webm";
-    else return "/hero-mobile.webm";
-  })();
+  const [videoSource, setvideoSource] = useState('')
+  const [animationPlayed, setAnimationPlayed] = useState(false); // Flag to track animation
+
+
+
+  useState(()=>{
+    const screenWidth = window.innerWidth
+    animationPlayed
+    if (screenWidth >= 1200) setvideoSource("/hero.webm");
+    else if (screenWidth >= 576) setvideoSource("/hero-tablet.webm");
+    else setvideoSource("/hero-mobile.webm");
+  })
+  
+  const onAnimationComplete = () => {
+    setAnimationPlayed(true); // Set the flag to true when animation is complete
+  };
   return (
     <div className={classes.hero}>
       <motion.div
@@ -26,6 +36,7 @@ const Hero: React.FC = () => {
           delayChildren: animationStart + 0.5,
         }}
         className={classes["hero-content"]}
+        onAnimationComplete={onAnimationComplete} // Call this when animation is complete
       >
         <motion.div
           variants={reveal}
@@ -65,7 +76,7 @@ const Hero: React.FC = () => {
             to="section-services"
             className={classes["btn-secondary"]}
           >
-            Details
+            Services
           </Link>
         </motion.div>
       </motion.div>
