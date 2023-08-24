@@ -49,15 +49,15 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange);
     };
-  }, []);
+  });
   return (
     <div
       className={`${classes["section-services__area--item"]} ${
         isFlipped ? classes.flipped : ""
       } ${otherClass}`}
-      onClick={isMobile? handleFlip: ''}
-      onMouseEnter={!isMobile?  handleFlip: ''}
-      onMouseLeave={!isMobile? handleFlip: ''}
+      onClick={isMobile? handleFlip: undefined}
+      onMouseEnter={!isMobile?  handleFlip: undefined}
+      onMouseLeave={!isMobile? handleFlip: undefined}
     >
       <div className={`${classes["section-services__area--front"]}`}>
         <figure className={classes["section-services__area--figure"]}>
