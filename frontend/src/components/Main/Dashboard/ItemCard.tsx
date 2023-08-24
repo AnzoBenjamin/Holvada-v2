@@ -9,7 +9,7 @@ interface ItemCardProps {
   name: string;
 }
 
-const ItemCard: React.FC<ItemCardProps> = ({ item, date, category, time, name }) => {
+const ItemCard: React.FC<ItemCardProps> = ({ item, date, category, name }) => {
   return (
     <div className={classes.card}>
       <div className={classes["img-container"]}>
@@ -18,7 +18,6 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, date, category, time, name })
       </div>
       <div className={classes["text-content"]}>
         <p className={classes.date}>{date}</p>
-        <p className={classes.time}>{time}</p>
         <p className={classes.name}>{name}</p>
       </div>
       {/*
